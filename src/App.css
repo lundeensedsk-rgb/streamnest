@@ -14,8 +14,8 @@ body {
   min-width: 320px;
   min-height: 100vh;
   background:
-    radial-gradient(circle at 18% 8%, rgba(255, 61, 97, 0.16), transparent 28rem),
-    radial-gradient(circle at 86% 14%, rgba(114, 86, 255, 0.14), transparent 32rem),
+    radial-gradient(circle at 18% 8%, rgba(83, 132, 255, 0.16), transparent 28rem),
+    radial-gradient(circle at 86% 14%, rgba(124, 104, 255, 0.14), transparent 32rem),
     #0b0b11;
 }
 
@@ -54,9 +54,9 @@ a { color: inherit; text-decoration: none; }
   width: 42px;
   height: 42px;
   color: #fff;
-  background: linear-gradient(135deg, #ff335f, #ff8b3d);
+  background: linear-gradient(135deg, #4f8cff, #7c68ff);
   border-radius: 14px;
-  box-shadow: 0 16px 38px rgba(255, 51, 95, 0.35);
+  box-shadow: 0 16px 38px rgba(79, 140, 255, 0.32);
 }
 
 .nav-list {
@@ -95,12 +95,12 @@ a { color: inherit; text-decoration: none; }
   padding: 18px;
   min-height: 128px;
   line-height: 1.35;
-  background: linear-gradient(145deg, rgba(255, 51, 95, 0.18), rgba(255, 255, 255, 0.06));
+  background: linear-gradient(145deg, rgba(79, 140, 255, 0.18), rgba(255, 255, 255, 0.06));
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 20px;
 }
 
-.app-card span { color: #ff8fa5; font-size: 13px; }
+.app-card span { color: #91b7ff; font-size: 13px; }
 .app-card strong { display: block; font-size: 18px; line-height: 1.35; }
 .app-card small { color: #a9adbd; line-height: 1.45; }
 
@@ -148,7 +148,7 @@ a { color: inherit; text-decoration: none; }
 .hero-actions button,
 .inline-detail {
   color: #fff;
-  background: #ff335f;
+  background: linear-gradient(135deg, #4f8cff, #7c68ff);
   border: 0;
   border-radius: 999px;
   padding: 12px 18px;
@@ -176,7 +176,7 @@ a { color: inherit; text-decoration: none; }
 .hero-copy { max-width: 640px; }
 
 .eyebrow {
-  color: #ff7191;
+  color: #8fb7ff;
   text-transform: uppercase;
   letter-spacing: 0.18em;
   font-size: 12px;
@@ -270,7 +270,7 @@ h1 {
   letter-spacing: -0.05em;
 }
 
-.section-title a { color: #ff7191; font-weight: 800; }
+.section-title a { color: #8fb7ff; font-weight: 800; }
 
 .calendar-track {
   display: grid;
@@ -292,7 +292,7 @@ h1 {
   border-radius: 18px;
 }
 
-.calendar-item span { color: #ff9bad; font-size: 12px; }
+.calendar-item span { color: #9bbdff; font-size: 12px; }
 .calendar-item small { color: #d8dbe5; }
 .calendar-item em { display: block; }
 
