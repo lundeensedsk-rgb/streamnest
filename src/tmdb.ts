@@ -141,14 +141,46 @@ export async function fetchTrending(language = 'en-US') {
   return data.results.filter((item) => item.media_type === 'movie' || item.media_type === 'tv')
 }
 
+async function fetchPaged(pathFactory: (page: number) => string, pages = 1) {
+  const responses = await Promise.all(
+    Array.from({ length: pages }, (_, index) => tmdbFetch<{ results: TmdbItem[] }>(pathFactory(index + 1))),
+  )
+  return responses.flatMap((response) => response.results)
+}
+
 export async function fetchPopularMovies(language = 'en-US') {
   const data = await tmdbFetch<{ results: TmdbItem[] }>(`/movie/popular?language=${language}&page=1`)
   return data.results.map((item) => ({ ...item, media_type: 'movie' as const }))
 }
 
+export async function fetchPopularMoviesPages(language = 'en-US', pages = 3) {
+  const results = await fetchPaged((page) => `/movie/popular?language=${language}&page=${page}`, pages)
+  return results.map((item) => ({ ...item, media_type: 'movie' as const }))
+}
+
 export async function fetchPopularTv(language = 'en-US') {
   const data = await tmdbFetch<{ results: TmdbItem[] }>(`/tv/popular?language=${language}&page=1`)
   return data.results.map((item) => ({ ...item, media_type: 'tv' as const }))
+}
+
+export async function fetchPopularTvPages(language = 'en-US', pages = 3) {
+  const results = await fetchPaged((page) => `/tv/popular?language=${language}&page=${page}`, pages)
+  return results.map((item) => ({ ...item, media_type: 'tv' as const }))
+}
+
+export async function fetchUpcomingMovies(language = 'en-US', pages = 2) {
+  const results = await fetchPaged((page) => `/movie/upcoming?language=${language}&page=${page}`, pages)
+  return results.map((item) => ({ ...item, media_type: 'movie' as const }))
+}
+
+export async function fetchDailyCatalog(language = 'en-US') {
+  const [trending, movies, tv, upcoming] = await Promise.all([
+    fetchTrending(language),
+    fetchPopularMoviesPages(language, 3),
+    fetchPopularTvPages(language, 3),
+    fetchUpcomingMovies(language, 2),
+  ])
+  return [...trending, ...movies, ...tv, ...upcoming]
 }
 
 export async function searchTmdb(query: string, language = 'en-US') {

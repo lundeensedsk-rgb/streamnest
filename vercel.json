@@ -12,6 +12,22 @@
     {
       "source": "/tv/:path*",
       "destination": "/index.html"
+    },
+    {
+      "source": "/movies",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/tv-shows",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/animation",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/upcoming",
+      "destination": "/index.html"
     }
   ]
 }

@@ -1,9 +1,7 @@
 import { useEffect, useMemo, useState } from 'react'
 import {
   fetchDetails,
-  fetchPopularMovies,
-  fetchPopularTv,
-  fetchTrending,
+  fetchDailyCatalog,
   genreMap,
   searchTmdb,
   tmdbImage,
@@ -15,7 +13,7 @@ import {
   type TmdbVideo,
   type TmdbWatchRegion,
 } from './tmdb'
-import { detailPath, parseDetailPath, type DetailRoute } from './routing'
+import { categoryPath, detailPath, parseCategoryPath, parseDetailPath, type CategoryRoute, type DetailRoute } from './routing'
 import './App.css'
 
 type MediaType = 'movie' | 'tv' | 'animation'
@@ -165,18 +163,45 @@ const demoItems: MediaItem[] = [
 ]
 
 const navItems = [
-  { label: 'Home', zh: '首页', icon: '⌂' },
-  { label: 'TV Shows', zh: '电视剧', icon: '▣' },
-  { label: 'Movies', zh: '电影', icon: '▶' },
-  { label: 'Animation', zh: '动漫', icon: '✦' },
-  { label: 'Most Watched', zh: '热门观看', icon: '🔥' },
-  { label: 'Calendar', zh: '日历', icon: '◷' },
+  { label: 'Home', zh: '首页', icon: '⌂', href: '/' },
+  { label: 'TV Shows', zh: '电视剧', icon: '▣', href: categoryPath('tv-shows') },
+  { label: 'Movies', zh: '电影', icon: '▶', href: categoryPath('movies') },
+  { label: 'Animation', zh: '动漫', icon: '✦', href: categoryPath('animation') },
+  { label: 'Most Watched', zh: '热门观看', icon: '🔥', href: categoryPath('movies') },
+  { label: 'Calendar', zh: '日历', icon: '◷', href: categoryPath('upcoming') },
 ]
 
+const categoryMeta: Record<CategoryRoute['key'], { title: string; subtitle: string; description: string; filter: (item: MediaItem) => boolean }> = {
+  movies: {
+    title: 'Movies',
+    subtitle: 'Trending and popular movies updated daily',
+    description: 'Browse popular movies, ratings, official trailers, watch providers and TMDB metadata.',
+    filter: (item) => item.tmdbType === 'movie' && item.type !== 'animation',
+  },
+  'tv-shows': {
+    title: 'TV Shows',
+    subtitle: 'Popular TV series updated daily',
+    description: 'Browse trending TV shows, seasons, ratings, cast, official trailers and legal watch options.',
+    filter: (item) => item.tmdbType === 'tv' && item.type !== 'animation',
+  },
+  animation: {
+    title: 'Animation',
+    subtitle: 'Anime and animation picks updated daily',
+    description: 'Browse animation movies and TV shows with posters, ratings, trailers and watch providers.',
+    filter: (item) => item.type === 'animation',
+  },
+  upcoming: {
+    title: 'Upcoming',
+    subtitle: 'Upcoming releases and release dates',
+    description: 'Track upcoming movies and TV releases with TMDB release dates and official trailers.',
+    filter: () => true,
+  },
+}
+
 const sections = [
-  { title: 'Trending Drama', zh: '热门剧集', filter: (item: MediaItem) => item.type === 'tv' },
-  { title: 'Trending Movies', zh: '热门电影', filter: (item: MediaItem) => item.type === 'movie' },
-  { title: 'Animation Picks', zh: '精选动漫', filter: (item: MediaItem) => item.type === 'animation' },
+  { key: 'tv-shows' as const, title: 'Trending Drama', zh: '热门剧集', filter: (item: MediaItem) => item.type === 'tv' },
+  { key: 'movies' as const, title: 'Trending Movies', zh: '热门电影', filter: (item: MediaItem) => item.type === 'movie' },
+  { key: 'animation' as const, title: 'Animation Picks', zh: '精选动漫', filter: (item: MediaItem) => item.type === 'animation' },
 ]
 
 function formatDate(value?: string) {
@@ -274,6 +299,17 @@ function updatePageSeo(item?: MediaItem) {
   document.querySelector('link[rel="canonical"]')?.setAttribute('href', window.location.href)
 }
 
+function updateCategorySeo(route: CategoryRoute) {
+  const meta = categoryMeta[route.key]
+  const title = `${meta.title} - StreamNest`
+  document.title = title
+  document.querySelector('meta[name="description"]')?.setAttribute('content', meta.description)
+  document.querySelector('meta[property="og:title"]')?.setAttribute('content', title)
+  document.querySelector('meta[property="og:description"]')?.setAttribute('content', meta.description)
+  document.querySelector('meta[property="og:url"]')?.setAttribute('content', window.location.href)
+  document.querySelector('link[rel="canonical"]')?.setAttribute('href', window.location.href)
+}
+
 
 function pickWatchRegion(detail?: TmdbDetail) {
   const regions = detail?.['watch/providers']?.results
@@ -310,18 +346,14 @@ function App() {
   const [dataStatus, setDataStatus] = useState('Loading TMDB data...')
   const [detailState, setDetailState] = useState<DetailState | null>(null)
   const [isDetailLoading, setIsDetailLoading] = useState(false)
+  const [activeCategory, setActiveCategory] = useState<CategoryRoute | null>(null)
 
   useEffect(() => {
     let cancelled = false
 
     async function loadData() {
       try {
-        const [trending, movies, tv] = await Promise.all([
-          fetchTrending('en-US'),
-          fetchPopularMovies('en-US'),
-          fetchPopularTv('en-US'),
-        ])
-        const merged = [...trending, ...movies, ...tv]
+        const merged = await fetchDailyCatalog('en-US')
         const seen = new Set<string>()
         const nextItems = merged
           .filter((item) => {
@@ -331,12 +363,12 @@ function App() {
             return true
           })
           .map(mapTmdbItem)
-          .slice(0, 36)
+          .slice(0, 100)
 
         if (!cancelled && nextItems.length) {
           setItems(nextItems)
           setActive(nextItems[0])
-          setDataStatus('Live TMDB data · 真实数据已接入')
+          setDataStatus(`Live TMDB data · ${nextItems.length} titles updated daily`)
         }
       } catch (error) {
         console.error(error)
@@ -443,16 +475,28 @@ function App() {
   }
 
   async function openRoute(route: DetailRoute) {
+    setActiveCategory(null)
     await loadDetail(route.type, route.id)
+  }
+
+  function openCategory(route: CategoryRoute, pushUrl = true) {
+    setDetailState(null)
+    setActiveCategory(route)
+    if (pushUrl) window.history.pushState({ category: route.key }, categoryMeta[route.key].title, categoryPath(route.key))
+    updateCategorySeo(route)
   }
 
   useEffect(() => {
     const openCurrentPath = () => {
       const route = parseDetailPath(window.location.pathname)
+      const categoryRoute = parseCategoryPath(window.location.pathname)
       if (route) {
         void openRoute(route)
+      } else if (categoryRoute) {
+        openCategory(categoryRoute, false)
       } else {
         setDetailState(null)
+        setActiveCategory(null)
         updatePageSeo()
       }
     }
@@ -484,6 +528,12 @@ function App() {
   const hero = displayItems[0] ?? active
   const calendarItems = items.slice(0, 10)
   const details = detailState?.item
+  const category = activeCategory ? categoryMeta[activeCategory.key] : null
+  const categoryItems = category
+    ? (activeCategory?.key === 'upcoming'
+      ? [...items].sort((a, b) => (a.year === 'TBA' ? 1 : 0) - (b.year === 'TBA' ? 1 : 0)).slice(0, 100)
+      : items.filter(category.filter).slice(0, 100))
+    : []
 
   return (
     <main className="shell">
@@ -495,7 +545,13 @@ function App() {
 
         <nav className="nav-list" aria-label="Main navigation">
           {navItems.map((item) => (
-            <a key={item.label} href={`#${item.label.toLowerCase().replaceAll(' ', '-')}`}>
+            <a key={item.label} href={item.href} onClick={(event) => {
+              if (item.href !== '/') {
+                event.preventDefault()
+                const route = parseCategoryPath(item.href)
+                if (route) openCategory(route)
+              }
+            }}>
               <span>{item.icon}</span>
               <b>{item.label}</b>
               <small>{item.zh}</small>
@@ -523,7 +579,32 @@ function App() {
           <button className="language" type="button">{isLoading ? 'Loading...' : 'English'}</button>
         </header>
 
-        <section className="hero" style={{ backgroundImage: `linear-gradient(90deg, #101018 0%, rgba(16,16,24,.88) 42%, rgba(16,16,24,.2) 100%), url(${hero.backdrop})` }}>
+        {category && (
+          <section className="category-page">
+            <div className="category-hero">
+              <span className="eyebrow">Catalog page</span>
+              <h1>{category.title}</h1>
+              <p>{category.subtitle}</p>
+              <div className="meta-row">
+                <span>{categoryItems.length} titles</span>
+                <span>Updated daily</span>
+                <span>TMDB metadata</span>
+              </div>
+            </div>
+            <div className="poster-grid catalog-grid">
+              {categoryItems.map((item) => (
+                <a key={`${item.tmdbType}-${item.id}`} className="poster-card" href={detailPath(item.tmdbType, item.id, item.title)} onClick={(event) => { event.preventDefault(); void openDetails(item) }}>
+                  <img src={item.poster} alt={`${item.title} poster`} />
+                  <span className="rating">★ {item.rating}</span>
+                  <strong>{item.title}</strong>
+                  <small>{item.year} · {item.runtime} · {item.genres.slice(0, 2).join(', ')}</small>
+                </a>
+              ))}
+            </div>
+          </section>
+        )}
+
+        {!category && <section className="hero" style={{ backgroundImage: `linear-gradient(90deg, #101018 0%, rgba(16,16,24,.88) 42%, rgba(16,16,24,.2) 100%), url(${hero.backdrop})` }}>
           <div className="hero-copy">
             <span className="eyebrow">Featured today · 今日推荐</span>
             <h1>{hero.title}</h1>
@@ -539,9 +620,9 @@ function App() {
               <button className="ghost" type="button">＋ My List · 收藏</button>
             </div>
           </div>
-        </section>
+        </section>}
 
-        <section className="detail-panel">
+        {!category && <section className="detail-panel">
           <img src={active.poster} alt={`${active.title} poster`} />
           <div>
             <span className="eyebrow">Now selected · 当前选择</span>
@@ -552,15 +633,15 @@ function App() {
             </div>
             <a className="inline-detail" href={detailPath(active.tmdbType, active.id, active.title)} onClick={(event) => { event.preventDefault(); void openDetails(active) }}>Open detail page</a>
           </div>
-        </section>
+        </section>}
 
-        <section className="calendar" id="calendar">
+        {!category && <section className="calendar" id="calendar">
           <div className="section-title">
             <div>
               <h2>Upcoming Calendar</h2>
               <small>即将上线 / TMDB release dates</small>
             </div>
-            <a href="#top">More ›</a>
+            <a href={categoryPath('upcoming')} onClick={(event) => { event.preventDefault(); openCategory({ key: 'upcoming' }) }}>More ›</a>
           </div>
           <div className="calendar-track">
             {calendarItems.map((item) => (
@@ -572,9 +653,9 @@ function App() {
               </a>
             ))}
           </div>
-        </section>
+        </section>}
 
-        {sections.map((section) => {
+        {!category && sections.map((section) => {
           const sectionItems = displayItems.filter(section.filter).slice(0, 12)
           return (
             <section className="media-section" key={section.title}>
@@ -583,7 +664,7 @@ function App() {
                   <h2>{section.title}</h2>
                   <small>{section.zh}</small>
                 </div>
-                <a href="#top">More ›</a>
+                <a href={categoryPath(section.key)} onClick={(event) => { event.preventDefault(); openCategory({ key: section.key }) }}>More ›</a>
               </div>
               <div className="poster-grid">
                 {sectionItems.map((item) => (
@@ -727,5 +808,6 @@ function App() {
 }
 
 export default App
+
 
 

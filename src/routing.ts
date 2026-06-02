@@ -4,6 +4,12 @@ export type DetailRoute = {
   slug?: string
 }
 
+export type CategoryRoute = {
+  key: 'movies' | 'tv-shows' | 'animation' | 'upcoming'
+}
+
+const categoryPaths = ['movies', 'tv-shows', 'animation', 'upcoming'] as const
+
 export function slugifyTitle(title: string) {
   return title
     .toLowerCase()
@@ -18,6 +24,10 @@ export function detailPath(type: DetailRoute['type'], id: number, title: string)
   return `/${type}/${id}-${slugifyTitle(title)}`
 }
 
+export function categoryPath(key: CategoryRoute['key']) {
+  return `/${key}`
+}
+
 export function parseDetailPath(pathname: string): DetailRoute | null {
   const match = pathname.match(/^\/(movie|tv)\/(\d+)(?:-([^/]+))?\/?$/)
   if (!match) return null
@@ -26,4 +36,12 @@ export function parseDetailPath(pathname: string): DetailRoute | null {
     id: Number(match[2]),
     slug: match[3],
   }
+}
+
+export function parseCategoryPath(pathname: string): CategoryRoute | null {
+  const clean = pathname.replace(/^\/+|\/+$/g, '')
+  if ((categoryPaths as readonly string[]).includes(clean)) {
+    return { key: clean as CategoryRoute['key'] }
+  }
+  return null
 }
