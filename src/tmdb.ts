@@ -32,6 +32,21 @@ export type TmdbCredit = {
   profile_path: string | null
 }
 
+export type TmdbWatchProvider = {
+  provider_id: number
+  provider_name: string
+  logo_path: string | null
+}
+
+export type TmdbWatchRegion = {
+  link?: string
+  flatrate?: TmdbWatchProvider[]
+  rent?: TmdbWatchProvider[]
+  buy?: TmdbWatchProvider[]
+  ads?: TmdbWatchProvider[]
+  free?: TmdbWatchProvider[]
+}
+
 export type TmdbDetail = {
   id: number
   title?: string
@@ -51,6 +66,7 @@ export type TmdbDetail = {
   videos?: { results: TmdbVideo[] }
   credits?: { cast: TmdbCredit[] }
   recommendations?: { results: TmdbItem[] }
+  'watch/providers'?: { results: Record<string, TmdbWatchRegion> }
 }
 
 const TMDB_BASE_URL = 'https://api.themoviedb.org/3'
@@ -88,6 +104,10 @@ export const genreMap: Record<number, string> = {
 
 export function tmdbImage(path: string | null, size = 'w780') {
   return path ? `${IMAGE_BASE_URL}/${size}${path}` : ''
+}
+
+export function tmdbProviderLogo(path: string | null) {
+  return path ? `${IMAGE_BASE_URL}/w92${path}` : ''
 }
 
 async function tmdbFetch<T>(path: string): Promise<T> {
@@ -140,7 +160,7 @@ export async function searchTmdb(query: string, language = 'en-US') {
 
 export async function fetchDetails(type: TmdbMediaType, id: number, language = 'en-US') {
   return tmdbFetch<TmdbDetail>(
-    `/${type}/${id}?language=${language}&append_to_response=videos,credits,recommendations`,
+    `/${type}/${id}?language=${language}&append_to_response=videos,credits,recommendations,watch/providers`,
   )
 }
 
@@ -148,3 +168,4 @@ export async function fetchVideos(type: TmdbMediaType, id: number) {
   const data = await tmdbFetch<{ results: TmdbVideo[] }>(`/${type}/${id}/videos?language=en-US`)
   return data.results
 }
+

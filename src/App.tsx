@@ -7,11 +7,13 @@ import {
   genreMap,
   searchTmdb,
   tmdbImage,
+  tmdbProviderLogo,
   type TmdbCredit,
   type TmdbDetail,
   type TmdbItem,
   type TmdbMediaType,
   type TmdbVideo,
+  type TmdbWatchRegion,
 } from './tmdb'
 import { detailPath, parseDetailPath, type DetailRoute } from './routing'
 import './App.css'
@@ -43,6 +45,7 @@ type DetailState = {
   trailer?: TmdbVideo
   cast: TmdbCredit[]
   recommendations: MediaItem[]
+  watchRegion?: TmdbWatchRegion
 }
 
 const SITE_NAME = 'StreamNest'
@@ -271,6 +274,28 @@ function updatePageSeo(item?: MediaItem) {
   document.querySelector('link[rel="canonical"]')?.setAttribute('href', window.location.href)
 }
 
+
+function pickWatchRegion(detail?: TmdbDetail) {
+  const regions = detail?.['watch/providers']?.results
+  if (!regions) return undefined
+  return regions.US ?? regions.GB ?? regions.CA ?? regions.AU ?? Object.values(regions)[0]
+}
+
+function uniqueProviders(providers: TmdbWatchRegion = {}) {
+  const seen = new Set<number>()
+  return [
+    ...(providers.flatrate ?? []),
+    ...(providers.free ?? []),
+    ...(providers.ads ?? []),
+    ...(providers.rent ?? []),
+    ...(providers.buy ?? []),
+  ].filter((provider) => {
+    if (seen.has(provider.provider_id)) return false
+    seen.add(provider.provider_id)
+    return true
+  }).slice(0, 10)
+}
+
 function trailerFrom(videos: TmdbVideo[] = []) {
   return videos.find((video) => video.site === 'YouTube' && video.official && video.type === 'Trailer')
     ?? videos.find((video) => video.site === 'YouTube' && video.type === 'Trailer')
@@ -383,6 +408,7 @@ function App() {
         trailer: trailerFrom(detail.videos?.results),
         cast: detail.credits?.cast?.slice(0, 8) ?? [],
         recommendations,
+        watchRegion: pickWatchRegion(detail),
       })
       updatePageSeo(richerItem)
       return richerItem
@@ -624,6 +650,37 @@ function App() {
                   )}
                 </section>
 
+                <section className="watch-panel">
+                  <div className="section-title compact">
+                    <div>
+                      <h2>Where to Watch</h2>
+                      <small>Legal streaming / rental options from TMDB</small>
+                    </div>
+                  </div>
+                  {detailState.watchRegion?.link ? (
+                    <div className="watch-card">
+                      <div>
+                        <strong>Available watch options</strong>
+                        <span>Open the provider page to watch, rent, or buy legally where available.</span>
+                      </div>
+                      <div className="provider-row">
+                        {uniqueProviders(detailState.watchRegion).map((provider) => (
+                          <a key={provider.provider_id} className="provider-pill" href={detailState.watchRegion?.link} target="_blank" rel="noreferrer">
+                            {provider.logo_path ? <img src={tmdbProviderLogo(provider.logo_path)} alt={provider.provider_name} /> : null}
+                            <span>{provider.provider_name}</span>
+                          </a>
+                        ))}
+                      </div>
+                      <a className="watch-link" href={detailState.watchRegion.link} target="_blank" rel="noreferrer">Open legal watch page</a>
+                    </div>
+                  ) : (
+                    <div className="empty-trailer">
+                      <strong>No legal streaming source found yet.</strong>
+                      <span>StreamNest only links official trailers and legal watch providers. If you own licensed video files, I can add a private CMS/video upload flow later.</span>
+                    </div>
+                  )}
+                </section>
+
                 <section className="cast-panel">
                   <div className="section-title compact">
                     <div>
@@ -670,4 +727,5 @@ function App() {
 }
 
 export default App
+
 

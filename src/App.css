@@ -431,6 +431,68 @@ h1 {
   border-radius: 20px;
 }
 
+.watch-card {
+  display: grid;
+  gap: 18px;
+  padding: 22px;
+  background: linear-gradient(145deg, rgba(79, 140, 255, 0.13), rgba(255, 255, 255, 0.06));
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 22px;
+}
+
+.watch-card strong {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 18px;
+}
+
+.watch-card span {
+  color: #c5c8d4;
+  line-height: 1.55;
+}
+
+.provider-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.provider-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  max-width: 230px;
+  padding: 8px 12px 8px 8px;
+  color: #fff;
+  background: rgba(255, 255, 255, 0.09);
+  border: 1px solid rgba(255, 255, 255, 0.11);
+  border-radius: 999px;
+  font-weight: 800;
+}
+
+.provider-pill img {
+  width: 34px;
+  height: 34px;
+  object-fit: cover;
+  border-radius: 9px;
+}
+
+.provider-pill span {
+  overflow: hidden;
+  color: #fff;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.watch-link {
+  justify-self: start;
+  padding: 11px 16px;
+  color: #fff;
+  background: linear-gradient(135deg, #4f8cff, #7c68ff);
+  border-radius: 999px;
+  font-weight: 900;
+}
+
 .cast-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(118px, 1fr));
