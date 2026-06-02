@@ -2,9 +2,53 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>movie-site</title>
+
+    <title>StreamNest - Discover Movies, TV Shows and Official Trailers</title>
+    <meta
+      name="description"
+      content="StreamNest helps you discover trending movies, TV shows, anime, ratings, cast, release dates and official trailers using legal TMDB metadata."
+    />
+    <meta name="keywords" content="movies, TV shows, anime, official trailers, movie ratings, cast, release dates, StreamNest" />
+    <meta name="robots" content="index, follow" />
+    <meta name="theme-color" content="#0b0b11" />
+    <link rel="canonical" href="https://streamnest-live.vercel.app/" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="StreamNest" />
+    <meta property="og:title" content="StreamNest - Discover Movies, TV Shows and Official Trailers" />
+    <meta
+      property="og:description"
+      content="Find trending movies, TV shows, anime, ratings, cast, release dates and legal official trailers."
+    />
+    <meta property="og:url" content="https://streamnest-live.vercel.app/" />
+    <meta property="og:image" content="https://streamnest-live.vercel.app/og-image.svg" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="StreamNest - Discover Movies, TV Shows and Official Trailers" />
+    <meta
+      name="twitter:description"
+      content="Explore trending movies, TV shows, anime and official trailers with StreamNest."
+    />
+    <meta name="twitter:image" content="https://streamnest-live.vercel.app/og-image.svg" />
+
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="manifest" href="/site.webmanifest" />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "StreamNest",
+        "url": "https://streamnest-live.vercel.app/",
+        "description": "Discover trending movies, TV shows, anime, ratings, cast, release dates and official trailers.",
+        "potentialAction": {
+          "@type": "SearchAction",
+          "target": "https://streamnest-live.vercel.app/?q={search_term_string}",
+          "query-input": "required name=search_term_string"
+        }
+      }
+    </script>
   </head>
   <body>
     <div id="root"></div>
