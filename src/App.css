@@ -146,6 +146,7 @@ a { color: inherit; text-decoration: none; }
 
 .language,
 .hero-actions button,
+.hero-actions .primary-action,
 .inline-detail {
   color: #fff;
   background: linear-gradient(135deg, #4f8cff, #7c68ff);

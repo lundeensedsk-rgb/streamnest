@@ -13,6 +13,7 @@ import {
   type TmdbMediaType,
   type TmdbVideo,
 } from './tmdb'
+import { detailPath, parseDetailPath, type DetailRoute } from './routing'
 import './App.css'
 
 type MediaType = 'movie' | 'tv' | 'animation'
@@ -228,6 +229,48 @@ function mapTmdbItem(item: TmdbItem): MediaItem {
   }
 }
 
+
+function mapDetailToItem(detail: TmdbDetail, tmdbType: TmdbMediaType): MediaItem {
+  const date = detail.release_date || detail.first_air_date || ''
+  const title = detail.title || detail.name || 'Untitled'
+  const originalTitle = detail.original_title || detail.original_name || ''
+  const genres = detail.genres?.map((genre) => genre.name).filter(Boolean).slice(0, 5) ?? [tmdbType === 'tv' ? 'TV' : 'Movie']
+
+  return {
+    id: detail.id,
+    title,
+    originalTitle: originalTitle && originalTitle !== title ? originalTitle : undefined,
+    type: genres.includes('Animation') ? 'animation' : tmdbType,
+    tmdbType,
+    year: date ? date.slice(0, 4) : 'TBA',
+    rating: Number(detail.vote_average?.toFixed(1) ?? 0),
+    runtime: formatRuntime(detail, tmdbType === 'tv' ? 'TV Series' : 'Movie'),
+    genres,
+    poster: tmdbImage(detail.poster_path, 'w500') || FALLBACK_POSTER,
+    backdrop: tmdbImage(detail.backdrop_path, 'w1280') || FALLBACK_BACKDROP,
+    overview: detail.overview || 'No English overview is available yet.',
+    overviewZh: '',
+    booked: `${Math.max(1, Math.round((detail.vote_average || 1) * 3.2))}k`,
+    releaseDate: formatDate(date),
+    source: 'tmdb',
+  }
+}
+
+function updatePageSeo(item?: MediaItem) {
+  const title = item
+    ? `${item.title} (${item.year}) - Trailer, Cast, Rating | StreamNest`
+    : 'StreamNest - Discover Movies, TV Shows and Official Trailers'
+  const description = item
+    ? `${item.title}: ${item.overview.slice(0, 150)}${item.overview.length > 150 ? '...' : ''}`
+    : 'StreamNest helps you discover trending movies, TV shows, anime, ratings, cast, release dates and official trailers.'
+  document.title = title
+  document.querySelector('meta[name="description"]')?.setAttribute('content', description)
+  document.querySelector('meta[property="og:title"]')?.setAttribute('content', title)
+  document.querySelector('meta[property="og:description"]')?.setAttribute('content', description)
+  document.querySelector('meta[property="og:url"]')?.setAttribute('content', window.location.href)
+  document.querySelector('link[rel="canonical"]')?.setAttribute('href', window.location.href)
+}
+
 function trailerFrom(videos: TmdbVideo[] = []) {
   return videos.find((video) => video.site === 'YouTube' && video.official && video.type === 'Trailer')
     ?? videos.find((video) => video.site === 'YouTube' && video.type === 'Trailer')
@@ -305,31 +348,32 @@ function App() {
     return () => window.clearTimeout(timeout)
   }, [query])
 
-  async function openDetails(item: MediaItem) {
-    setActive(item)
+  async function loadDetail(type: TmdbMediaType, id: number, seed?: MediaItem) {
+    const pendingItem = seed ?? {
+      id,
+      title: 'Loading title...',
+      type,
+      tmdbType: type,
+      year: 'TBA',
+      rating: 0,
+      runtime: type === 'tv' ? 'TV Series' : 'Movie',
+      genres: [type === 'tv' ? 'TV' : 'Movie'],
+      poster: FALLBACK_POSTER,
+      backdrop: FALLBACK_BACKDROP,
+      overview: 'Loading official TMDB details...',
+      overviewZh: '',
+      source: 'tmdb' as const,
+    }
+
+    setActive(pendingItem)
     setIsDetailLoading(true)
-    setDetailState({ item, cast: [], recommendations: [] })
-    window.location.hash = `details-${item.tmdbType}-${item.id}`
+    setDetailState({ item: pendingItem, cast: [], recommendations: [] })
 
     try {
-      if (item.source !== 'tmdb') {
-        setDetailState({ item, cast: [], recommendations: [] })
-        return
-      }
-      const detail = await fetchDetails(item.tmdbType, item.id, 'en-US')
-      const richerItem: MediaItem = {
-        ...item,
-        title: detail.title || detail.name || item.title,
-        originalTitle: detail.original_title || detail.original_name || item.originalTitle,
-        overview: detail.overview || item.overview,
-        poster: tmdbImage(detail.poster_path, 'w500') || item.poster,
-        backdrop: tmdbImage(detail.backdrop_path, 'w1280') || item.backdrop,
-        rating: Number(detail.vote_average?.toFixed(1) ?? item.rating),
-        runtime: formatRuntime(detail, item.runtime),
-        genres: detail.genres?.map((genre) => genre.name).slice(0, 5) ?? item.genres,
-      }
+      const detail = await fetchDetails(type, id, 'en-US')
+      const richerItem = mapDetailToItem(detail, type)
       const recommendations = (detail.recommendations?.results ?? [])
-        .map((result) => mapTmdbItem({ ...result, media_type: item.tmdbType }))
+        .map((result) => mapTmdbItem({ ...result, media_type: type }))
         .filter((result) => result.poster || result.backdrop)
         .slice(0, 8)
       setActive(richerItem)
@@ -340,17 +384,62 @@ function App() {
         cast: detail.credits?.cast?.slice(0, 8) ?? [],
         recommendations,
       })
+      updatePageSeo(richerItem)
+      return richerItem
     } catch (error) {
       console.error(error)
-      setDetailState({ item, cast: [], recommendations: [] })
+      setDetailState({ item: pendingItem, cast: [], recommendations: [] })
+      updatePageSeo(pendingItem)
+      return pendingItem
     } finally {
       setIsDetailLoading(false)
     }
   }
 
+  async function openDetails(item: MediaItem, pushUrl = true) {
+    if (pushUrl) {
+      const nextPath = detailPath(item.tmdbType, item.id, item.title)
+      window.history.pushState({ detail: true }, item.title, nextPath)
+    }
+
+    if (item.source !== 'tmdb') {
+      setActive(item)
+      setDetailState({ item, cast: [], recommendations: [] })
+      updatePageSeo(item)
+      setIsDetailLoading(false)
+      return
+    }
+
+    const richerItem = await loadDetail(item.tmdbType, item.id, item)
+    if (pushUrl && richerItem.title !== item.title) {
+      window.history.replaceState({ detail: true }, richerItem.title, detailPath(richerItem.tmdbType, richerItem.id, richerItem.title))
+    }
+  }
+
+  async function openRoute(route: DetailRoute) {
+    await loadDetail(route.type, route.id)
+  }
+
+  useEffect(() => {
+    const openCurrentPath = () => {
+      const route = parseDetailPath(window.location.pathname)
+      if (route) {
+        void openRoute(route)
+      } else {
+        setDetailState(null)
+        updatePageSeo()
+      }
+    }
+
+    openCurrentPath()
+    window.addEventListener('popstate', openCurrentPath)
+    return () => window.removeEventListener('popstate', openCurrentPath)
+  }, [])
+
   function closeDetails() {
     setDetailState(null)
-    if (window.location.hash.startsWith('#details-')) window.history.pushState('', document.title, window.location.pathname)
+    updatePageSeo()
+    if (parseDetailPath(window.location.pathname)) window.history.pushState('', document.title, '/')
   }
 
   const filteredItems = useMemo(() => {
@@ -420,7 +509,7 @@ function App() {
               <span>{hero.genres[0]}</span>
             </div>
             <div className="hero-actions">
-              <button type="button" onClick={() => openDetails(hero)}>▶ View Details · 查看详情</button>
+              <a className="primary-action" href={detailPath(hero.tmdbType, hero.id, hero.title)} onClick={(event) => { event.preventDefault(); void openDetails(hero) }}>▶ View Details</a>
               <button className="ghost" type="button">＋ My List · 收藏</button>
             </div>
           </div>
@@ -435,7 +524,7 @@ function App() {
             <div className="chips">
               {active.genres.map((genre) => <span key={genre}>{genre}</span>)}
             </div>
-            <button className="inline-detail" type="button" onClick={() => openDetails(active)}>Open detail page · 打开详情页</button>
+            <a className="inline-detail" href={detailPath(active.tmdbType, active.id, active.title)} onClick={(event) => { event.preventDefault(); void openDetails(active) }}>Open detail page</a>
           </div>
         </section>
 
@@ -449,12 +538,12 @@ function App() {
           </div>
           <div className="calendar-track">
             {calendarItems.map((item) => (
-              <button key={`${item.type}-${item.id}`} className="calendar-item" type="button" onClick={() => openDetails(item)}>
+              <a key={`${item.type}-${item.id}`} className="calendar-item" href={detailPath(item.tmdbType, item.id, item.title)} onClick={(event) => { event.preventDefault(); void openDetails(item) }}>
                 <strong>{item.releaseDate}</strong>
                 <span>{item.booked} interested</span>
                 <small>{item.title}</small>
                 <em>{item.originalTitle || item.type}</em>
-              </button>
+              </a>
             ))}
           </div>
         </section>
@@ -472,12 +561,12 @@ function App() {
               </div>
               <div className="poster-grid">
                 {sectionItems.map((item) => (
-                  <button key={`${item.type}-${item.id}`} className="poster-card" type="button" onClick={() => openDetails(item)}>
+                  <a key={`${item.type}-${item.id}`} className="poster-card" href={detailPath(item.tmdbType, item.id, item.title)} onClick={(event) => { event.preventDefault(); void openDetails(item) }}>
                     <img src={item.poster} alt={`${item.title} poster`} />
                     <span className="rating">★ {item.rating}</span>
                     <strong>{item.title}</strong>
                     <small>{item.year} · {item.type} · {item.originalTitle || 'TMDB'}</small>
-                  </button>
+                  </a>
                 ))}
               </div>
             </section>
@@ -562,12 +651,12 @@ function App() {
                   </div>
                   <div className="poster-grid mini">
                     {detailState.recommendations.length ? detailState.recommendations.map((item) => (
-                      <button key={`${item.tmdbType}-${item.id}`} className="poster-card" type="button" onClick={() => openDetails(item)}>
+                      <a key={`${item.tmdbType}-${item.id}`} className="poster-card" href={detailPath(item.tmdbType, item.id, item.title)} onClick={(event) => { event.preventDefault(); void openDetails(item) }}>
                         <img src={item.poster} alt={`${item.title} poster`} />
                         <span className="rating">★ {item.rating}</span>
                         <strong>{item.title}</strong>
                         <small>{item.year} · {item.type}</small>
-                      </button>
+                      </a>
                     )) : <p className="muted">No recommendations yet. · 暂无相关推荐</p>}
                   </div>
                 </section>
@@ -581,3 +670,4 @@ function App() {
 }
 
 export default App
+

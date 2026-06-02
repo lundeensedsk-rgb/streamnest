@@ -3,5 +3,15 @@
   "installCommand": "corepack enable && pnpm install --frozen-lockfile",
   "buildCommand": "pnpm run build",
   "outputDirectory": "dist",
-  "framework": "vite"
+  "framework": "vite",
+  "rewrites": [
+    {
+      "source": "/movie/:path*",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/tv/:path*",
+      "destination": "/index.html"
+    }
+  ]
 }
