@@ -413,7 +413,6 @@ function App() {
             <span className="eyebrow">Featured today · 今日推荐</span>
             <h1>{hero.title}</h1>
             <p>{hero.overview}</p>
-            <p className="zh-copy">{hero.overviewZh}</p>
             <div className="meta-row">
               <span>★ {hero.rating}</span>
               <span>{hero.year}</span>
@@ -433,7 +432,6 @@ function App() {
             <span className="eyebrow">Now selected · 当前选择</span>
             <h2>{active.title} <small>{active.originalTitle}</small></h2>
             <p>{active.overview}</p>
-            <p className="zh-copy">{active.overviewZh}</p>
             <div className="chips">
               {active.genres.map((genre) => <span key={genre}>{genre}</span>)}
             </div>
