@@ -405,7 +405,7 @@ function App() {
               placeholder="Search movies / TV shows / 搜索影视"
             />
           </label>
-          <button className="language" type="button">{isLoading ? 'Loading...' : 'English first · 中文辅助'}</button>
+          <button className="language" type="button">{isLoading ? 'Loading...' : 'English'}</button>
         </header>
 
         <section className="hero" style={{ backgroundImage: `linear-gradient(90deg, #101018 0%, rgba(16,16,24,.88) 42%, rgba(16,16,24,.2) 100%), url(${hero.backdrop})` }}>
