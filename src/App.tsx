@@ -1,12 +1,17 @@
 import { useEffect, useMemo, useState } from 'react'
 import {
+  fetchDetails,
   fetchPopularMovies,
   fetchPopularTv,
   fetchTrending,
   genreMap,
   searchTmdb,
   tmdbImage,
+  type TmdbCredit,
+  type TmdbDetail,
   type TmdbItem,
+  type TmdbMediaType,
+  type TmdbVideo,
 } from './tmdb'
 import './App.css'
 
@@ -17,6 +22,7 @@ type MediaItem = {
   title: string
   originalTitle?: string
   type: MediaType
+  tmdbType: TmdbMediaType
   year: string
   rating: number
   runtime: string
@@ -30,6 +36,14 @@ type MediaItem = {
   source?: 'tmdb' | 'demo'
 }
 
+type DetailState = {
+  item: MediaItem
+  detail?: TmdbDetail
+  trailer?: TmdbVideo
+  cast: TmdbCredit[]
+  recommendations: MediaItem[]
+}
+
 const SITE_NAME = 'StreamNest'
 const FALLBACK_POSTER = 'https://images.unsplash.com/photo-1536440136628-849c177e76a1?auto=format&fit=crop&w=900&q=80'
 const FALLBACK_BACKDROP = 'https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?auto=format&fit=crop&w=1200&q=80'
@@ -41,6 +55,7 @@ const demoItems: MediaItem[] = [
     title: 'Neon Harbor',
     originalTitle: '霓虹港湾',
     type: 'movie',
+    tmdbType: 'movie',
     year: '2026',
     rating: 8.7,
     runtime: '2h 08m',
@@ -58,6 +73,7 @@ const demoItems: MediaItem[] = [
     title: 'The Last Signal',
     originalTitle: '最后信号',
     type: 'tv',
+    tmdbType: 'tv',
     year: '2025',
     rating: 8.4,
     runtime: '6 Episodes',
@@ -75,6 +91,7 @@ const demoItems: MediaItem[] = [
     title: 'Moonlit Kitchen',
     originalTitle: '月光厨房',
     type: 'tv',
+    tmdbType: 'tv',
     year: '2026',
     rating: 7.9,
     runtime: '12 Episodes',
@@ -92,6 +109,7 @@ const demoItems: MediaItem[] = [
     title: 'Dragon Parcel Service',
     originalTitle: '小龙快递',
     type: 'animation',
+    tmdbType: 'movie',
     year: '2025',
     rating: 8.9,
     runtime: '1h 42m',
@@ -109,6 +127,7 @@ const demoItems: MediaItem[] = [
     title: 'Blackout Avenue',
     originalTitle: '停电街区',
     type: 'movie',
+    tmdbType: 'movie',
     year: '2024',
     rating: 7.6,
     runtime: '1h 55m',
@@ -126,6 +145,7 @@ const demoItems: MediaItem[] = [
     title: 'Orbit Kids',
     originalTitle: '轨道少年',
     type: 'animation',
+    tmdbType: 'tv',
     year: '2026',
     rating: 8.1,
     runtime: '10 Episodes',
@@ -162,6 +182,18 @@ function formatDate(value?: string) {
   return date.toLocaleDateString('en-US', { month: 'short', day: 'numeric' })
 }
 
+function formatRuntime(detail?: TmdbDetail, fallback = 'Movie') {
+  if (!detail) return fallback
+  if (detail.runtime) {
+    const hours = Math.floor(detail.runtime / 60)
+    const minutes = detail.runtime % 60
+    return hours ? `${hours}h ${minutes}m` : `${minutes}m`
+  }
+  if (detail.number_of_seasons) return `${detail.number_of_seasons} Season${detail.number_of_seasons > 1 ? 's' : ''}`
+  if (detail.episode_run_time?.[0]) return `${detail.episode_run_time[0]}m episodes`
+  return fallback
+}
+
 function itemType(item: TmdbItem): MediaType {
   const ids = item.genre_ids ?? []
   if (ids.includes(16)) return 'animation'
@@ -170,6 +202,7 @@ function itemType(item: TmdbItem): MediaType {
 
 function mapTmdbItem(item: TmdbItem): MediaItem {
   const type = itemType(item)
+  const tmdbType: TmdbMediaType = item.media_type === 'tv' || item.name ? 'tv' : 'movie'
   const date = item.release_date || item.first_air_date || ''
   const title = item.title || item.name || 'Untitled'
   const originalTitle = item.original_title || item.original_name || ''
@@ -180,10 +213,11 @@ function mapTmdbItem(item: TmdbItem): MediaItem {
     title,
     originalTitle: originalTitle && originalTitle !== title ? originalTitle : undefined,
     type,
+    tmdbType,
     year: date ? date.slice(0, 4) : 'TBA',
     rating: Number(item.vote_average?.toFixed(1) ?? 0),
-    runtime: type === 'tv' ? 'TV Series' : 'Movie',
-    genres: genres.length ? genres : [type === 'tv' ? 'TV' : 'Movie'],
+    runtime: tmdbType === 'tv' ? 'TV Series' : 'Movie',
+    genres: genres.length ? genres : [tmdbType === 'tv' ? 'TV' : 'Movie'],
     poster: tmdbImage(item.poster_path, 'w500') || FALLBACK_POSTER,
     backdrop: tmdbImage(item.backdrop_path, 'w1280') || FALLBACK_BACKDROP,
     overview: item.overview || 'No English overview is available yet.',
@@ -194,12 +228,20 @@ function mapTmdbItem(item: TmdbItem): MediaItem {
   }
 }
 
+function trailerFrom(videos: TmdbVideo[] = []) {
+  return videos.find((video) => video.site === 'YouTube' && video.official && video.type === 'Trailer')
+    ?? videos.find((video) => video.site === 'YouTube' && video.type === 'Trailer')
+    ?? videos.find((video) => video.site === 'YouTube')
+}
+
 function App() {
   const [query, setQuery] = useState('')
   const [items, setItems] = useState<MediaItem[]>(demoItems)
   const [active, setActive] = useState<MediaItem>(demoItems[0])
   const [isLoading, setIsLoading] = useState(true)
   const [dataStatus, setDataStatus] = useState('Loading TMDB data...')
+  const [detailState, setDetailState] = useState<DetailState | null>(null)
+  const [isDetailLoading, setIsDetailLoading] = useState(false)
 
   useEffect(() => {
     let cancelled = false
@@ -212,11 +254,12 @@ function App() {
           fetchPopularTv('en-US'),
         ])
         const merged = [...trending, ...movies, ...tv]
-        const seen = new Set<number>()
+        const seen = new Set<string>()
         const nextItems = merged
           .filter((item) => {
-            if (seen.has(item.id) || (!item.poster_path && !item.backdrop_path)) return false
-            seen.add(item.id)
+            const key = `${item.media_type}-${item.id}`
+            if (seen.has(key) || (!item.poster_path && !item.backdrop_path)) return false
+            seen.add(key)
             return true
           })
           .map(mapTmdbItem)
@@ -262,6 +305,54 @@ function App() {
     return () => window.clearTimeout(timeout)
   }, [query])
 
+  async function openDetails(item: MediaItem) {
+    setActive(item)
+    setIsDetailLoading(true)
+    setDetailState({ item, cast: [], recommendations: [] })
+    window.location.hash = `details-${item.tmdbType}-${item.id}`
+
+    try {
+      if (item.source !== 'tmdb') {
+        setDetailState({ item, cast: [], recommendations: [] })
+        return
+      }
+      const detail = await fetchDetails(item.tmdbType, item.id, 'en-US')
+      const richerItem: MediaItem = {
+        ...item,
+        title: detail.title || detail.name || item.title,
+        originalTitle: detail.original_title || detail.original_name || item.originalTitle,
+        overview: detail.overview || item.overview,
+        poster: tmdbImage(detail.poster_path, 'w500') || item.poster,
+        backdrop: tmdbImage(detail.backdrop_path, 'w1280') || item.backdrop,
+        rating: Number(detail.vote_average?.toFixed(1) ?? item.rating),
+        runtime: formatRuntime(detail, item.runtime),
+        genres: detail.genres?.map((genre) => genre.name).slice(0, 5) ?? item.genres,
+      }
+      const recommendations = (detail.recommendations?.results ?? [])
+        .map((result) => mapTmdbItem({ ...result, media_type: item.tmdbType }))
+        .filter((result) => result.poster || result.backdrop)
+        .slice(0, 8)
+      setActive(richerItem)
+      setDetailState({
+        item: richerItem,
+        detail,
+        trailer: trailerFrom(detail.videos?.results),
+        cast: detail.credits?.cast?.slice(0, 8) ?? [],
+        recommendations,
+      })
+    } catch (error) {
+      console.error(error)
+      setDetailState({ item, cast: [], recommendations: [] })
+    } finally {
+      setIsDetailLoading(false)
+    }
+  }
+
+  function closeDetails() {
+    setDetailState(null)
+    if (window.location.hash.startsWith('#details-')) window.history.pushState('', document.title, window.location.pathname)
+  }
+
   const filteredItems = useMemo(() => {
     const normalized = query.trim().toLowerCase()
     if (!normalized) return items
@@ -277,6 +368,7 @@ function App() {
   const displayItems = filteredItems.length ? filteredItems : items
   const hero = displayItems[0] ?? active
   const calendarItems = items.slice(0, 10)
+  const details = detailState?.item
 
   return (
     <main className="shell">
@@ -299,7 +391,7 @@ function App() {
         <div className="app-card">
           <span>{dataStatus}</span>
           <strong>Legal movie discovery</strong>
-          <small>TMDB posters, ratings and bilingual UI</small>
+          <small>TMDB posters, official trailers, cast and bilingual UI</small>
         </div>
       </aside>
 
@@ -329,7 +421,7 @@ function App() {
               <span>{hero.genres[0]}</span>
             </div>
             <div className="hero-actions">
-              <button type="button" onClick={() => setActive(hero)}>▶ View Details · 查看详情</button>
+              <button type="button" onClick={() => openDetails(hero)}>▶ View Details · 查看详情</button>
               <button className="ghost" type="button">＋ My List · 收藏</button>
             </div>
           </div>
@@ -345,6 +437,7 @@ function App() {
             <div className="chips">
               {active.genres.map((genre) => <span key={genre}>{genre}</span>)}
             </div>
+            <button className="inline-detail" type="button" onClick={() => openDetails(active)}>Open detail page · 打开详情页</button>
           </div>
         </section>
 
@@ -358,7 +451,7 @@ function App() {
           </div>
           <div className="calendar-track">
             {calendarItems.map((item) => (
-              <button key={`${item.type}-${item.id}`} className="calendar-item" type="button" onClick={() => setActive(item)}>
+              <button key={`${item.type}-${item.id}`} className="calendar-item" type="button" onClick={() => openDetails(item)}>
                 <strong>{item.releaseDate}</strong>
                 <span>{item.booked} interested</span>
                 <small>{item.title}</small>
@@ -381,7 +474,7 @@ function App() {
               </div>
               <div className="poster-grid">
                 {sectionItems.map((item) => (
-                  <button key={`${item.type}-${item.id}`} className="poster-card" type="button" onClick={() => setActive(item)}>
+                  <button key={`${item.type}-${item.id}`} className="poster-card" type="button" onClick={() => openDetails(item)}>
                     <img src={item.poster} alt={`${item.title} poster`} />
                     <span className="rating">★ {item.rating}</span>
                     <strong>{item.title}</strong>
@@ -393,6 +486,98 @@ function App() {
           )
         })}
       </section>
+
+      {detailState && details && (
+        <section className="detail-overlay" role="dialog" aria-modal="true" aria-label={`${details.title} details`}>
+          <button className="overlay-backdrop" type="button" aria-label="Close details" onClick={closeDetails} />
+          <article className="detail-page">
+            <button className="close-button" type="button" onClick={closeDetails}>×</button>
+            <div className="detail-hero" style={{ backgroundImage: `linear-gradient(90deg, rgba(9,9,14,.96), rgba(9,9,14,.72), rgba(9,9,14,.2)), url(${details.backdrop})` }}>
+              <img src={details.poster} alt={`${details.title} poster`} />
+              <div>
+                <span className="eyebrow">Details · 详情页</span>
+                <h2>{details.title} <small>{details.originalTitle}</small></h2>
+                <div className="meta-row">
+                  <span>★ {details.rating}</span>
+                  <span>{details.year}</span>
+                  <span>{details.runtime}</span>
+                  <span>{details.tmdbType.toUpperCase()}</span>
+                </div>
+                <p>{details.overview}</p>
+                <p className="zh-copy">官方资料来自 TMDB。预告片仅使用 YouTube 官方/公开预告片，不提供盗版播放源。</p>
+                <div className="chips">
+                  {details.genres.map((genre) => <span key={genre}>{genre}</span>)}
+                </div>
+              </div>
+            </div>
+
+            {isDetailLoading ? (
+              <div className="detail-loading">Loading details and trailer... · 正在加载详情和预告片</div>
+            ) : (
+              <>
+                <section className="trailer-panel">
+                  <div className="section-title compact">
+                    <div>
+                      <h2>Official Trailer</h2>
+                      <small>官方预告片 / Legal YouTube embed</small>
+                    </div>
+                  </div>
+                  {detailState.trailer ? (
+                    <iframe
+                      src={`https://www.youtube-nocookie.com/embed/${detailState.trailer.key}`}
+                      title={detailState.trailer.name}
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                      allowFullScreen
+                    />
+                  ) : (
+                    <div className="empty-trailer">
+                      <strong>No official trailer found yet.</strong>
+                      <span>暂无官方预告片。我们只展示合法公开视频，不接盗版片源。</span>
+                    </div>
+                  )}
+                </section>
+
+                <section className="cast-panel">
+                  <div className="section-title compact">
+                    <div>
+                      <h2>Top Cast</h2>
+                      <small>主演 / TMDB credits</small>
+                    </div>
+                  </div>
+                  <div className="cast-grid">
+                    {detailState.cast.length ? detailState.cast.map((person) => (
+                      <div className="cast-card" key={person.id}>
+                        <img src={tmdbImage(person.profile_path, 'w185') || FALLBACK_POSTER} alt={person.name} />
+                        <strong>{person.name}</strong>
+                        <small>{person.character || 'Cast'}</small>
+                      </div>
+                    )) : <p className="muted">Cast data is not available yet. · 暂无演员资料</p>}
+                  </div>
+                </section>
+
+                <section className="recommend-panel">
+                  <div className="section-title compact">
+                    <div>
+                      <h2>More Like This</h2>
+                      <small>相关推荐</small>
+                    </div>
+                  </div>
+                  <div className="poster-grid mini">
+                    {detailState.recommendations.length ? detailState.recommendations.map((item) => (
+                      <button key={`${item.tmdbType}-${item.id}`} className="poster-card" type="button" onClick={() => openDetails(item)}>
+                        <img src={item.poster} alt={`${item.title} poster`} />
+                        <span className="rating">★ {item.rating}</span>
+                        <strong>{item.title}</strong>
+                        <small>{item.year} · {item.type}</small>
+                      </button>
+                    )) : <p className="muted">No recommendations yet. · 暂无相关推荐</p>}
+                  </div>
+                </section>
+              </>
+            )}
+          </article>
+        </section>
+      )}
     </main>
   )
 }

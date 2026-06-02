@@ -17,11 +17,40 @@ export type TmdbItem = {
 }
 
 export type TmdbVideo = {
+  id?: string
   key: string
   name: string
   site: string
   type: string
   official: boolean
+}
+
+export type TmdbCredit = {
+  id: number
+  name: string
+  character?: string
+  profile_path: string | null
+}
+
+export type TmdbDetail = {
+  id: number
+  title?: string
+  name?: string
+  original_title?: string
+  original_name?: string
+  overview: string
+  poster_path: string | null
+  backdrop_path: string | null
+  vote_average: number
+  release_date?: string
+  first_air_date?: string
+  runtime?: number
+  episode_run_time?: number[]
+  number_of_seasons?: number
+  genres?: { id: number; name: string }[]
+  videos?: { results: TmdbVideo[] }
+  credits?: { cast: TmdbCredit[] }
+  recommendations?: { results: TmdbItem[] }
 }
 
 const TMDB_BASE_URL = 'https://api.themoviedb.org/3'
@@ -107,6 +136,12 @@ export async function searchTmdb(query: string, language = 'en-US') {
     `/search/multi?language=${language}&query=${encodeURIComponent(query)}&page=1`,
   )
   return data.results.filter((item) => item.media_type === 'movie' || item.media_type === 'tv')
+}
+
+export async function fetchDetails(type: TmdbMediaType, id: number, language = 'en-US') {
+  return tmdbFetch<TmdbDetail>(
+    `/${type}/${id}?language=${language}&append_to_response=videos,credits,recommendations`,
+  )
 }
 
 export async function fetchVideos(type: TmdbMediaType, id: number) {
