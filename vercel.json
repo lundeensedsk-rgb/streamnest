@@ -28,6 +28,10 @@
     {
       "source": "/upcoming",
       "destination": "/index.html"
+    },
+    {
+      "source": "/watch-options",
+      "destination": "/index.html"
     }
   ]
 }

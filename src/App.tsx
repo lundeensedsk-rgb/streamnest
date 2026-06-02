@@ -46,6 +46,12 @@ type DetailState = {
   watchRegion?: TmdbWatchRegion
 }
 
+type WatchOptionItem = {
+  item: MediaItem
+  providers: ReturnType<typeof uniqueProviders>
+  link: string
+}
+
 const SITE_NAME = 'StreamNest'
 const FALLBACK_POSTER = 'https://images.unsplash.com/photo-1536440136628-849c177e76a1?auto=format&fit=crop&w=900&q=80'
 const FALLBACK_BACKDROP = 'https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?auto=format&fit=crop&w=1200&q=80'
@@ -168,6 +174,7 @@ const navItems = [
   { label: 'Movies', zh: '电影', icon: '▶', href: categoryPath('movies') },
   { label: 'Animation', zh: '动漫', icon: '✦', href: categoryPath('animation') },
   { label: 'Most Watched', zh: '热门观看', icon: '🔥', href: categoryPath('movies') },
+  { label: 'Watch Options', zh: '合法片源', icon: '◉', href: categoryPath('watch-options') },
   { label: 'Calendar', zh: '日历', icon: '◷', href: categoryPath('upcoming') },
 ]
 
@@ -194,6 +201,12 @@ const categoryMeta: Record<CategoryRoute['key'], { title: string; subtitle: stri
     title: 'Upcoming',
     subtitle: 'Upcoming releases and release dates',
     description: 'Track upcoming movies and TV releases with TMDB release dates and official trailers.',
+    filter: () => true,
+  },
+  'watch-options': {
+    title: 'Watch Options',
+    subtitle: 'Find titles with legal streaming, rental, buying, free or ad-supported provider links',
+    description: 'Browse StreamNest titles with legal watch provider options from TMDB, including streaming, rental, purchase, free and ad-supported links.',
     filter: () => true,
   },
 }
@@ -347,6 +360,9 @@ function App() {
   const [detailState, setDetailState] = useState<DetailState | null>(null)
   const [isDetailLoading, setIsDetailLoading] = useState(false)
   const [activeCategory, setActiveCategory] = useState<CategoryRoute | null>(null)
+  const [watchOptionItems, setWatchOptionItems] = useState<WatchOptionItem[]>([])
+  const [watchOptionsLoading, setWatchOptionsLoading] = useState(false)
+  const [activeProviderId, setActiveProviderId] = useState<number | 'all'>('all')
 
   useEffect(() => {
     let cancelled = false
@@ -404,6 +420,42 @@ function App() {
     }, 500)
     return () => window.clearTimeout(timeout)
   }, [query])
+
+
+  useEffect(() => {
+    if (activeCategory?.key !== 'watch-options') return
+    let cancelled = false
+
+    async function loadWatchOptions() {
+      setWatchOptionsLoading(true)
+      setActiveProviderId('all')
+      try {
+        const candidates = items.filter((item) => item.source === 'tmdb').slice(0, 30)
+        const details = await Promise.all(
+          candidates.map(async (item) => {
+            try {
+              const detail = await fetchDetails(item.tmdbType, item.id, 'en-US')
+              const region = pickWatchRegion(detail)
+              const providers = uniqueProviders(region)
+              if (!region?.link || !providers.length) return null
+              return { item, providers, link: region.link }
+            } catch (error) {
+              console.error(error)
+              return null
+            }
+          }),
+        )
+        if (!cancelled) setWatchOptionItems(details.filter(Boolean) as WatchOptionItem[])
+      } finally {
+        if (!cancelled) setWatchOptionsLoading(false)
+      }
+    }
+
+    void loadWatchOptions()
+    return () => {
+      cancelled = true
+    }
+  }, [activeCategory?.key, items])
 
   async function loadDetail(type: TmdbMediaType, id: number, seed?: MediaItem) {
     const pendingItem = seed ?? {
@@ -532,8 +584,16 @@ function App() {
   const categoryItems = category
     ? (activeCategory?.key === 'upcoming'
       ? [...items].sort((a, b) => (a.year === 'TBA' ? 1 : 0) - (b.year === 'TBA' ? 1 : 0)).slice(0, 100)
-      : items.filter(category.filter).slice(0, 100))
+      : activeCategory?.key === 'watch-options'
+        ? items.slice(0, 100)
+        : items.filter(category.filter).slice(0, 100))
     : []
+  const providerOptions = Array.from(
+    new Map(watchOptionItems.flatMap((entry) => entry.providers).map((provider) => [provider.provider_id, provider])).values(),
+  ).slice(0, 14)
+  const filteredWatchOptionItems = activeProviderId === 'all'
+    ? watchOptionItems
+    : watchOptionItems.filter((entry) => entry.providers.some((provider) => provider.provider_id === activeProviderId))
 
   return (
     <main className="shell">
@@ -591,16 +651,67 @@ function App() {
                 <span>TMDB metadata</span>
               </div>
             </div>
-            <div className="poster-grid catalog-grid">
-              {categoryItems.map((item) => (
-                <a key={`${item.tmdbType}-${item.id}`} className="poster-card" href={detailPath(item.tmdbType, item.id, item.title)} onClick={(event) => { event.preventDefault(); void openDetails(item) }}>
-                  <img src={item.poster} alt={`${item.title} poster`} />
-                  <span className="rating">★ {item.rating}</span>
-                  <strong>{item.title}</strong>
-                  <small>{item.year} · {item.runtime} · {item.genres.slice(0, 2).join(', ')}</small>
-                </a>
-              ))}
-            </div>
+            {activeCategory?.key === 'watch-options' ? (
+              <div className="watch-options-page">
+                <div className="provider-filter-row">
+                  <button className={activeProviderId === 'all' ? 'active' : ''} type="button" onClick={() => setActiveProviderId('all')}>
+                    All providers
+                  </button>
+                  {providerOptions.map((provider) => (
+                    <button key={provider.provider_id} className={activeProviderId === provider.provider_id ? 'active' : ''} type="button" onClick={() => setActiveProviderId(provider.provider_id)}>
+                      {provider.logo_path ? <img src={tmdbProviderLogo(provider.logo_path)} alt="" /> : null}
+                      {provider.provider_name}
+                    </button>
+                  ))}
+                </div>
+
+                {watchOptionsLoading ? (
+                  <div className="detail-loading">Loading legal watch providers...</div>
+                ) : filteredWatchOptionItems.length ? (
+                  <div className="watch-option-grid">
+                    {filteredWatchOptionItems.map(({ item, providers, link }) => (
+                      <article className="watch-option-card" key={`${item.tmdbType}-${item.id}`}>
+                        <a href={detailPath(item.tmdbType, item.id, item.title)} onClick={(event) => { event.preventDefault(); void openDetails(item) }}>
+                          <img src={item.poster} alt={`${item.title} poster`} />
+                        </a>
+                        <div>
+                          <strong>{item.title}</strong>
+                          <small>{item.year} · {item.runtime} · ★ {item.rating}</small>
+                          <div className="provider-row compact-providers">
+                            {providers.slice(0, 6).map((provider) => (
+                              <a key={provider.provider_id} className="provider-pill" href={link} target="_blank" rel="noreferrer">
+                                {provider.logo_path ? <img src={tmdbProviderLogo(provider.logo_path)} alt={provider.provider_name} /> : null}
+                                <span>{provider.provider_name}</span>
+                              </a>
+                            ))}
+                          </div>
+                          <div className="watch-card-actions">
+                            <a className="watch-link" href={link} target="_blank" rel="noreferrer">Open legal watch page</a>
+                            <a className="inline-detail" href={detailPath(item.tmdbType, item.id, item.title)} onClick={(event) => { event.preventDefault(); void openDetails(item) }}>Details</a>
+                          </div>
+                        </div>
+                      </article>
+                    ))}
+                  </div>
+                ) : (
+                  <div className="empty-trailer">
+                    <strong>No legal watch provider data found in the first batch yet.</strong>
+                    <span>Open any title detail page to check live TMDB provider data for that title.</span>
+                  </div>
+                )}
+              </div>
+            ) : (
+              <div className="poster-grid catalog-grid">
+                {categoryItems.map((item) => (
+                  <a key={`${item.tmdbType}-${item.id}`} className="poster-card" href={detailPath(item.tmdbType, item.id, item.title)} onClick={(event) => { event.preventDefault(); void openDetails(item) }}>
+                    <img src={item.poster} alt={`${item.title} poster`} />
+                    <span className="rating">★ {item.rating}</span>
+                    <strong>{item.title}</strong>
+                    <small>{item.year} · {item.runtime} · {item.genres.slice(0, 2).join(', ')}</small>
+                  </a>
+                ))}
+              </div>
+            )}
           </section>
         )}
 
@@ -808,6 +919,7 @@ function App() {
 }
 
 export default App
+
 
 
 
