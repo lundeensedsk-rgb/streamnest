@@ -537,29 +537,68 @@ h1 {
 
 .detail-hero {
   display: grid;
-  grid-template-columns: 210px 1fr;
-  gap: 28px;
-  align-items: end;
-  min-height: 360px;
-  padding: clamp(20px, 4vw, 38px);
+  grid-template-columns: minmax(170px, 220px) minmax(0, 1fr);
+  gap: clamp(22px, 4vw, 42px);
+  align-items: start;
+  min-height: 0;
+  padding: clamp(18px, 4vw, 40px);
   background-size: cover;
   background-position: center;
   border-radius: 24px;
 }
 
-.detail-hero > img {
+.detail-poster {
   width: 100%;
+  align-self: start;
   aspect-ratio: 2 / 3;
   object-fit: cover;
+  border: 1px solid rgba(255, 255, 255, 0.18);
   border-radius: 22px;
   box-shadow: 0 24px 70px rgba(0,0,0,.45);
 }
 
+.detail-copy {
+  display: grid;
+  align-content: start;
+  gap: 16px;
+  padding-top: 2px;
+  max-width: 760px;
+}
+
 .detail-hero h2 {
-  margin: 8px 0 0;
-  font-size: clamp(34px, 6vw, 68px);
-  line-height: .96;
-  letter-spacing: -.07em;
+  margin: 0;
+  font-size: clamp(36px, 5.6vw, 72px);
+  line-height: .98;
+  letter-spacing: -.065em;
+}
+
+.detail-hero h2 small {
+  display: block;
+  margin-top: 8px;
+  letter-spacing: 0;
+  line-height: 1.25;
+}
+
+.detail-overview {
+  max-width: 70ch;
+  margin: 0;
+  font-size: 16px;
+}
+
+.detail-meta,
+.detail-genres {
+  margin: 0;
+}
+
+.legal-note {
+  margin: 0;
+}
+
+.trailer-panel,
+.watch-panel,
+.cast-panel,
+.recommend-panel {
+  margin-top: 24px;
 }
 
 .trailer-panel iframe {
@@ -680,7 +719,9 @@ h1 {
   .detail-panel { grid-template-columns: 1fr; }
   .detail-panel img { width: 100%; height: 240px; }
   .detail-overlay { padding: 10px; align-items: end; }
-  .detail-page { max-height: 94vh; border-radius: 24px 24px 0 0; }
-  .detail-hero { grid-template-columns: 1fr; min-height: auto; }
-  .detail-hero > img { width: min(220px, 70%); }
+  .detail-page { max-height: 94vh; border-radius: 24px 24px 0 0; padding: 12px; }
+  .detail-hero { grid-template-columns: 1fr; min-height: auto; gap: 18px; }
+  .detail-poster { width: min(220px, 70%); }
+  .detail-copy { gap: 13px; }
+  .detail-hero h2 { font-size: clamp(34px, 12vw, 52px); }
 }

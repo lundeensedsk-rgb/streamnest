@@ -825,22 +825,22 @@ function App() {
           <button className="overlay-backdrop" type="button" aria-label="Close details" onClick={closeDetails} />
           <article className="detail-page">
             <button className="close-button" type="button" onClick={closeDetails}>×</button>
-            <div className="detail-hero" style={{ backgroundImage: `linear-gradient(90deg, rgba(9,9,14,.96), rgba(9,9,14,.72), rgba(9,9,14,.2)), url(${details.backdrop})` }}>
-              <img src={details.poster} alt={`${details.title} poster`} />
-              <div>
-                <span className="eyebrow">Details · 详情页</span>
-                <h2>{details.title} <small>{details.originalTitle}</small></h2>
-                <div className="meta-row">
+            <div className="detail-hero" style={{ backgroundImage: `linear-gradient(90deg, rgba(9,9,14,.98), rgba(9,9,14,.86), rgba(9,9,14,.38)), url(${details.backdrop})` }}>
+              <img className="detail-poster" src={details.poster} alt={`${details.title} poster`} />
+              <div className="detail-copy">
+                <span className="eyebrow">Movie details</span>
+                <h2>{details.title} {details.originalTitle ? <small>{details.originalTitle}</small> : null}</h2>
+                <p className="detail-overview">{details.overview}</p>
+                <div className="meta-row detail-meta">
                   <span>★ {details.rating}</span>
                   <span>{details.year}</span>
                   <span>{details.runtime}</span>
-                  <span>{details.tmdbType.toUpperCase()}</span>
+                  <span>{details.tmdbType === 'movie' ? 'Movie' : 'TV Series'}</span>
                 </div>
-                <p>{details.overview}</p>
-                <p className="zh-copy">官方资料来自 TMDB。预告片仅使用 YouTube 官方/公开预告片，不提供盗版播放源。</p>
-                <div className="chips">
+                <div className="chips detail-genres">
                   {details.genres.map((genre) => <span key={genre}>{genre}</span>)}
                 </div>
+                <p className="zh-copy legal-note">TMDB metadata · official trailers only · legal watch-provider links when available.</p>
               </div>
             </div>
 
