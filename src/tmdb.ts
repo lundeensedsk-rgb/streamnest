@@ -173,14 +173,32 @@ export async function fetchUpcomingMovies(language = 'en-US', pages = 2) {
   return results.map((item) => ({ ...item, media_type: 'movie' as const }))
 }
 
+export async function fetch2026Movies(language = 'en-US', pages = 3) {
+  const results = await fetchPaged(
+    (page) => `/discover/movie?language=${language}&page=${page}&primary_release_year=2026&sort_by=popularity.desc&include_adult=false`,
+    pages,
+  )
+  return results.map((item) => ({ ...item, media_type: 'movie' as const }))
+}
+
+export async function fetch2026Tv(language = 'en-US', pages = 2) {
+  const results = await fetchPaged(
+    (page) => `/discover/tv?language=${language}&page=${page}&first_air_date_year=2026&sort_by=popularity.desc&include_adult=false`,
+    pages,
+  )
+  return results.map((item) => ({ ...item, media_type: 'tv' as const }))
+}
+
 export async function fetchDailyCatalog(language = 'en-US') {
-  const [trending, movies, tv, upcoming] = await Promise.all([
+  const [movies2026, tv2026, trending, movies, tv, upcoming] = await Promise.all([
+    fetch2026Movies(language, 3),
+    fetch2026Tv(language, 2),
     fetchTrending(language),
     fetchPopularMoviesPages(language, 3),
     fetchPopularTvPages(language, 3),
     fetchUpcomingMovies(language, 2),
   ])
-  return [...trending, ...movies, ...tv, ...upcoming]
+  return [...movies2026, ...tv2026, ...trending, ...movies, ...tv, ...upcoming]
 }
 
 export async function searchTmdb(query: string, language = 'en-US') {

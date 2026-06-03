@@ -53,6 +53,7 @@ type WatchOptionItem = {
 }
 
 const SITE_NAME = 'StreamNest'
+const WATCH_OPTIONS_PAGE_SIZE = 24
 const FALLBACK_POSTER = 'https://images.unsplash.com/photo-1536440136628-849c177e76a1?auto=format&fit=crop&w=900&q=80'
 const FALLBACK_BACKDROP = 'https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?auto=format&fit=crop&w=1200&q=80'
 const image = (id: string) => `https://images.unsplash.com/${id}?auto=format&fit=crop&w=900&q=80`
@@ -363,6 +364,7 @@ function App() {
   const [watchOptionItems, setWatchOptionItems] = useState<WatchOptionItem[]>([])
   const [watchOptionsLoading, setWatchOptionsLoading] = useState(false)
   const [activeProviderId, setActiveProviderId] = useState<number | 'all'>('all')
+  const [watchOptionsPage, setWatchOptionsPage] = useState(1)
 
   useEffect(() => {
     let cancelled = false
@@ -429,6 +431,7 @@ function App() {
     async function loadWatchOptions() {
       setWatchOptionsLoading(true)
       setActiveProviderId('all')
+      setWatchOptionsPage(1)
       try {
         const candidates = items.filter((item) => item.source === 'tmdb').slice(0, 100)
         const batches = Array.from({ length: Math.ceil(candidates.length / 10) }, (_, index) =>
@@ -604,6 +607,12 @@ function App() {
   const filteredWatchOptionItems = activeProviderId === 'all'
     ? watchOptionItems
     : watchOptionItems.filter((entry) => entry.providers.some((provider) => provider.provider_id === activeProviderId))
+  const watchOptionsTotalPages = Math.max(1, Math.ceil(filteredWatchOptionItems.length / WATCH_OPTIONS_PAGE_SIZE))
+  const safeWatchOptionsPage = Math.min(watchOptionsPage, watchOptionsTotalPages)
+  const pagedWatchOptionItems = filteredWatchOptionItems.slice(
+    (safeWatchOptionsPage - 1) * WATCH_OPTIONS_PAGE_SIZE,
+    safeWatchOptionsPage * WATCH_OPTIONS_PAGE_SIZE,
+  )
 
   return (
     <main className="shell">
@@ -664,11 +673,11 @@ function App() {
             {activeCategory?.key === 'watch-options' ? (
               <div className="watch-options-page">
                 <div className="provider-filter-row">
-                  <button className={activeProviderId === 'all' ? 'active' : ''} type="button" onClick={() => setActiveProviderId('all')}>
+                  <button className={activeProviderId === 'all' ? 'active' : ''} type="button" onClick={() => { setActiveProviderId('all'); setWatchOptionsPage(1) }}>
                     All providers
                   </button>
                   {providerOptions.map((provider) => (
-                    <button key={provider.provider_id} className={activeProviderId === provider.provider_id ? 'active' : ''} type="button" onClick={() => setActiveProviderId(provider.provider_id)}>
+                    <button key={provider.provider_id} className={activeProviderId === provider.provider_id ? 'active' : ''} type="button" onClick={() => { setActiveProviderId(provider.provider_id); setWatchOptionsPage(1) }}>
                       {provider.logo_path ? <img src={tmdbProviderLogo(provider.logo_path)} alt="" /> : null}
                       {provider.provider_name}
                     </button>
@@ -678,31 +687,38 @@ function App() {
                 {watchOptionsLoading ? (
                   <div className="detail-loading">Loading legal watch providers...</div>
                 ) : filteredWatchOptionItems.length ? (
-                  <div className="watch-option-grid">
-                    {filteredWatchOptionItems.map(({ item, providers, link }) => (
-                      <article className="watch-option-card" key={`${item.tmdbType}-${item.id}`}>
-                        <a href={detailPath(item.tmdbType, item.id, item.title)} onClick={(event) => { event.preventDefault(); void openDetails(item) }}>
-                          <img src={item.poster} alt={`${item.title} poster`} />
-                        </a>
-                        <div>
-                          <strong>{item.title}</strong>
-                          <small>{item.year} · {item.runtime} · ★ {item.rating}</small>
-                          <div className="provider-row compact-providers">
-                            {providers.slice(0, 6).map((provider) => (
-                              <a key={provider.provider_id} className="provider-pill" href={link} target="_blank" rel="noreferrer">
-                                {provider.logo_path ? <img src={tmdbProviderLogo(provider.logo_path)} alt={provider.provider_name} /> : null}
-                                <span>{provider.provider_name}</span>
-                              </a>
-                            ))}
+                  <>
+                    <div className="watch-option-grid">
+                      {pagedWatchOptionItems.map(({ item, providers, link }) => (
+                        <article className="watch-option-card" key={`${item.tmdbType}-${item.id}`}>
+                          <a href={detailPath(item.tmdbType, item.id, item.title)} onClick={(event) => { event.preventDefault(); void openDetails(item) }}>
+                            <img src={item.poster} alt={`${item.title} poster`} />
+                          </a>
+                          <div>
+                            <strong>{item.title}</strong>
+                            <small>{item.year} · {item.runtime} · ★ {item.rating}</small>
+                            <div className="provider-row compact-providers">
+                              {providers.slice(0, 6).map((provider) => (
+                                <a key={provider.provider_id} className="provider-pill" href={link} target="_blank" rel="noreferrer">
+                                  {provider.logo_path ? <img src={tmdbProviderLogo(provider.logo_path)} alt={provider.provider_name} /> : null}
+                                  <span>{provider.provider_name}</span>
+                                </a>
+                              ))}
+                            </div>
+                            <div className="watch-card-actions">
+                              <a className="watch-link" href={link} target="_blank" rel="noreferrer">Open legal watch page</a>
+                              <a className="inline-detail" href={detailPath(item.tmdbType, item.id, item.title)} onClick={(event) => { event.preventDefault(); void openDetails(item) }}>Details</a>
+                            </div>
                           </div>
-                          <div className="watch-card-actions">
-                            <a className="watch-link" href={link} target="_blank" rel="noreferrer">Open legal watch page</a>
-                            <a className="inline-detail" href={detailPath(item.tmdbType, item.id, item.title)} onClick={(event) => { event.preventDefault(); void openDetails(item) }}>Details</a>
-                          </div>
-                        </div>
-                      </article>
-                    ))}
-                  </div>
+                        </article>
+                      ))}
+                    </div>
+                    <div className="pagination-row">
+                      <button type="button" disabled={safeWatchOptionsPage <= 1} onClick={() => setWatchOptionsPage((page) => Math.max(1, page - 1))}>‹ Previous</button>
+                      <span>Page {safeWatchOptionsPage} / {watchOptionsTotalPages} · {filteredWatchOptionItems.length} legal options</span>
+                      <button type="button" disabled={safeWatchOptionsPage >= watchOptionsTotalPages} onClick={() => setWatchOptionsPage((page) => Math.min(watchOptionsTotalPages, page + 1))}>Next ›</button>
+                    </div>
+                  </>
                 ) : (
                   <div className="empty-trailer">
                     <strong>No legal watch provider data found in the first batch yet.</strong>
