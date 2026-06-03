@@ -588,7 +588,7 @@ function App() {
 
   const displayItems = filteredItems.length ? filteredItems : items
   const hero = displayItems[0] ?? active
-  const calendarItems = items.slice(0, 10)
+  const calendarItems = items.slice(0, 15)
   const details = detailState?.item
   const category = activeCategory ? categoryMeta[activeCategory.key] : null
   const categoryItems = category
@@ -777,7 +777,9 @@ function App() {
         </section>}
 
         {!category && sections.map((section) => {
-          const sectionItems = displayItems.filter(section.filter).slice(0, 12)
+          const primaryItems = displayItems.filter(section.filter)
+          const fallbackItems = displayItems.filter((item) => !primaryItems.some((primary) => `${primary.tmdbType}-${primary.id}` === `${item.tmdbType}-${item.id}`))
+          const sectionItems = [...primaryItems, ...fallbackItems].slice(0, 15)
           return (
             <section className="media-section" key={section.title}>
               <div className="section-title">
