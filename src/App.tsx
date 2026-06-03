@@ -430,21 +430,31 @@ function App() {
       setWatchOptionsLoading(true)
       setActiveProviderId('all')
       try {
-        const candidates = items.filter((item) => item.source === 'tmdb').slice(0, 30)
-        const details = await Promise.all(
-          candidates.map(async (item) => {
-            try {
-              const detail = await fetchDetails(item.tmdbType, item.id, 'en-US')
-              const region = pickWatchRegion(detail)
-              const providers = uniqueProviders(region)
-              if (!region?.link || !providers.length) return null
-              return { item, providers, link: region.link }
-            } catch (error) {
-              console.error(error)
-              return null
-            }
-          }),
+        const candidates = items.filter((item) => item.source === 'tmdb').slice(0, 100)
+        const batches = Array.from({ length: Math.ceil(candidates.length / 10) }, (_, index) =>
+          candidates.slice(index * 10, index * 10 + 10),
         )
+        const details: Array<WatchOptionItem | null> = []
+
+        for (const batch of batches) {
+          if (cancelled) return
+          const batchDetails = await Promise.all(
+            batch.map(async (item) => {
+              try {
+                const detail = await fetchDetails(item.tmdbType, item.id, 'en-US')
+                const region = pickWatchRegion(detail)
+                const providers = uniqueProviders(region)
+                if (!region?.link || !providers.length) return null
+                return { item, providers, link: region.link }
+              } catch (error) {
+                console.error(error)
+                return null
+              }
+            }),
+          )
+          details.push(...batchDetails)
+          if (!cancelled) setWatchOptionItems(details.filter(Boolean) as WatchOptionItem[])
+        }
         if (!cancelled) setWatchOptionItems(details.filter(Boolean) as WatchOptionItem[])
       } finally {
         if (!cancelled) setWatchOptionsLoading(false)
