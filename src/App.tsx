@@ -54,6 +54,8 @@ type WatchOptionItem = {
 
 const SITE_NAME = 'StreamNest'
 const WATCH_OPTIONS_PAGE_SIZE = 24
+const DAILY_CATALOG_LIMIT = 120
+const WATCH_OPTIONS_SCAN_LIMIT = 120
 const FALLBACK_POSTER = 'https://images.unsplash.com/photo-1536440136628-849c177e76a1?auto=format&fit=crop&w=900&q=80'
 const FALLBACK_BACKDROP = 'https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?auto=format&fit=crop&w=1200&q=80'
 const image = (id: string) => `https://images.unsplash.com/${id}?auto=format&fit=crop&w=900&q=80`
@@ -381,12 +383,12 @@ function App() {
             return true
           })
           .map(mapTmdbItem)
-          .slice(0, 100)
+          .slice(0, DAILY_CATALOG_LIMIT)
 
         if (!cancelled && nextItems.length) {
           setItems(nextItems)
           setActive(nextItems[0])
-          setDataStatus(`Live TMDB data · ${nextItems.length} titles updated daily`)
+          setDataStatus(`Live TMDB data · ${nextItems.length} fresh titles updated daily`)
         }
       } catch (error) {
         console.error(error)
@@ -433,9 +435,9 @@ function App() {
       setActiveProviderId('all')
       setWatchOptionsPage(1)
       try {
-        const candidates = items.filter((item) => item.source === 'tmdb').slice(0, 100)
-        const batches = Array.from({ length: Math.ceil(candidates.length / 10) }, (_, index) =>
-          candidates.slice(index * 10, index * 10 + 10),
+        const candidates = items.filter((item) => item.source === 'tmdb').slice(0, WATCH_OPTIONS_SCAN_LIMIT)
+        const batches = Array.from({ length: Math.ceil(candidates.length / 8) }, (_, index) =>
+          candidates.slice(index * 8, index * 8 + 8),
         )
         const details: Array<WatchOptionItem | null> = []
 
@@ -596,10 +598,10 @@ function App() {
   const category = activeCategory ? categoryMeta[activeCategory.key] : null
   const categoryItems = category
     ? (activeCategory?.key === 'upcoming'
-      ? [...items].sort((a, b) => (a.year === 'TBA' ? 1 : 0) - (b.year === 'TBA' ? 1 : 0)).slice(0, 100)
+      ? [...items].sort((a, b) => (a.year === 'TBA' ? 1 : 0) - (b.year === 'TBA' ? 1 : 0)).slice(0, DAILY_CATALOG_LIMIT)
       : activeCategory?.key === 'watch-options'
-        ? items.slice(0, 100)
-        : items.filter(category.filter).slice(0, 100))
+        ? items.slice(0, DAILY_CATALOG_LIMIT)
+        : items.filter(category.filter).slice(0, DAILY_CATALOG_LIMIT))
     : []
   const providerOptions = Array.from(
     new Map(watchOptionItems.flatMap((entry) => entry.providers).map((provider) => [provider.provider_id, provider])).values(),
@@ -684,9 +686,11 @@ function App() {
                   ))}
                 </div>
 
-                {watchOptionsLoading ? (
-                  <div className="detail-loading">Loading legal watch providers...</div>
-                ) : filteredWatchOptionItems.length ? (
+                {watchOptionsLoading && (
+                  <div className="detail-loading">Refreshing legal watch providers across up to {WATCH_OPTIONS_SCAN_LIMIT} fresh titles...</div>
+                )}
+
+                {filteredWatchOptionItems.length ? (
                   <>
                     <div className="watch-option-grid">
                       {pagedWatchOptionItems.map(({ item, providers, link }) => (
@@ -719,12 +723,12 @@ function App() {
                       <button type="button" disabled={safeWatchOptionsPage >= watchOptionsTotalPages} onClick={() => setWatchOptionsPage((page) => Math.min(watchOptionsTotalPages, page + 1))}>Next ›</button>
                     </div>
                   </>
-                ) : (
+                ) : !watchOptionsLoading ? (
                   <div className="empty-trailer">
-                    <strong>No legal watch provider data found in the first batch yet.</strong>
-                    <span>Open any title detail page to check live TMDB provider data for that title.</span>
+                    <strong>No legal watch provider data found in the refreshed catalog yet.</strong>
+                    <span>StreamNest only links legal provider pages from TMDB. Open any title detail page to check live provider data for that title.</span>
                   </div>
-                )}
+                ) : null}
               </div>
             ) : (
               <div className="poster-grid catalog-grid">

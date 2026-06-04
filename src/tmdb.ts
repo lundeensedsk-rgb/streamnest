@@ -173,32 +173,54 @@ export async function fetchUpcomingMovies(language = 'en-US', pages = 2) {
   return results.map((item) => ({ ...item, media_type: 'movie' as const }))
 }
 
-export async function fetch2026Movies(language = 'en-US', pages = 3) {
+export async function fetchYearMovies(year: number, language = 'en-US', pages = 3) {
   const results = await fetchPaged(
-    (page) => `/discover/movie?language=${language}&page=${page}&primary_release_year=2026&sort_by=popularity.desc&include_adult=false`,
+    (page) => `/discover/movie?language=${language}&page=${page}&primary_release_year=${year}&sort_by=popularity.desc&include_adult=false`,
     pages,
   )
   return results.map((item) => ({ ...item, media_type: 'movie' as const }))
 }
 
-export async function fetch2026Tv(language = 'en-US', pages = 2) {
+export async function fetchYearTv(year: number, language = 'en-US', pages = 2) {
   const results = await fetchPaged(
-    (page) => `/discover/tv?language=${language}&page=${page}&first_air_date_year=2026&sort_by=popularity.desc&include_adult=false`,
+    (page) => `/discover/tv?language=${language}&page=${page}&first_air_date_year=${year}&sort_by=popularity.desc&include_adult=false`,
     pages,
   )
   return results.map((item) => ({ ...item, media_type: 'tv' as const }))
 }
 
+export async function fetchNowPlayingMovies(language = 'en-US', pages = 2) {
+  const results = await fetchPaged((page) => `/movie/now_playing?language=${language}&page=${page}`, pages)
+  return results.map((item) => ({ ...item, media_type: 'movie' as const }))
+}
+
+export async function fetchAiringTodayTv(language = 'en-US', pages = 2) {
+  const results = await fetchPaged((page) => `/tv/airing_today?language=${language}&page=${page}`, pages)
+  return results.map((item) => ({ ...item, media_type: 'tv' as const }))
+}
+
+export async function fetch2026Movies(language = 'en-US', pages = 4) {
+  return fetchYearMovies(2026, language, pages)
+}
+
+export async function fetch2026Tv(language = 'en-US', pages = 3) {
+  return fetchYearTv(2026, language, pages)
+}
+
 export async function fetchDailyCatalog(language = 'en-US') {
-  const [movies2026, tv2026, trending, movies, tv, upcoming] = await Promise.all([
-    fetch2026Movies(language, 3),
-    fetch2026Tv(language, 2),
+  const [movies2026, tv2026, movies2025, tv2025, nowPlaying, airingToday, trending, movies, tv, upcoming] = await Promise.all([
+    fetch2026Movies(language, 4),
+    fetch2026Tv(language, 3),
+    fetchYearMovies(2025, language, 2),
+    fetchYearTv(2025, language, 2),
+    fetchNowPlayingMovies(language, 2),
+    fetchAiringTodayTv(language, 2),
     fetchTrending(language),
-    fetchPopularMoviesPages(language, 3),
-    fetchPopularTvPages(language, 3),
-    fetchUpcomingMovies(language, 2),
+    fetchPopularMoviesPages(language, 4),
+    fetchPopularTvPages(language, 4),
+    fetchUpcomingMovies(language, 3),
   ])
-  return [...movies2026, ...tv2026, ...trending, ...movies, ...tv, ...upcoming]
+  return [...movies2026, ...tv2026, ...movies2025, ...tv2025, ...nowPlaying, ...airingToday, ...trending, ...movies, ...tv, ...upcoming]
 }
 
 export async function searchTmdb(query: string, language = 'en-US') {
