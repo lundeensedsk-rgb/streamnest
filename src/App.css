@@ -526,6 +526,26 @@ h1 {
   font-weight: 900;
 }
 
+.detail-open {
+  display: block;
+  min-height: 100vh;
+  min-height: 100dvh;
+  background: #080910;
+}
+
+.detail-open > .sidebar,
+.detail-open > .content {
+  display: none;
+}
+
+.detail-open .detail-overlay {
+  position: relative;
+  inset: auto;
+  z-index: auto;
+  min-height: 100vh;
+  min-height: 100dvh;
+}
+
 .detail-overlay {
   position: fixed;
   inset: 0;

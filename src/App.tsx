@@ -646,7 +646,7 @@ function App() {
   )
 
   return (
-    <main className="shell">
+    <main className={`shell${detailState ? ' detail-open' : ''}`}>
       <aside className="sidebar">
         <a className="brand" href="#top" aria-label={`${SITE_NAME} home`}>
           <span className="brand-mark">▶</span>
