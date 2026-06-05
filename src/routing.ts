@@ -5,10 +5,10 @@ export type DetailRoute = {
 }
 
 export type CategoryRoute = {
-  key: 'movies' | 'tv-shows' | 'animation' | 'upcoming' | 'watch-options'
+  key: 'movies' | 'tv-shows' | 'animation' | 'upcoming' | 'watch-options' | 'short-dramas'
 }
 
-const categoryPaths = ['movies', 'tv-shows', 'animation', 'upcoming', 'watch-options'] as const
+const categoryPaths = ['movies', 'tv-shows', 'animation', 'upcoming', 'watch-options', 'short-dramas'] as const
 
 export function slugifyTitle(title: string) {
   return title

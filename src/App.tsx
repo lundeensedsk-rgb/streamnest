@@ -2,6 +2,7 @@ import { useEffect, useMemo, useState } from 'react'
 import {
   fetchDetails,
   fetchDailyCatalog,
+  fetchShortDramas,
   genreMap,
   searchTmdb,
   tmdbImage,
@@ -175,6 +176,7 @@ const navItems = [
   { label: 'Home', zh: '首页', icon: '⌂', href: '/' },
   { label: 'TV Shows', zh: '电视剧', icon: '▣', href: categoryPath('tv-shows') },
   { label: 'Movies', zh: '电影', icon: '▶', href: categoryPath('movies') },
+  { label: 'Short Dramas', zh: '短剧', icon: '▥', href: categoryPath('short-dramas') },
   { label: 'Animation', zh: '动漫', icon: '✦', href: categoryPath('animation') },
   { label: 'Most Watched', zh: '热门观看', icon: '🔥', href: categoryPath('movies') },
   { label: 'Watch Options', zh: '合法片源', icon: '◉', href: categoryPath('watch-options') },
@@ -193,6 +195,15 @@ const categoryMeta: Record<CategoryRoute['key'], { title: string; subtitle: stri
     subtitle: 'Popular TV series updated daily',
     description: 'Browse trending TV shows, seasons, ratings, cast, official trailers and legal watch options.',
     filter: (item) => item.tmdbType === 'tv' && item.type !== 'animation',
+  },
+  'short-dramas': {
+    title: 'Short Dramas',
+    subtitle: 'Mini series, web dramas and short-form TV picks with official trailers',
+    description: 'Discover short dramas, mini series and web dramas with TMDB metadata, official trailers and legal watch provider links where available.',
+    filter: (item) => item.tmdbType === 'tv' && item.type !== 'animation' && (
+      item.runtime.toLowerCase().includes('mini')
+      || item.genres.some((genre) => ['Drama', 'Soap', 'Comedy', 'Romance'].includes(genre))
+    ),
   },
   animation: {
     title: 'Animation',
@@ -216,6 +227,7 @@ const categoryMeta: Record<CategoryRoute['key'], { title: string; subtitle: stri
 
 const sections = [
   { key: 'tv-shows' as const, title: 'Trending Drama', zh: '热门剧集', filter: (item: MediaItem) => item.type === 'tv' },
+  { key: 'short-dramas' as const, title: 'Short Dramas', zh: '短剧频道', filter: (item: MediaItem) => item.tmdbType === 'tv' && item.type !== 'animation' && item.genres.some((genre) => ['Drama', 'Soap', 'Comedy', 'Romance'].includes(genre)) },
   { key: 'movies' as const, title: 'Trending Movies', zh: '热门电影', filter: (item: MediaItem) => item.type === 'movie' },
   { key: 'animation' as const, title: 'Animation Picks', zh: '精选动漫', filter: (item: MediaItem) => item.type === 'animation' },
 ]
@@ -373,9 +385,12 @@ function App() {
 
     async function loadData() {
       try {
-        const merged = await fetchDailyCatalog('en-US')
+        const [merged, shortDramaResults] = await Promise.all([
+          fetchDailyCatalog('en-US'),
+          fetchShortDramas('en-US', 3),
+        ])
         const seen = new Set<string>()
-        const nextItems = merged
+        const nextItems = [...shortDramaResults, ...merged]
           .filter((item) => {
             const key = `${item.media_type}-${item.id}`
             if (seen.has(key) || (!item.poster_path && !item.backdrop_path)) return false

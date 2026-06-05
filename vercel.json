@@ -32,6 +32,10 @@
     {
       "source": "/watch-options",
       "destination": "/index.html"
+    },
+    {
+      "source": "/short-dramas",
+      "destination": "/index.html"
     }
   ]
 }

@@ -199,6 +199,14 @@ export async function fetchAiringTodayTv(language = 'en-US', pages = 2) {
   return results.map((item) => ({ ...item, media_type: 'tv' as const }))
 }
 
+export async function fetchShortDramas(language = 'en-US', pages = 3) {
+  const results = await fetchPaged(
+    (page) => `/discover/tv?language=${language}&page=${page}&with_type=2&with_genres=18&sort_by=popularity.desc&include_adult=false`,
+    pages,
+  )
+  return results.map((item) => ({ ...item, media_type: 'tv' as const }))
+}
+
 export async function fetch2026Movies(language = 'en-US', pages = 4) {
   return fetchYearMovies(2026, language, pages)
 }
