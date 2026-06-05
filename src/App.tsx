@@ -12,6 +12,7 @@ import {
   type TmdbItem,
   type TmdbMediaType,
   type TmdbVideo,
+  type TmdbWatchProvider,
   type TmdbWatchRegion,
 } from './tmdb'
 import { categoryPath, detailPath, parseCategoryPath, parseDetailPath, type CategoryRoute, type DetailRoute } from './routing'
@@ -51,12 +52,13 @@ type WatchOptionItem = {
   item: MediaItem
   providers: ReturnType<typeof uniqueProviders>
   link: string
+  regionLabel: string
 }
 
 const SITE_NAME = 'StreamNest'
 const WATCH_OPTIONS_PAGE_SIZE = 24
-const DAILY_CATALOG_LIMIT = 120
-const WATCH_OPTIONS_SCAN_LIMIT = 120
+const DAILY_CATALOG_LIMIT = 180
+const WATCH_OPTIONS_SCAN_LIMIT = 180
 const FALLBACK_POSTER = 'https://images.unsplash.com/photo-1536440136628-849c177e76a1?auto=format&fit=crop&w=900&q=80'
 const FALLBACK_BACKDROP = 'https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?auto=format&fit=crop&w=1200&q=80'
 const image = (id: string) => `https://images.unsplash.com/${id}?auto=format&fit=crop&w=900&q=80`
@@ -348,10 +350,37 @@ function updateCategorySeo(route: CategoryRoute) {
 }
 
 
-function pickWatchRegion(detail?: TmdbDetail) {
+function watchRegionEntries(detail?: TmdbDetail) {
   const regions = detail?.['watch/providers']?.results
-  if (!regions) return undefined
-  return regions.US ?? regions.GB ?? regions.CA ?? regions.AU ?? Object.values(regions)[0]
+  if (!regions) return []
+
+  const preferred = ['US', 'GB', 'CA', 'AU', 'HK', 'TW', 'SG', 'MY', 'JP', 'KR']
+  const orderedCodes = [
+    ...preferred.filter((code) => regions[code]),
+    ...Object.keys(regions).filter((code) => !preferred.includes(code)),
+  ]
+
+  return orderedCodes
+    .map((code) => ({ code, region: regions[code] }))
+    .filter(({ region }) => region?.link && uniqueProviders(region).length)
+}
+
+function pickWatchRegion(detail?: TmdbDetail) {
+  return watchRegionEntries(detail)[0]?.region
+}
+
+function pickWatchRegionLabel(detail?: TmdbDetail) {
+  return watchRegionEntries(detail)[0]?.code ?? 'Global'
+}
+
+function mergedWatchProviders(detail?: TmdbDetail) {
+  const providerMap = new Map<number, TmdbWatchProvider>()
+  for (const { region } of watchRegionEntries(detail).slice(0, 6)) {
+    for (const provider of uniqueProviders(region)) {
+      if (!providerMap.has(provider.provider_id)) providerMap.set(provider.provider_id, provider)
+    }
+  }
+  return Array.from(providerMap.values()).slice(0, 16)
 }
 
 function uniqueProviders(providers: TmdbWatchRegion = {}) {
@@ -472,9 +501,9 @@ function App() {
               try {
                 const detail = await fetchDetails(item.tmdbType, item.id, 'en-US')
                 const region = pickWatchRegion(detail)
-                const providers = uniqueProviders(region)
+                const providers = mergedWatchProviders(detail)
                 if (!region?.link || !providers.length) return null
-                return { item, providers, link: region.link }
+                return { item, providers, link: region.link, regionLabel: pickWatchRegionLabel(detail) }
               } catch (error) {
                 console.error(error)
                 return null
@@ -740,14 +769,14 @@ function App() {
                 {filteredWatchOptionItems.length ? (
                   <>
                     <div className="watch-option-grid">
-                      {pagedWatchOptionItems.map(({ item, providers, link }) => (
+                      {pagedWatchOptionItems.map(({ item, providers, link, regionLabel }) => (
                         <article className="watch-option-card" key={`${item.tmdbType}-${item.id}`}>
                           <a href={detailPath(item.tmdbType, item.id, item.title)} onClick={(event) => { event.preventDefault(); void openDetails(item) }}>
                             <img src={item.poster} alt={`${item.title} poster`} />
                           </a>
                           <div>
                             <strong>{item.title}</strong>
-                            <small>{item.year} · {item.runtime} · ★ {item.rating}</small>
+                            <small>{item.year} · {item.runtime} · ★ {item.rating} · {regionLabel} providers</small>
                             <div className="provider-row compact-providers">
                               {providers.slice(0, 6).map((provider) => (
                                 <a key={provider.provider_id} className="provider-pill" href={link} target="_blank" rel="noreferrer">
@@ -931,11 +960,11 @@ function App() {
                   {detailState.watchRegion?.link ? (
                     <div className="watch-card">
                       <div>
-                        <strong>Available watch options</strong>
-                        <span>Open the provider page to watch, rent, or buy legally where available.</span>
+                        <strong>Available legal watch options · {pickWatchRegionLabel(detailState.detail)} region</strong>
+                        <span>Open the provider page to watch, rent, or buy legally where available. Provider availability can differ by country.</span>
                       </div>
                       <div className="provider-row">
-                        {uniqueProviders(detailState.watchRegion).map((provider) => (
+                        {mergedWatchProviders(detailState.detail).map((provider) => (
                           <a key={provider.provider_id} className="provider-pill" href={detailState.watchRegion?.link} target="_blank" rel="noreferrer">
                             {provider.logo_path ? <img src={tmdbProviderLogo(provider.logo_path)} alt={provider.provider_name} /> : null}
                             <span>{provider.provider_name}</span>
