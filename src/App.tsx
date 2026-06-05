@@ -546,6 +546,11 @@ function App() {
   }
 
   async function openDetails(item: MediaItem, pushUrl = true) {
+    setActiveCategory(null)
+    window.requestAnimationFrame(() => {
+      document.querySelector('.detail-page')?.scrollTo({ top: 0, left: 0 })
+    })
+
     if (pushUrl) {
       const nextPath = detailPath(item.tmdbType, item.id, item.title)
       window.history.pushState({ detail: true }, item.title, nextPath)
