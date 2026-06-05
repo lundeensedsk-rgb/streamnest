@@ -227,9 +227,20 @@ const categoryMeta: Record<CategoryRoute['key'], { title: string; subtitle: stri
   },
 }
 
+function isShortDramaLike(item: MediaItem) {
+  return item.tmdbType === 'tv'
+    && item.type !== 'animation'
+    && (item.runtime.toLowerCase().includes('mini')
+      || item.genres.some((genre) => ['Drama', 'Soap', 'Comedy', 'Romance'].includes(genre)))
+}
+
+function mediaKey(item: MediaItem) {
+  return `${item.tmdbType}-${item.id}`
+}
+
 const sections = [
-  { key: 'tv-shows' as const, title: 'Trending Drama', zh: '热门剧集', filter: (item: MediaItem) => item.type === 'tv' },
-  { key: 'short-dramas' as const, title: 'Short Dramas', zh: '短剧频道', filter: (item: MediaItem) => item.tmdbType === 'tv' && item.type !== 'animation' && item.genres.some((genre) => ['Drama', 'Soap', 'Comedy', 'Romance'].includes(genre)) },
+  { key: 'tv-shows' as const, title: 'Trending Drama', zh: '热门剧集', filter: (item: MediaItem) => item.tmdbType === 'tv' && item.type !== 'animation' && !isShortDramaLike(item) },
+  { key: 'short-dramas' as const, title: 'Short Dramas', zh: '短剧频道', filter: isShortDramaLike },
   { key: 'movies' as const, title: 'Trending Movies', zh: '热门电影', filter: (item: MediaItem) => item.type === 'movie' },
   { key: 'animation' as const, title: 'Animation Picks', zh: '精选动漫', filter: (item: MediaItem) => item.type === 'animation' },
 ]
@@ -673,6 +684,17 @@ function App() {
     (safeWatchOptionsPage - 1) * WATCH_OPTIONS_PAGE_SIZE,
     safeWatchOptionsPage * WATCH_OPTIONS_PAGE_SIZE,
   )
+  const usedHomeSectionKeys = new Set<string>()
+  const homeSections = sections.map((section) => {
+    const primaryItems = displayItems
+      .filter(section.filter)
+      .filter((item) => !usedHomeSectionKeys.has(mediaKey(item)))
+    const primaryKeys = new Set(primaryItems.map(mediaKey))
+    const fallbackItems = displayItems.filter((item) => !usedHomeSectionKeys.has(mediaKey(item)) && !primaryKeys.has(mediaKey(item)))
+    const sectionItems = [...primaryItems, ...fallbackItems].slice(0, 15)
+    sectionItems.forEach((item) => usedHomeSectionKeys.add(mediaKey(item)))
+    return { ...section, items: sectionItems }
+  })
 
   return (
     <main className={`shell${detailState ? ' detail-open' : ''}`}>
@@ -872,10 +894,7 @@ function App() {
           </div>
         </section>}
 
-        {!category && sections.map((section) => {
-          const primaryItems = displayItems.filter(section.filter)
-          const fallbackItems = displayItems.filter((item) => !primaryItems.some((primary) => `${primary.tmdbType}-${primary.id}` === `${item.tmdbType}-${item.id}`))
-          const sectionItems = [...primaryItems, ...fallbackItems].slice(0, 15)
+        {!category && homeSections.map((section) => {
           return (
             <section className="media-section" key={section.title}>
               <div className="section-title">
@@ -886,7 +905,7 @@ function App() {
                 <a href={categoryPath(section.key)} onClick={(event) => { event.preventDefault(); openCategory({ key: section.key }) }}>More ›</a>
               </div>
               <div className="poster-grid">
-                {sectionItems.map((item) => (
+                {section.items.map((item) => (
                   <a key={`${item.type}-${item.id}`} className="poster-card" href={detailPath(item.tmdbType, item.id, item.title)} onClick={(event) => { event.preventDefault(); void openDetails(item) }}>
                     <img src={item.poster} alt={`${item.title} poster`} />
                     <span className="rating">★ {item.rating}</span>
