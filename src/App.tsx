@@ -232,6 +232,15 @@ const sections = [
   { key: 'animation' as const, title: 'Animation Picks', zh: '精选动漫', filter: (item: MediaItem) => item.type === 'animation' },
 ]
 
+const topCategoryItems: Array<{ key: CategoryRoute['key']; label: string; zh: string; icon: string }> = [
+  { key: 'movies', label: 'Movies', zh: '电影', icon: '▶' },
+  { key: 'tv-shows', label: 'TV Shows', zh: '电视剧', icon: '▣' },
+  { key: 'short-dramas', label: 'Short Dramas', zh: '短剧', icon: '▥' },
+  { key: 'animation', label: 'Animation', zh: '动漫', icon: '✦' },
+  { key: 'watch-options', label: 'Watch Options', zh: '合法片源', icon: '◉' },
+  { key: 'upcoming', label: 'Upcoming', zh: '日历', icon: '◷' },
+]
+
 function formatDate(value?: string) {
   if (!value) return 'TBA'
   const date = new Date(`${value}T00:00:00`)
@@ -674,6 +683,24 @@ function App() {
           </label>
           <button className="language" type="button">{isLoading ? 'Loading...' : 'English'}</button>
         </header>
+
+        <nav className="top-category-strip" aria-label="Catalog categories">
+          {topCategoryItems.map((item) => (
+            <a
+              key={item.key}
+              className={activeCategory?.key === item.key ? 'active' : ''}
+              href={categoryPath(item.key)}
+              onClick={(event) => {
+                event.preventDefault()
+                openCategory({ key: item.key })
+              }}
+            >
+              <span>{item.icon}</span>
+              <strong>{item.label}</strong>
+              <small>{item.zh}</small>
+            </a>
+          ))}
+        </nav>
 
         {category && (
           <section className="category-page">
