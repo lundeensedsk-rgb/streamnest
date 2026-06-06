@@ -1,3 +1,5 @@
+type ManualSourceKind = 'stream' | 'rent' | 'buy' | 'free' | 'trailer' | 'licensed'
+
 type ManualSource = {
   id: string
   mediaType: 'movie' | 'tv'
@@ -5,7 +7,7 @@ type ManualSource = {
   title: string
   label: string
   url: string
-  kind: 'stream' | 'rent' | 'buy' | 'free' | 'trailer' | 'licensed'
+  kind: ManualSourceKind
   region: string
   quality?: string
   note?: string
@@ -18,7 +20,28 @@ type Payload = {
   sources?: ManualSource[]
 }
 
+type TmdbListItem = {
+  id: number
+  title?: string
+  name?: string
+}
+
+type TmdbProvider = {
+  provider_id: number
+  provider_name: string
+}
+
+type TmdbWatchRegion = {
+  link?: string
+  flatrate?: TmdbProvider[]
+  rent?: TmdbProvider[]
+  buy?: TmdbProvider[]
+  free?: TmdbProvider[]
+  ads?: TmdbProvider[]
+}
+
 const FALLBACK_PAYLOAD: Payload = { updatedAt: new Date(0).toISOString(), sources: [] }
+const AUTO_REGIONS = ['US', 'GB', 'CA', 'AU']
 
 function repoConfig() {
   return {
@@ -28,6 +51,18 @@ function repoConfig() {
     path: process.env.SOURCES_FILE_PATH || 'public/manual-sources.json',
     adminPassword: process.env.ADMIN_PASSWORD || process.env.STREAMNEST_ADMIN_PASSWORD || '',
   }
+}
+
+function tmdbConfig() {
+  return {
+    token: process.env.TMDB_READ_TOKEN || process.env.VITE_TMDB_READ_TOKEN || '',
+    apiKey: process.env.TMDB_API_KEY || process.env.VITE_TMDB_API_KEY || '',
+  }
+}
+
+function hasAdminAccess(req: any) {
+  const { adminPassword } = repoConfig()
+  return Boolean(adminPassword && req.headers['x-admin-password'] === adminPassword)
 }
 
 function validatePayload(payload: Payload): Payload {
@@ -76,20 +111,110 @@ async function readFromGitHub(): Promise<Payload> {
   return JSON.parse(content) as Payload
 }
 
-async function writeToGitHub(payload: Payload) {
+async function writeToGitHub(payload: Payload, message = 'Update manual watch sources') {
   const { repo, branch, path } = repoConfig()
   const current = await githubRequest(`/repos/${repo}/contents/${path}?ref=${branch}`)
   const nextPayload = validatePayload(payload)
   await githubRequest(`/repos/${repo}/contents/${path}`, {
     method: 'PUT',
     body: JSON.stringify({
-      message: 'Update manual watch sources',
+      message,
       content: Buffer.from(JSON.stringify(nextPayload, null, 2) + '\n').toString('base64'),
       sha: current.sha,
       branch,
     }),
   })
   return nextPayload
+}
+
+async function tmdbFetch<T>(path: string): Promise<T> {
+  const { token, apiKey } = tmdbConfig()
+  if (!token && !apiKey) throw new Error('Missing TMDB credentials')
+  const joiner = path.includes('?') ? '&' : '?'
+  const url = token ? `https://api.themoviedb.org/3${path}` : `https://api.themoviedb.org/3${path}${joiner}api_key=${apiKey}`
+  const response = await fetch(url, {
+    headers: token ? { Authorization: `Bearer ${token}`, 'Content-Type': 'application/json;charset=utf-8' } : undefined,
+  })
+  if (!response.ok) throw new Error(`TMDB request failed: ${response.status}`)
+  return response.json() as Promise<T>
+}
+
+async function fetchCatalogForSources() {
+  const year = new Date().getFullYear()
+  const paths = [
+    '/movie/popular?language=en-US&page=1',
+    '/movie/now_playing?language=en-US&page=1',
+    `/discover/movie?language=en-US&page=1&primary_release_year=${year}&sort_by=popularity.desc&include_adult=false`,
+    '/tv/popular?language=en-US&page=1',
+    '/tv/airing_today?language=en-US&page=1',
+    `/discover/tv?language=en-US&page=1&first_air_date_year=${year}&sort_by=popularity.desc&include_adult=false`,
+  ]
+
+  const responses = await Promise.all(paths.map((path) => tmdbFetch<{ results: TmdbListItem[] }>(path)))
+  const movieItems = responses.slice(0, 3).flatMap((response) => response.results).map((item) => ({ ...item, mediaType: 'movie' as const }))
+  const tvItems = responses.slice(3).flatMap((response) => response.results).map((item) => ({ ...item, mediaType: 'tv' as const }))
+  const seen = new Set<string>()
+  return [...movieItems, ...tvItems].filter((item) => {
+    const key = `${item.mediaType}-${item.id}`
+    if (seen.has(key)) return false
+    seen.add(key)
+    return true
+  }).slice(0, 80)
+}
+
+function providerSourcesForRegion(item: TmdbListItem & { mediaType: 'movie' | 'tv' }, region: string, data?: TmdbWatchRegion): ManualSource[] {
+  if (!data?.link) return []
+  const title = item.title || item.name || ''
+  const now = new Date().toISOString()
+  const groups: Array<{ kind: ManualSourceKind; providers?: TmdbProvider[] }> = [
+    { kind: 'stream', providers: data.flatrate },
+    { kind: 'rent', providers: data.rent },
+    { kind: 'buy', providers: data.buy },
+    { kind: 'free', providers: data.free || data.ads },
+  ]
+
+  return groups.flatMap(({ kind, providers }) => (providers || []).slice(0, 4).map((provider) => ({
+    id: `${item.mediaType}-${item.id}-${region}-${kind}-${provider.provider_id}`,
+    mediaType: item.mediaType,
+    tmdbId: item.id,
+    title,
+    label: provider.provider_name,
+    url: data.link || '',
+    kind,
+    region,
+    quality: '',
+    note: `TMDB 合法观看平台入口（${region}）`,
+    enabled: true,
+    updatedAt: now,
+  })))
+}
+
+async function buildAutoSources() {
+  const catalog = await fetchCatalogForSources()
+  const allSources: ManualSource[] = []
+
+  for (const item of catalog) {
+    try {
+      const data = await tmdbFetch<{ results: Record<string, TmdbWatchRegion> }>(`/${item.mediaType}/${item.id}/watch/providers`)
+      for (const region of AUTO_REGIONS) {
+        allSources.push(...providerSourcesForRegion(item, region, data.results?.[region]))
+      }
+    } catch {
+      // Skip sparse or failed titles so one bad TMDB item does not block the update.
+    }
+    if (allSources.length >= 300) break
+  }
+
+  const unique = new Map<string, ManualSource>()
+  for (const source of allSources) unique.set(source.id, source)
+  return Array.from(unique.values()).slice(0, 300)
+}
+
+function mergeSources(manual: ManualSource[], auto: ManualSource[]) {
+  const manualWithoutOldAuto = manual.filter((source) => !source.note?.includes('TMDB 合法观看平台入口'))
+  const merged = new Map<string, ManualSource>()
+  for (const source of manualWithoutOldAuto.concat(auto)) merged.set(source.id, source)
+  return Array.from(merged.values())
 }
 
 export default async function handler(req: any, res: any) {
@@ -106,10 +231,20 @@ export default async function handler(req: any, res: any) {
     }
 
     if (req.method === 'POST') {
-      const { adminPassword } = repoConfig()
-      if (!adminPassword || req.headers['x-admin-password'] !== adminPassword) {
-        return res.status(401).json({ error: 'Unauthorized' })
+      if (!hasAdminAccess(req)) return res.status(401).json({ error: 'Unauthorized' })
+      const action = req.body?.action || 'save'
+
+      if (action === 'verify') {
+        return res.status(200).json({ ok: true })
       }
+
+      if (action === 'autoUpdate') {
+        const current = await readFromGitHub().catch(() => FALLBACK_PAYLOAD)
+        const autoSources = await buildAutoSources()
+        const payload = await writeToGitHub({ sources: mergeSources(current.sources || [], autoSources) }, 'Auto update legal watch sources')
+        return res.status(200).json({ ...payload, added: autoSources.length })
+      }
+
       const payload = await writeToGitHub(req.body as Payload)
       return res.status(200).json(payload)
     }
