@@ -36,6 +36,10 @@
     {
       "source": "/short-dramas",
       "destination": "/index.html"
+    },
+    {
+      "source": "/admin/sources",
+      "destination": "/index.html"
     }
   ]
 }

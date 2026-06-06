@@ -16,6 +16,8 @@ import {
   type TmdbWatchRegion,
 } from './tmdb'
 import { categoryPath, detailPath, parseCategoryPath, parseDetailPath, type CategoryRoute, type DetailRoute } from './routing'
+import SourceAdmin from './SourceAdmin'
+import { fetchManualSources, sourceKindLabels, sourcesForTitle, type ManualSource } from './manualSources'
 import './App.css'
 
 type MediaType = 'movie' | 'tv' | 'animation'
@@ -46,6 +48,7 @@ type DetailState = {
   cast: TmdbCredit[]
   recommendations: MediaItem[]
   watchRegion?: TmdbWatchRegion
+  manualSources: ManualSource[]
 }
 
 type WatchOptionItem = {
@@ -428,6 +431,8 @@ function App() {
   const [watchOptionsLoading, setWatchOptionsLoading] = useState(false)
   const [activeProviderId, setActiveProviderId] = useState<number | 'all'>('all')
   const [watchOptionsPage, setWatchOptionsPage] = useState(1)
+  const [manualSources, setManualSources] = useState<ManualSource[]>([])
+  const isAdminRoute = window.location.pathname === '/admin/sources'
 
   useEffect(() => {
     let cancelled = false
@@ -468,6 +473,14 @@ function App() {
     return () => {
       cancelled = true
     }
+  }, [])
+
+  useEffect(() => {
+    let cancelled = false
+    fetchManualSources()
+      .then((sources) => { if (!cancelled) setManualSources(sources) })
+      .catch((error) => console.error(error))
+    return () => { cancelled = true }
   }, [])
 
   useEffect(() => {
@@ -553,9 +566,11 @@ function App() {
       source: 'tmdb' as const,
     }
 
+    const currentManualSources = sourcesForTitle(manualSources, type, id)
+
     setActive(pendingItem)
     setIsDetailLoading(true)
-    setDetailState({ item: pendingItem, cast: [], recommendations: [] })
+    setDetailState({ item: pendingItem, cast: [], recommendations: [], manualSources: currentManualSources })
 
     try {
       const detail = await fetchDetails(type, id, 'en-US')
@@ -572,12 +587,13 @@ function App() {
         cast: detail.credits?.cast?.slice(0, 8) ?? [],
         recommendations,
         watchRegion: pickWatchRegion(detail),
+        manualSources: currentManualSources,
       })
       updatePageSeo(richerItem)
       return richerItem
     } catch (error) {
       console.error(error)
-      setDetailState({ item: pendingItem, cast: [], recommendations: [] })
+      setDetailState({ item: pendingItem, cast: [], recommendations: [], manualSources: currentManualSources })
       updatePageSeo(pendingItem)
       return pendingItem
     } finally {
@@ -598,7 +614,7 @@ function App() {
 
     if (item.source !== 'tmdb') {
       setActive(item)
-      setDetailState({ item, cast: [], recommendations: [] })
+      setDetailState({ item, cast: [], recommendations: [], manualSources: sourcesForTitle(manualSources, item.tmdbType, item.id) })
       updatePageSeo(item)
       setIsDetailLoading(false)
       return
@@ -695,6 +711,10 @@ function App() {
     sectionItems.forEach((item) => usedHomeSectionKeys.add(mediaKey(item)))
     return { ...section, items: sectionItems }
   })
+
+  if (isAdminRoute) {
+    return <SourceAdmin onHome={() => { window.history.pushState('', SITE_NAME, '/'); window.location.reload() }} />
+  }
 
   return (
     <main className={`shell${detailState ? ' detail-open' : ''}`}>
@@ -965,6 +985,31 @@ function App() {
                     <div className="empty-trailer">
                       <strong>No official trailer found yet.</strong>
                       <span>暂无官方预告片。我们只展示合法公开视频，不接盗版片源。</span>
+                    </div>
+                  )}
+                </section>
+
+                <section className="watch-panel">
+                  <div className="section-title compact">
+                    <div>
+                      <h2>Manual Sources</h2>
+                      <small>Admin-managed legal sources</small>
+                    </div>
+                  </div>
+                  {detailState.manualSources.length ? (
+                    <div className="manual-source-list">
+                      {detailState.manualSources.map((source) => (
+                        <a className="manual-source-card" key={source.id} href={source.url} target="_blank" rel="noreferrer">
+                          <strong>{source.label}</strong>
+                          <span>{sourceKindLabels[source.kind]} · {source.region}{source.quality ? ` · ${source.quality}` : ''}</span>
+                          {source.note ? <small>{source.note}</small> : null}
+                        </a>
+                      ))}
+                    </div>
+                  ) : (
+                    <div className="empty-trailer compact-empty">
+                      <strong>No manual legal source added yet.</strong>
+                      <span>Add official provider or licensed video links in the admin panel.</span>
                     </div>
                   )}
                 </section>
