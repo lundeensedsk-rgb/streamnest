@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-06-08T09:48:46.429Z",
+  "updatedAt": "2026-06-08T09:48:50.586Z",
   "sources": [
     {
       "id": "movie-1433117-US-stream-8",
@@ -2694,7 +2694,7 @@
       "mediaType": "tv",
       "tmdbId": 124364,
       "title": "FROM",
-      "label": "Paramount Plus Apple TV Channel ",
+      "label": "Paramount Plus Apple TV Channel",
       "url": "https://www.themoviedb.org/tv/124364-from/watch?locale=CA",
       "kind": "stream",
       "region": "CA",
