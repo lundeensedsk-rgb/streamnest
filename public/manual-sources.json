@@ -1,117 +1,271 @@
 {
-  "updatedAt": "2026-06-08T09:53:25.268Z",
+  "updatedAt": "2026-06-11T05:09:41.072Z",
   "sources": [
     {
-      "id": "movie-1433117-US-stream-8",
+      "id": "movie-936075-US-rent-10",
       "mediaType": "movie",
-      "tmdbId": 1433117,
-      "title": "Kara",
-      "label": "Netflix",
-      "url": "https://www.themoviedb.org/movie/1433117/watch?locale=US",
-      "kind": "stream",
+      "tmdbId": 936075,
+      "title": "Michael",
+      "label": "Amazon Video",
+      "url": "https://www.themoviedb.org/movie/936075-michael/watch?locale=US",
+      "kind": "rent",
       "region": "US",
       "quality": "",
       "note": "TMDB 合法观看平台入口（US）",
       "enabled": true,
-      "updatedAt": "2026-06-08T09:53:24.981Z"
+      "updatedAt": "2026-06-11T05:09:38.904Z"
     },
     {
-      "id": "movie-1433117-US-stream-1796",
+      "id": "movie-936075-US-rent-2",
       "mediaType": "movie",
-      "tmdbId": 1433117,
-      "title": "Kara",
-      "label": "Netflix Standard with Ads",
-      "url": "https://www.themoviedb.org/movie/1433117/watch?locale=US",
-      "kind": "stream",
+      "tmdbId": 936075,
+      "title": "Michael",
+      "label": "Apple TV Store",
+      "url": "https://www.themoviedb.org/movie/936075-michael/watch?locale=US",
+      "kind": "rent",
       "region": "US",
       "quality": "",
       "note": "TMDB 合法观看平台入口（US）",
       "enabled": true,
-      "updatedAt": "2026-06-08T09:53:24.981Z"
+      "updatedAt": "2026-06-11T05:09:38.904Z"
     },
     {
-      "id": "movie-1433117-GB-stream-8",
+      "id": "movie-936075-US-rent-538",
       "mediaType": "movie",
-      "tmdbId": 1433117,
-      "title": "Kara",
-      "label": "Netflix",
-      "url": "https://www.themoviedb.org/movie/1433117/watch?locale=GB",
-      "kind": "stream",
+      "tmdbId": 936075,
+      "title": "Michael",
+      "label": "Plex",
+      "url": "https://www.themoviedb.org/movie/936075-michael/watch?locale=US",
+      "kind": "rent",
+      "region": "US",
+      "quality": "",
+      "note": "TMDB 合法观看平台入口（US）",
+      "enabled": true,
+      "updatedAt": "2026-06-11T05:09:38.904Z"
+    },
+    {
+      "id": "movie-936075-US-buy-10",
+      "mediaType": "movie",
+      "tmdbId": 936075,
+      "title": "Michael",
+      "label": "Amazon Video",
+      "url": "https://www.themoviedb.org/movie/936075-michael/watch?locale=US",
+      "kind": "buy",
+      "region": "US",
+      "quality": "",
+      "note": "TMDB 合法观看平台入口（US）",
+      "enabled": true,
+      "updatedAt": "2026-06-11T05:09:38.904Z"
+    },
+    {
+      "id": "movie-936075-US-buy-2",
+      "mediaType": "movie",
+      "tmdbId": 936075,
+      "title": "Michael",
+      "label": "Apple TV Store",
+      "url": "https://www.themoviedb.org/movie/936075-michael/watch?locale=US",
+      "kind": "buy",
+      "region": "US",
+      "quality": "",
+      "note": "TMDB 合法观看平台入口（US）",
+      "enabled": true,
+      "updatedAt": "2026-06-11T05:09:38.904Z"
+    },
+    {
+      "id": "movie-936075-GB-rent-2",
+      "mediaType": "movie",
+      "tmdbId": 936075,
+      "title": "Michael",
+      "label": "Apple TV Store",
+      "url": "https://www.themoviedb.org/movie/936075-michael/watch?locale=GB",
+      "kind": "rent",
       "region": "GB",
       "quality": "",
       "note": "TMDB 合法观看平台入口（GB）",
       "enabled": true,
-      "updatedAt": "2026-06-08T09:53:24.981Z"
+      "updatedAt": "2026-06-11T05:09:38.904Z"
     },
     {
-      "id": "movie-1433117-GB-stream-1796",
+      "id": "movie-936075-GB-rent-10",
       "mediaType": "movie",
-      "tmdbId": 1433117,
-      "title": "Kara",
-      "label": "Netflix Standard with Ads",
-      "url": "https://www.themoviedb.org/movie/1433117/watch?locale=GB",
-      "kind": "stream",
+      "tmdbId": 936075,
+      "title": "Michael",
+      "label": "Amazon Video",
+      "url": "https://www.themoviedb.org/movie/936075-michael/watch?locale=GB",
+      "kind": "rent",
       "region": "GB",
       "quality": "",
       "note": "TMDB 合法观看平台入口（GB）",
       "enabled": true,
-      "updatedAt": "2026-06-08T09:53:24.981Z"
+      "updatedAt": "2026-06-11T05:09:38.904Z"
     },
     {
-      "id": "movie-1433117-CA-stream-8",
+      "id": "movie-936075-GB-rent-130",
       "mediaType": "movie",
-      "tmdbId": 1433117,
-      "title": "Kara",
-      "label": "Netflix",
-      "url": "https://www.themoviedb.org/movie/1433117/watch?locale=CA",
-      "kind": "stream",
+      "tmdbId": 936075,
+      "title": "Michael",
+      "label": "Sky Store",
+      "url": "https://www.themoviedb.org/movie/936075-michael/watch?locale=GB",
+      "kind": "rent",
+      "region": "GB",
+      "quality": "",
+      "note": "TMDB 合法观看平台入口（GB）",
+      "enabled": true,
+      "updatedAt": "2026-06-11T05:09:38.904Z"
+    },
+    {
+      "id": "movie-936075-GB-buy-2",
+      "mediaType": "movie",
+      "tmdbId": 936075,
+      "title": "Michael",
+      "label": "Apple TV Store",
+      "url": "https://www.themoviedb.org/movie/936075-michael/watch?locale=GB",
+      "kind": "buy",
+      "region": "GB",
+      "quality": "",
+      "note": "TMDB 合法观看平台入口（GB）",
+      "enabled": true,
+      "updatedAt": "2026-06-11T05:09:38.904Z"
+    },
+    {
+      "id": "movie-936075-GB-buy-130",
+      "mediaType": "movie",
+      "tmdbId": 936075,
+      "title": "Michael",
+      "label": "Sky Store",
+      "url": "https://www.themoviedb.org/movie/936075-michael/watch?locale=GB",
+      "kind": "buy",
+      "region": "GB",
+      "quality": "",
+      "note": "TMDB 合法观看平台入口（GB）",
+      "enabled": true,
+      "updatedAt": "2026-06-11T05:09:38.904Z"
+    },
+    {
+      "id": "movie-936075-CA-rent-140",
+      "mediaType": "movie",
+      "tmdbId": 936075,
+      "title": "Michael",
+      "label": "CosmoGo",
+      "url": "https://www.themoviedb.org/movie/936075-michael/watch?locale=CA",
+      "kind": "rent",
       "region": "CA",
       "quality": "",
       "note": "TMDB 合法观看平台入口（CA）",
       "enabled": true,
-      "updatedAt": "2026-06-08T09:53:24.981Z"
+      "updatedAt": "2026-06-11T05:09:38.904Z"
     },
     {
-      "id": "movie-1433117-CA-stream-1796",
+      "id": "movie-936075-CA-rent-10",
       "mediaType": "movie",
-      "tmdbId": 1433117,
-      "title": "Kara",
-      "label": "Netflix Standard with Ads",
-      "url": "https://www.themoviedb.org/movie/1433117/watch?locale=CA",
-      "kind": "stream",
+      "tmdbId": 936075,
+      "title": "Michael",
+      "label": "Amazon Video",
+      "url": "https://www.themoviedb.org/movie/936075-michael/watch?locale=CA",
+      "kind": "rent",
       "region": "CA",
       "quality": "",
       "note": "TMDB 合法观看平台入口（CA）",
       "enabled": true,
-      "updatedAt": "2026-06-08T09:53:24.981Z"
+      "updatedAt": "2026-06-11T05:09:38.904Z"
     },
     {
-      "id": "movie-1433117-AU-stream-8",
+      "id": "movie-936075-CA-rent-538",
       "mediaType": "movie",
-      "tmdbId": 1433117,
-      "title": "Kara",
-      "label": "Netflix",
-      "url": "https://www.themoviedb.org/movie/1433117/watch?locale=AU",
-      "kind": "stream",
+      "tmdbId": 936075,
+      "title": "Michael",
+      "label": "Plex",
+      "url": "https://www.themoviedb.org/movie/936075-michael/watch?locale=CA",
+      "kind": "rent",
+      "region": "CA",
+      "quality": "",
+      "note": "TMDB 合法观看平台入口（CA）",
+      "enabled": true,
+      "updatedAt": "2026-06-11T05:09:38.904Z"
+    },
+    {
+      "id": "movie-936075-CA-buy-140",
+      "mediaType": "movie",
+      "tmdbId": 936075,
+      "title": "Michael",
+      "label": "CosmoGo",
+      "url": "https://www.themoviedb.org/movie/936075-michael/watch?locale=CA",
+      "kind": "buy",
+      "region": "CA",
+      "quality": "",
+      "note": "TMDB 合法观看平台入口（CA）",
+      "enabled": true,
+      "updatedAt": "2026-06-11T05:09:38.904Z"
+    },
+    {
+      "id": "movie-936075-CA-buy-10",
+      "mediaType": "movie",
+      "tmdbId": 936075,
+      "title": "Michael",
+      "label": "Amazon Video",
+      "url": "https://www.themoviedb.org/movie/936075-michael/watch?locale=CA",
+      "kind": "buy",
+      "region": "CA",
+      "quality": "",
+      "note": "TMDB 合法观看平台入口（CA）",
+      "enabled": true,
+      "updatedAt": "2026-06-11T05:09:38.904Z"
+    },
+    {
+      "id": "movie-936075-AU-rent-2",
+      "mediaType": "movie",
+      "tmdbId": 936075,
+      "title": "Michael",
+      "label": "Apple TV Store",
+      "url": "https://www.themoviedb.org/movie/936075-michael/watch?locale=AU",
+      "kind": "rent",
       "region": "AU",
       "quality": "",
       "note": "TMDB 合法观看平台入口（AU）",
       "enabled": true,
-      "updatedAt": "2026-06-08T09:53:24.981Z"
+      "updatedAt": "2026-06-11T05:09:38.904Z"
     },
     {
-      "id": "movie-1433117-AU-stream-1796",
+      "id": "movie-936075-AU-rent-10",
       "mediaType": "movie",
-      "tmdbId": 1433117,
-      "title": "Kara",
-      "label": "Netflix Standard with Ads",
-      "url": "https://www.themoviedb.org/movie/1433117/watch?locale=AU",
-      "kind": "stream",
+      "tmdbId": 936075,
+      "title": "Michael",
+      "label": "Amazon Video",
+      "url": "https://www.themoviedb.org/movie/936075-michael/watch?locale=AU",
+      "kind": "rent",
       "region": "AU",
       "quality": "",
       "note": "TMDB 合法观看平台入口（AU）",
       "enabled": true,
-      "updatedAt": "2026-06-08T09:53:24.981Z"
+      "updatedAt": "2026-06-11T05:09:38.904Z"
+    },
+    {
+      "id": "movie-936075-AU-buy-2",
+      "mediaType": "movie",
+      "tmdbId": 936075,
+      "title": "Michael",
+      "label": "Apple TV Store",
+      "url": "https://www.themoviedb.org/movie/936075-michael/watch?locale=AU",
+      "kind": "buy",
+      "region": "AU",
+      "quality": "",
+      "note": "TMDB 合法观看平台入口（AU）",
+      "enabled": true,
+      "updatedAt": "2026-06-11T05:09:38.904Z"
+    },
+    {
+      "id": "movie-936075-AU-buy-10",
+      "mediaType": "movie",
+      "tmdbId": 936075,
+      "title": "Michael",
+      "label": "Amazon Video",
+      "url": "https://www.themoviedb.org/movie/936075-michael/watch?locale=AU",
+      "kind": "buy",
+      "region": "AU",
+      "quality": "",
+      "note": "TMDB 合法观看平台入口（AU）",
+      "enabled": true,
+      "updatedAt": "2026-06-11T05:09:38.904Z"
     },
     {
       "id": "movie-1304313-US-rent-10",
@@ -125,7 +279,7 @@
       "quality": "",
       "note": "TMDB 合法观看平台入口（US）",
       "enabled": true,
-      "updatedAt": "2026-06-08T09:53:24.989Z"
+      "updatedAt": "2026-06-11T05:09:38.988Z"
     },
     {
       "id": "movie-1304313-US-rent-2",
@@ -139,7 +293,7 @@
       "quality": "",
       "note": "TMDB 合法观看平台入口（US）",
       "enabled": true,
-      "updatedAt": "2026-06-08T09:53:24.989Z"
+      "updatedAt": "2026-06-11T05:09:38.988Z"
     },
     {
       "id": "movie-1304313-US-rent-3",
@@ -153,7 +307,7 @@
       "quality": "",
       "note": "TMDB 合法观看平台入口（US）",
       "enabled": true,
-      "updatedAt": "2026-06-08T09:53:24.989Z"
+      "updatedAt": "2026-06-11T05:09:38.988Z"
     },
     {
       "id": "movie-1304313-US-rent-192",
@@ -167,7 +321,7 @@
       "quality": "",
       "note": "TMDB 合法观看平台入口（US）",
       "enabled": true,
-      "updatedAt": "2026-06-08T09:53:24.989Z"
+      "updatedAt": "2026-06-11T05:09:38.988Z"
     },
     {
       "id": "movie-1304313-US-buy-10",
@@ -181,7 +335,7 @@
       "quality": "",
       "note": "TMDB 合法观看平台入口（US）",
       "enabled": true,
-      "updatedAt": "2026-06-08T09:53:24.989Z"
+      "updatedAt": "2026-06-11T05:09:38.988Z"
     },
     {
       "id": "movie-1304313-US-buy-2",
@@ -195,7 +349,7 @@
       "quality": "",
       "note": "TMDB 合法观看平台入口（US）",
       "enabled": true,
-      "updatedAt": "2026-06-08T09:53:24.989Z"
+      "updatedAt": "2026-06-11T05:09:38.988Z"
     },
     {
       "id": "movie-1304313-US-buy-3",
@@ -209,7 +363,7 @@
       "quality": "",
       "note": "TMDB 合法观看平台入口（US）",
       "enabled": true,
-      "updatedAt": "2026-06-08T09:53:24.989Z"
+      "updatedAt": "2026-06-11T05:09:38.988Z"
     },
     {
       "id": "movie-1304313-US-buy-192",
@@ -223,7 +377,7 @@
       "quality": "",
       "note": "TMDB 合法观看平台入口（US）",
       "enabled": true,
-      "updatedAt": "2026-06-08T09:53:24.989Z"
+      "updatedAt": "2026-06-11T05:09:38.988Z"
     },
     {
       "id": "movie-1304313-GB-rent-2",
@@ -237,7 +391,7 @@
       "quality": "",
       "note": "TMDB 合法观看平台入口（GB）",
       "enabled": true,
-      "updatedAt": "2026-06-08T09:53:24.989Z"
+      "updatedAt": "2026-06-11T05:09:38.988Z"
     },
     {
       "id": "movie-1304313-GB-rent-35",
@@ -251,7 +405,7 @@
       "quality": "",
       "note": "TMDB 合法观看平台入口（GB）",
       "enabled": true,
-      "updatedAt": "2026-06-08T09:53:24.989Z"
+      "updatedAt": "2026-06-11T05:09:38.988Z"
     },
     {
       "id": "movie-1304313-GB-rent-10",
@@ -265,7 +419,7 @@
       "quality": "",
       "note": "TMDB 合法观看平台入口（GB）",
       "enabled": true,
-      "updatedAt": "2026-06-08T09:53:24.989Z"
+      "updatedAt": "2026-06-11T05:09:38.988Z"
     },
     {
       "id": "movie-1304313-GB-rent-130",
@@ -279,7 +433,7 @@
       "quality": "",
       "note": "TMDB 合法观看平台入口（GB）",
       "enabled": true,
-      "updatedAt": "2026-06-08T09:53:24.989Z"
+      "updatedAt": "2026-06-11T05:09:38.988Z"
     },
     {
       "id": "movie-1304313-GB-buy-2",
@@ -293,7 +447,7 @@
       "quality": "",
       "note": "TMDB 合法观看平台入口（GB）",
       "enabled": true,
-      "updatedAt": "2026-06-08T09:53:24.989Z"
+      "updatedAt": "2026-06-11T05:09:38.988Z"
     },
     {
       "id": "movie-1304313-GB-buy-35",
@@ -307,7 +461,7 @@
       "quality": "",
       "note": "TMDB 合法观看平台入口（GB）",
       "enabled": true,
-      "updatedAt": "2026-06-08T09:53:24.989Z"
+      "updatedAt": "2026-06-11T05:09:38.988Z"
     },
     {
       "id": "movie-1304313-GB-buy-10",
@@ -321,7 +475,7 @@
       "quality": "",
       "note": "TMDB 合法观看平台入口（GB）",
       "enabled": true,
-      "updatedAt": "2026-06-08T09:53:24.989Z"
+      "updatedAt": "2026-06-11T05:09:38.988Z"
     },
     {
       "id": "movie-1304313-GB-buy-130",
@@ -335,7 +489,7 @@
       "quality": "",
       "note": "TMDB 合法观看平台入口（GB）",
       "enabled": true,
-      "updatedAt": "2026-06-08T09:53:24.989Z"
+      "updatedAt": "2026-06-11T05:09:38.988Z"
     },
     {
       "id": "movie-1304313-CA-rent-2",
@@ -349,7 +503,7 @@
       "quality": "",
       "note": "TMDB 合法观看平台入口（CA）",
       "enabled": true,
-      "updatedAt": "2026-06-08T09:53:24.989Z"
+      "updatedAt": "2026-06-11T05:09:38.988Z"
     },
     {
       "id": "movie-1304313-CA-rent-140",
@@ -363,7 +517,7 @@
       "quality": "",
       "note": "TMDB 合法观看平台入口（CA）",
       "enabled": true,
-      "updatedAt": "2026-06-08T09:53:24.989Z"
+      "updatedAt": "2026-06-11T05:09:38.988Z"
     },
     {
       "id": "movie-1304313-CA-rent-10",
@@ -377,7 +531,7 @@
       "quality": "",
       "note": "TMDB 合法观看平台入口（CA）",
       "enabled": true,
-      "updatedAt": "2026-06-08T09:53:24.989Z"
+      "updatedAt": "2026-06-11T05:09:38.988Z"
     },
     {
       "id": "movie-1304313-CA-rent-538",
@@ -391,7 +545,7 @@
       "quality": "",
       "note": "TMDB 合法观看平台入口（CA）",
       "enabled": true,
-      "updatedAt": "2026-06-08T09:53:24.989Z"
+      "updatedAt": "2026-06-11T05:09:38.988Z"
     },
     {
       "id": "movie-1304313-CA-buy-2",
@@ -405,7 +559,7 @@
       "quality": "",
       "note": "TMDB 合法观看平台入口（CA）",
       "enabled": true,
-      "updatedAt": "2026-06-08T09:53:24.989Z"
+      "updatedAt": "2026-06-11T05:09:38.988Z"
     },
     {
       "id": "movie-1304313-CA-buy-140",
@@ -419,7 +573,7 @@
       "quality": "",
       "note": "TMDB 合法观看平台入口（CA）",
       "enabled": true,
-      "updatedAt": "2026-06-08T09:53:24.989Z"
+      "updatedAt": "2026-06-11T05:09:38.988Z"
     },
     {
       "id": "movie-1304313-CA-buy-10",
@@ -433,7 +587,7 @@
       "quality": "",
       "note": "TMDB 合法观看平台入口（CA）",
       "enabled": true,
-      "updatedAt": "2026-06-08T09:53:24.989Z"
+      "updatedAt": "2026-06-11T05:09:38.988Z"
     },
     {
       "id": "movie-1304313-AU-rent-2285",
@@ -447,7 +601,7 @@
       "quality": "",
       "note": "TMDB 合法观看平台入口（AU）",
       "enabled": true,
-      "updatedAt": "2026-06-08T09:53:24.989Z"
+      "updatedAt": "2026-06-11T05:09:38.988Z"
     },
     {
       "id": "movie-1304313-AU-rent-2",
@@ -461,7 +615,7 @@
       "quality": "",
       "note": "TMDB 合法观看平台入口（AU）",
       "enabled": true,
-      "updatedAt": "2026-06-08T09:53:24.989Z"
+      "updatedAt": "2026-06-11T05:09:38.988Z"
     },
     {
       "id": "movie-1304313-AU-rent-10",
@@ -475,7 +629,7 @@
       "quality": "",
       "note": "TMDB 合法观看平台入口（AU）",
       "enabled": true,
-      "updatedAt": "2026-06-08T09:53:24.989Z"
+      "updatedAt": "2026-06-11T05:09:38.988Z"
     },
     {
       "id": "movie-1304313-AU-buy-2",
@@ -489,7 +643,7 @@
       "quality": "",
       "note": "TMDB 合法观看平台入口（AU）",
       "enabled": true,
-      "updatedAt": "2026-06-08T09:53:24.989Z"
+      "updatedAt": "2026-06-11T05:09:38.988Z"
     },
     {
       "id": "movie-1304313-AU-buy-10",
@@ -503,7 +657,7 @@
       "quality": "",
       "note": "TMDB 合法观看平台入口（AU）",
       "enabled": true,
-      "updatedAt": "2026-06-08T09:53:24.989Z"
+      "updatedAt": "2026-06-11T05:09:38.988Z"
     },
     {
       "id": "movie-1226863-US-rent-10",
@@ -517,7 +671,7 @@
       "quality": "",
       "note": "TMDB 合法观看平台入口（US）",
       "enabled": true,
-      "updatedAt": "2026-06-08T09:53:25.009Z"
+      "updatedAt": "2026-06-11T05:09:39.001Z"
     },
     {
       "id": "movie-1226863-US-rent-2",
@@ -531,7 +685,7 @@
       "quality": "",
       "note": "TMDB 合法观看平台入口（US）",
       "enabled": true,
-      "updatedAt": "2026-06-08T09:53:25.009Z"
+      "updatedAt": "2026-06-11T05:09:39.001Z"
     },
     {
       "id": "movie-1226863-US-rent-3",
@@ -545,7 +699,7 @@
       "quality": "",
       "note": "TMDB 合法观看平台入口（US）",
       "enabled": true,
-      "updatedAt": "2026-06-08T09:53:25.009Z"
+      "updatedAt": "2026-06-11T05:09:39.001Z"
     },
     {
       "id": "movie-1226863-US-rent-192",
@@ -559,7 +713,7 @@
       "quality": "",
       "note": "TMDB 合法观看平台入口（US）",
       "enabled": true,
-      "updatedAt": "2026-06-08T09:53:25.009Z"
+      "updatedAt": "2026-06-11T05:09:39.001Z"
     },
     {
       "id": "movie-1226863-US-buy-10",
@@ -573,7 +727,7 @@
       "quality": "",
       "note": "TMDB 合法观看平台入口（US）",
       "enabled": true,
-      "updatedAt": "2026-06-08T09:53:25.009Z"
+      "updatedAt": "2026-06-11T05:09:39.001Z"
     },
     {
       "id": "movie-1226863-US-buy-2",
@@ -587,7 +741,7 @@
       "quality": "",
       "note": "TMDB 合法观看平台入口（US）",
       "enabled": true,
-      "updatedAt": "2026-06-08T09:53:25.009Z"
+      "updatedAt": "2026-06-11T05:09:39.001Z"
     },
     {
       "id": "movie-1226863-US-buy-3",
@@ -601,7 +755,7 @@
       "quality": "",
       "note": "TMDB 合法观看平台入口（US）",
       "enabled": true,
-      "updatedAt": "2026-06-08T09:53:25.009Z"
+      "updatedAt": "2026-06-11T05:09:39.001Z"
     },
     {
       "id": "movie-1226863-US-buy-192",
@@ -615,7 +769,7 @@
       "quality": "",
       "note": "TMDB 合法观看平台入口（US）",
       "enabled": true,
-      "updatedAt": "2026-06-08T09:53:25.009Z"
+      "updatedAt": "2026-06-11T05:09:39.001Z"
     },
     {
       "id": "movie-1226863-GB-rent-2",
@@ -629,7 +783,7 @@
       "quality": "",
       "note": "TMDB 合法观看平台入口（GB）",
       "enabled": true,
-      "updatedAt": "2026-06-08T09:53:25.009Z"
+      "updatedAt": "2026-06-11T05:09:39.001Z"
     },
     {
       "id": "movie-1226863-GB-rent-35",
@@ -643,7 +797,7 @@
       "quality": "",
       "note": "TMDB 合法观看平台入口（GB）",
       "enabled": true,
-      "updatedAt": "2026-06-08T09:53:25.009Z"
+      "updatedAt": "2026-06-11T05:09:39.001Z"
     },
     {
       "id": "movie-1226863-GB-rent-10",
@@ -657,7 +811,7 @@
       "quality": "",
       "note": "TMDB 合法观看平台入口（GB）",
       "enabled": true,
-      "updatedAt": "2026-06-08T09:53:25.009Z"
+      "updatedAt": "2026-06-11T05:09:39.001Z"
     },
     {
       "id": "movie-1226863-GB-rent-130",
@@ -671,7 +825,7 @@
       "quality": "",
       "note": "TMDB 合法观看平台入口（GB）",
       "enabled": true,
-      "updatedAt": "2026-06-08T09:53:25.009Z"
+      "updatedAt": "2026-06-11T05:09:39.001Z"
     },
     {
       "id": "movie-1226863-GB-buy-2",
@@ -685,7 +839,7 @@
       "quality": "",
       "note": "TMDB 合法观看平台入口（GB）",
       "enabled": true,
-      "updatedAt": "2026-06-08T09:53:25.009Z"
+      "updatedAt": "2026-06-11T05:09:39.001Z"
     },
     {
       "id": "movie-1226863-GB-buy-35",
@@ -699,7 +853,7 @@
       "quality": "",
       "note": "TMDB 合法观看平台入口（GB）",
       "enabled": true,
-      "updatedAt": "2026-06-08T09:53:25.009Z"
+      "updatedAt": "2026-06-11T05:09:39.001Z"
     },
     {
       "id": "movie-1226863-GB-buy-10",
@@ -713,7 +867,7 @@
       "quality": "",
       "note": "TMDB 合法观看平台入口（GB）",
       "enabled": true,
-      "updatedAt": "2026-06-08T09:53:25.009Z"
+      "updatedAt": "2026-06-11T05:09:39.001Z"
     },
     {
       "id": "movie-1226863-GB-buy-130",
@@ -727,7 +881,7 @@
       "quality": "",
       "note": "TMDB 合法观看平台入口（GB）",
       "enabled": true,
-      "updatedAt": "2026-06-08T09:53:25.009Z"
+      "updatedAt": "2026-06-11T05:09:39.001Z"
     },
     {
       "id": "movie-1226863-CA-rent-2",
@@ -741,7 +895,7 @@
       "quality": "",
       "note": "TMDB 合法观看平台入口（CA）",
       "enabled": true,
-      "updatedAt": "2026-06-08T09:53:25.009Z"
+      "updatedAt": "2026-06-11T05:09:39.002Z"
     },
     {
       "id": "movie-1226863-CA-rent-140",
@@ -755,7 +909,7 @@
       "quality": "",
       "note": "TMDB 合法观看平台入口（CA）",
       "enabled": true,
-      "updatedAt": "2026-06-08T09:53:25.009Z"
+      "updatedAt": "2026-06-11T05:09:39.002Z"
     },
     {
       "id": "movie-1226863-CA-rent-10",
@@ -769,7 +923,7 @@
       "quality": "",
       "note": "TMDB 合法观看平台入口（CA）",
       "enabled": true,
-      "updatedAt": "2026-06-08T09:53:25.009Z"
+      "updatedAt": "2026-06-11T05:09:39.002Z"
     },
     {
       "id": "movie-1226863-CA-buy-2",
@@ -783,7 +937,7 @@
       "quality": "",
       "note": "TMDB 合法观看平台入口（CA）",
       "enabled": true,
-      "updatedAt": "2026-06-08T09:53:25.009Z"
+      "updatedAt": "2026-06-11T05:09:39.002Z"
     },
     {
       "id": "movie-1226863-CA-buy-140",
@@ -797,7 +951,7 @@
       "quality": "",
       "note": "TMDB 合法观看平台入口（CA）",
       "enabled": true,
-      "updatedAt": "2026-06-08T09:53:25.009Z"
+      "updatedAt": "2026-06-11T05:09:39.002Z"
     },
     {
       "id": "movie-1226863-CA-buy-10",
@@ -811,7 +965,7 @@
       "quality": "",
       "note": "TMDB 合法观看平台入口（CA）",
       "enabled": true,
-      "updatedAt": "2026-06-08T09:53:25.009Z"
+      "updatedAt": "2026-06-11T05:09:39.002Z"
     },
     {
       "id": "movie-1226863-AU-rent-2",
@@ -825,7 +979,7 @@
       "quality": "",
       "note": "TMDB 合法观看平台入口（AU）",
       "enabled": true,
-      "updatedAt": "2026-06-08T09:53:25.009Z"
+      "updatedAt": "2026-06-11T05:09:39.002Z"
     },
     {
       "id": "movie-1226863-AU-rent-10",
@@ -839,7 +993,7 @@
       "quality": "",
       "note": "TMDB 合法观看平台入口（AU）",
       "enabled": true,
-      "updatedAt": "2026-06-08T09:53:25.009Z"
+      "updatedAt": "2026-06-11T05:09:39.002Z"
     },
     {
       "id": "movie-1226863-AU-buy-2",
@@ -853,7 +1007,7 @@
       "quality": "",
       "note": "TMDB 合法观看平台入口（AU）",
       "enabled": true,
-      "updatedAt": "2026-06-08T09:53:25.009Z"
+      "updatedAt": "2026-06-11T05:09:39.002Z"
     },
     {
       "id": "movie-1226863-AU-buy-10",
@@ -867,665 +1021,343 @@
       "quality": "",
       "note": "TMDB 合法观看平台入口（AU）",
       "enabled": true,
-      "updatedAt": "2026-06-08T09:53:25.009Z"
+      "updatedAt": "2026-06-11T05:09:39.002Z"
     },
     {
-      "id": "movie-687163-US-rent-10",
+      "id": "movie-931285-US-rent-10",
       "mediaType": "movie",
-      "tmdbId": 687163,
-      "title": "Project Hail Mary",
+      "tmdbId": 931285,
+      "title": "Mortal Kombat II",
       "label": "Amazon Video",
-      "url": "https://www.themoviedb.org/movie/687163-project-hail-mary/watch?locale=US",
+      "url": "https://www.themoviedb.org/movie/931285-mortal-kombat-ii/watch?locale=US",
       "kind": "rent",
       "region": "US",
       "quality": "",
       "note": "TMDB 合法观看平台入口（US）",
       "enabled": true,
-      "updatedAt": "2026-06-08T09:53:25.029Z"
+      "updatedAt": "2026-06-11T05:09:39.025Z"
     },
     {
-      "id": "movie-687163-US-rent-2",
+      "id": "movie-931285-US-rent-2",
       "mediaType": "movie",
-      "tmdbId": 687163,
-      "title": "Project Hail Mary",
+      "tmdbId": 931285,
+      "title": "Mortal Kombat II",
       "label": "Apple TV Store",
-      "url": "https://www.themoviedb.org/movie/687163-project-hail-mary/watch?locale=US",
+      "url": "https://www.themoviedb.org/movie/931285-mortal-kombat-ii/watch?locale=US",
       "kind": "rent",
       "region": "US",
       "quality": "",
       "note": "TMDB 合法观看平台入口（US）",
       "enabled": true,
-      "updatedAt": "2026-06-08T09:53:25.029Z"
+      "updatedAt": "2026-06-11T05:09:39.025Z"
     },
     {
-      "id": "movie-687163-US-rent-3",
+      "id": "movie-931285-US-rent-3",
       "mediaType": "movie",
-      "tmdbId": 687163,
-      "title": "Project Hail Mary",
+      "tmdbId": 931285,
+      "title": "Mortal Kombat II",
       "label": "Google Play Movies",
-      "url": "https://www.themoviedb.org/movie/687163-project-hail-mary/watch?locale=US",
+      "url": "https://www.themoviedb.org/movie/931285-mortal-kombat-ii/watch?locale=US",
       "kind": "rent",
       "region": "US",
       "quality": "",
       "note": "TMDB 合法观看平台入口（US）",
       "enabled": true,
-      "updatedAt": "2026-06-08T09:53:25.029Z"
+      "updatedAt": "2026-06-11T05:09:39.025Z"
     },
     {
-      "id": "movie-687163-US-rent-192",
+      "id": "movie-931285-US-rent-192",
       "mediaType": "movie",
-      "tmdbId": 687163,
-      "title": "Project Hail Mary",
+      "tmdbId": 931285,
+      "title": "Mortal Kombat II",
       "label": "YouTube",
-      "url": "https://www.themoviedb.org/movie/687163-project-hail-mary/watch?locale=US",
+      "url": "https://www.themoviedb.org/movie/931285-mortal-kombat-ii/watch?locale=US",
       "kind": "rent",
       "region": "US",
       "quality": "",
       "note": "TMDB 合法观看平台入口（US）",
       "enabled": true,
-      "updatedAt": "2026-06-08T09:53:25.029Z"
+      "updatedAt": "2026-06-11T05:09:39.025Z"
     },
     {
-      "id": "movie-687163-US-buy-10",
+      "id": "movie-931285-US-buy-10",
       "mediaType": "movie",
-      "tmdbId": 687163,
-      "title": "Project Hail Mary",
+      "tmdbId": 931285,
+      "title": "Mortal Kombat II",
       "label": "Amazon Video",
-      "url": "https://www.themoviedb.org/movie/687163-project-hail-mary/watch?locale=US",
+      "url": "https://www.themoviedb.org/movie/931285-mortal-kombat-ii/watch?locale=US",
       "kind": "buy",
       "region": "US",
       "quality": "",
       "note": "TMDB 合法观看平台入口（US）",
       "enabled": true,
-      "updatedAt": "2026-06-08T09:53:25.029Z"
+      "updatedAt": "2026-06-11T05:09:39.025Z"
     },
     {
-      "id": "movie-687163-US-buy-2",
+      "id": "movie-931285-US-buy-2",
       "mediaType": "movie",
-      "tmdbId": 687163,
-      "title": "Project Hail Mary",
+      "tmdbId": 931285,
+      "title": "Mortal Kombat II",
       "label": "Apple TV Store",
-      "url": "https://www.themoviedb.org/movie/687163-project-hail-mary/watch?locale=US",
+      "url": "https://www.themoviedb.org/movie/931285-mortal-kombat-ii/watch?locale=US",
       "kind": "buy",
       "region": "US",
       "quality": "",
       "note": "TMDB 合法观看平台入口（US）",
       "enabled": true,
-      "updatedAt": "2026-06-08T09:53:25.029Z"
+      "updatedAt": "2026-06-11T05:09:39.025Z"
     },
     {
-      "id": "movie-687163-US-buy-3",
+      "id": "movie-931285-US-buy-3",
       "mediaType": "movie",
-      "tmdbId": 687163,
-      "title": "Project Hail Mary",
+      "tmdbId": 931285,
+      "title": "Mortal Kombat II",
       "label": "Google Play Movies",
-      "url": "https://www.themoviedb.org/movie/687163-project-hail-mary/watch?locale=US",
+      "url": "https://www.themoviedb.org/movie/931285-mortal-kombat-ii/watch?locale=US",
       "kind": "buy",
       "region": "US",
       "quality": "",
       "note": "TMDB 合法观看平台入口（US）",
       "enabled": true,
-      "updatedAt": "2026-06-08T09:53:25.029Z"
+      "updatedAt": "2026-06-11T05:09:39.025Z"
     },
     {
-      "id": "movie-687163-US-buy-192",
+      "id": "movie-931285-US-buy-192",
       "mediaType": "movie",
-      "tmdbId": 687163,
-      "title": "Project Hail Mary",
+      "tmdbId": 931285,
+      "title": "Mortal Kombat II",
       "label": "YouTube",
-      "url": "https://www.themoviedb.org/movie/687163-project-hail-mary/watch?locale=US",
+      "url": "https://www.themoviedb.org/movie/931285-mortal-kombat-ii/watch?locale=US",
       "kind": "buy",
       "region": "US",
       "quality": "",
       "note": "TMDB 合法观看平台入口（US）",
       "enabled": true,
-      "updatedAt": "2026-06-08T09:53:25.029Z"
+      "updatedAt": "2026-06-11T05:09:39.025Z"
     },
     {
-      "id": "movie-687163-GB-rent-2",
+      "id": "movie-931285-GB-rent-2",
       "mediaType": "movie",
-      "tmdbId": 687163,
-      "title": "Project Hail Mary",
+      "tmdbId": 931285,
+      "title": "Mortal Kombat II",
       "label": "Apple TV Store",
-      "url": "https://www.themoviedb.org/movie/687163-project-hail-mary/watch?locale=GB",
+      "url": "https://www.themoviedb.org/movie/931285-mortal-kombat-ii/watch?locale=GB",
       "kind": "rent",
       "region": "GB",
       "quality": "",
       "note": "TMDB 合法观看平台入口（GB）",
       "enabled": true,
-      "updatedAt": "2026-06-08T09:53:25.029Z"
+      "updatedAt": "2026-06-11T05:09:39.025Z"
     },
     {
-      "id": "movie-687163-GB-rent-35",
+      "id": "movie-931285-GB-rent-10",
       "mediaType": "movie",
-      "tmdbId": 687163,
-      "title": "Project Hail Mary",
-      "label": "Rakuten TV",
-      "url": "https://www.themoviedb.org/movie/687163-project-hail-mary/watch?locale=GB",
-      "kind": "rent",
-      "region": "GB",
-      "quality": "",
-      "note": "TMDB 合法观看平台入口（GB）",
-      "enabled": true,
-      "updatedAt": "2026-06-08T09:53:25.029Z"
-    },
-    {
-      "id": "movie-687163-GB-rent-10",
-      "mediaType": "movie",
-      "tmdbId": 687163,
-      "title": "Project Hail Mary",
+      "tmdbId": 931285,
+      "title": "Mortal Kombat II",
       "label": "Amazon Video",
-      "url": "https://www.themoviedb.org/movie/687163-project-hail-mary/watch?locale=GB",
+      "url": "https://www.themoviedb.org/movie/931285-mortal-kombat-ii/watch?locale=GB",
       "kind": "rent",
       "region": "GB",
       "quality": "",
       "note": "TMDB 合法观看平台入口（GB）",
       "enabled": true,
-      "updatedAt": "2026-06-08T09:53:25.029Z"
+      "updatedAt": "2026-06-11T05:09:39.025Z"
     },
     {
-      "id": "movie-687163-GB-buy-2",
+      "id": "movie-931285-GB-rent-130",
       "mediaType": "movie",
-      "tmdbId": 687163,
-      "title": "Project Hail Mary",
-      "label": "Apple TV Store",
-      "url": "https://www.themoviedb.org/movie/687163-project-hail-mary/watch?locale=GB",
-      "kind": "buy",
-      "region": "GB",
-      "quality": "",
-      "note": "TMDB 合法观看平台入口（GB）",
-      "enabled": true,
-      "updatedAt": "2026-06-08T09:53:25.029Z"
-    },
-    {
-      "id": "movie-687163-GB-buy-35",
-      "mediaType": "movie",
-      "tmdbId": 687163,
-      "title": "Project Hail Mary",
-      "label": "Rakuten TV",
-      "url": "https://www.themoviedb.org/movie/687163-project-hail-mary/watch?locale=GB",
-      "kind": "buy",
-      "region": "GB",
-      "quality": "",
-      "note": "TMDB 合法观看平台入口（GB）",
-      "enabled": true,
-      "updatedAt": "2026-06-08T09:53:25.029Z"
-    },
-    {
-      "id": "movie-687163-GB-buy-10",
-      "mediaType": "movie",
-      "tmdbId": 687163,
-      "title": "Project Hail Mary",
-      "label": "Amazon Video",
-      "url": "https://www.themoviedb.org/movie/687163-project-hail-mary/watch?locale=GB",
-      "kind": "buy",
-      "region": "GB",
-      "quality": "",
-      "note": "TMDB 合法观看平台入口（GB）",
-      "enabled": true,
-      "updatedAt": "2026-06-08T09:53:25.029Z"
-    },
-    {
-      "id": "movie-687163-GB-buy-130",
-      "mediaType": "movie",
-      "tmdbId": 687163,
-      "title": "Project Hail Mary",
+      "tmdbId": 931285,
+      "title": "Mortal Kombat II",
       "label": "Sky Store",
-      "url": "https://www.themoviedb.org/movie/687163-project-hail-mary/watch?locale=GB",
+      "url": "https://www.themoviedb.org/movie/931285-mortal-kombat-ii/watch?locale=GB",
+      "kind": "rent",
+      "region": "GB",
+      "quality": "",
+      "note": "TMDB 合法观看平台入口（GB）",
+      "enabled": true,
+      "updatedAt": "2026-06-11T05:09:39.025Z"
+    },
+    {
+      "id": "movie-931285-GB-buy-2",
+      "mediaType": "movie",
+      "tmdbId": 931285,
+      "title": "Mortal Kombat II",
+      "label": "Apple TV Store",
+      "url": "https://www.themoviedb.org/movie/931285-mortal-kombat-ii/watch?locale=GB",
       "kind": "buy",
       "region": "GB",
       "quality": "",
       "note": "TMDB 合法观看平台入口（GB）",
       "enabled": true,
-      "updatedAt": "2026-06-08T09:53:25.029Z"
+      "updatedAt": "2026-06-11T05:09:39.025Z"
     },
     {
-      "id": "movie-687163-CA-rent-2",
+      "id": "movie-931285-GB-buy-10",
       "mediaType": "movie",
-      "tmdbId": 687163,
-      "title": "Project Hail Mary",
-      "label": "Apple TV Store",
-      "url": "https://www.themoviedb.org/movie/687163-project-hail-mary/watch?locale=CA",
-      "kind": "rent",
-      "region": "CA",
+      "tmdbId": 931285,
+      "title": "Mortal Kombat II",
+      "label": "Amazon Video",
+      "url": "https://www.themoviedb.org/movie/931285-mortal-kombat-ii/watch?locale=GB",
+      "kind": "buy",
+      "region": "GB",
       "quality": "",
-      "note": "TMDB 合法观看平台入口（CA）",
+      "note": "TMDB 合法观看平台入口（GB）",
       "enabled": true,
-      "updatedAt": "2026-06-08T09:53:25.029Z"
+      "updatedAt": "2026-06-11T05:09:39.025Z"
     },
     {
-      "id": "movie-687163-CA-rent-140",
+      "id": "movie-931285-GB-buy-130",
       "mediaType": "movie",
-      "tmdbId": 687163,
-      "title": "Project Hail Mary",
+      "tmdbId": 931285,
+      "title": "Mortal Kombat II",
+      "label": "Sky Store",
+      "url": "https://www.themoviedb.org/movie/931285-mortal-kombat-ii/watch?locale=GB",
+      "kind": "buy",
+      "region": "GB",
+      "quality": "",
+      "note": "TMDB 合法观看平台入口（GB）",
+      "enabled": true,
+      "updatedAt": "2026-06-11T05:09:39.025Z"
+    },
+    {
+      "id": "movie-931285-CA-rent-140",
+      "mediaType": "movie",
+      "tmdbId": 931285,
+      "title": "Mortal Kombat II",
       "label": "CosmoGo",
-      "url": "https://www.themoviedb.org/movie/687163-project-hail-mary/watch?locale=CA",
+      "url": "https://www.themoviedb.org/movie/931285-mortal-kombat-ii/watch?locale=CA",
       "kind": "rent",
       "region": "CA",
       "quality": "",
       "note": "TMDB 合法观看平台入口（CA）",
       "enabled": true,
-      "updatedAt": "2026-06-08T09:53:25.029Z"
+      "updatedAt": "2026-06-11T05:09:39.025Z"
     },
     {
-      "id": "movie-687163-CA-rent-10",
+      "id": "movie-931285-CA-rent-10",
       "mediaType": "movie",
-      "tmdbId": 687163,
-      "title": "Project Hail Mary",
+      "tmdbId": 931285,
+      "title": "Mortal Kombat II",
       "label": "Amazon Video",
-      "url": "https://www.themoviedb.org/movie/687163-project-hail-mary/watch?locale=CA",
+      "url": "https://www.themoviedb.org/movie/931285-mortal-kombat-ii/watch?locale=CA",
       "kind": "rent",
       "region": "CA",
       "quality": "",
       "note": "TMDB 合法观看平台入口（CA）",
       "enabled": true,
-      "updatedAt": "2026-06-08T09:53:25.029Z"
+      "updatedAt": "2026-06-11T05:09:39.025Z"
     },
     {
-      "id": "movie-687163-CA-buy-2",
+      "id": "movie-931285-CA-rent-538",
       "mediaType": "movie",
-      "tmdbId": 687163,
-      "title": "Project Hail Mary",
-      "label": "Apple TV Store",
-      "url": "https://www.themoviedb.org/movie/687163-project-hail-mary/watch?locale=CA",
-      "kind": "buy",
+      "tmdbId": 931285,
+      "title": "Mortal Kombat II",
+      "label": "Plex",
+      "url": "https://www.themoviedb.org/movie/931285-mortal-kombat-ii/watch?locale=CA",
+      "kind": "rent",
       "region": "CA",
       "quality": "",
       "note": "TMDB 合法观看平台入口（CA）",
       "enabled": true,
-      "updatedAt": "2026-06-08T09:53:25.029Z"
+      "updatedAt": "2026-06-11T05:09:39.025Z"
     },
     {
-      "id": "movie-687163-CA-buy-140",
+      "id": "movie-931285-CA-buy-140",
       "mediaType": "movie",
-      "tmdbId": 687163,
-      "title": "Project Hail Mary",
+      "tmdbId": 931285,
+      "title": "Mortal Kombat II",
       "label": "CosmoGo",
-      "url": "https://www.themoviedb.org/movie/687163-project-hail-mary/watch?locale=CA",
+      "url": "https://www.themoviedb.org/movie/931285-mortal-kombat-ii/watch?locale=CA",
       "kind": "buy",
       "region": "CA",
       "quality": "",
       "note": "TMDB 合法观看平台入口（CA）",
       "enabled": true,
-      "updatedAt": "2026-06-08T09:53:25.029Z"
+      "updatedAt": "2026-06-11T05:09:39.025Z"
     },
     {
-      "id": "movie-687163-CA-buy-10",
+      "id": "movie-931285-CA-buy-10",
       "mediaType": "movie",
-      "tmdbId": 687163,
-      "title": "Project Hail Mary",
+      "tmdbId": 931285,
+      "title": "Mortal Kombat II",
       "label": "Amazon Video",
-      "url": "https://www.themoviedb.org/movie/687163-project-hail-mary/watch?locale=CA",
+      "url": "https://www.themoviedb.org/movie/931285-mortal-kombat-ii/watch?locale=CA",
       "kind": "buy",
       "region": "CA",
       "quality": "",
       "note": "TMDB 合法观看平台入口（CA）",
       "enabled": true,
-      "updatedAt": "2026-06-08T09:53:25.029Z"
+      "updatedAt": "2026-06-11T05:09:39.025Z"
     },
     {
-      "id": "movie-687163-AU-rent-2",
+      "id": "movie-931285-AU-rent-2285",
       "mediaType": "movie",
-      "tmdbId": 687163,
-      "title": "Project Hail Mary",
+      "tmdbId": 931285,
+      "title": "Mortal Kombat II",
+      "label": "JustWatch TV",
+      "url": "https://www.themoviedb.org/movie/931285-mortal-kombat-ii/watch?locale=AU",
+      "kind": "rent",
+      "region": "AU",
+      "quality": "",
+      "note": "TMDB 合法观看平台入口（AU）",
+      "enabled": true,
+      "updatedAt": "2026-06-11T05:09:39.025Z"
+    },
+    {
+      "id": "movie-931285-AU-rent-2",
+      "mediaType": "movie",
+      "tmdbId": 931285,
+      "title": "Mortal Kombat II",
       "label": "Apple TV Store",
-      "url": "https://www.themoviedb.org/movie/687163-project-hail-mary/watch?locale=AU",
+      "url": "https://www.themoviedb.org/movie/931285-mortal-kombat-ii/watch?locale=AU",
       "kind": "rent",
       "region": "AU",
       "quality": "",
       "note": "TMDB 合法观看平台入口（AU）",
       "enabled": true,
-      "updatedAt": "2026-06-08T09:53:25.029Z"
+      "updatedAt": "2026-06-11T05:09:39.025Z"
     },
     {
-      "id": "movie-687163-AU-rent-10",
+      "id": "movie-931285-AU-rent-10",
       "mediaType": "movie",
-      "tmdbId": 687163,
-      "title": "Project Hail Mary",
+      "tmdbId": 931285,
+      "title": "Mortal Kombat II",
       "label": "Amazon Video",
-      "url": "https://www.themoviedb.org/movie/687163-project-hail-mary/watch?locale=AU",
+      "url": "https://www.themoviedb.org/movie/931285-mortal-kombat-ii/watch?locale=AU",
       "kind": "rent",
       "region": "AU",
       "quality": "",
       "note": "TMDB 合法观看平台入口（AU）",
       "enabled": true,
-      "updatedAt": "2026-06-08T09:53:25.029Z"
+      "updatedAt": "2026-06-11T05:09:39.025Z"
     },
     {
-      "id": "movie-687163-AU-rent-436",
+      "id": "movie-931285-AU-buy-2",
       "mediaType": "movie",
-      "tmdbId": 687163,
-      "title": "Project Hail Mary",
-      "label": "Fetch TV",
-      "url": "https://www.themoviedb.org/movie/687163-project-hail-mary/watch?locale=AU",
-      "kind": "rent",
-      "region": "AU",
-      "quality": "",
-      "note": "TMDB 合法观看平台入口（AU）",
-      "enabled": true,
-      "updatedAt": "2026-06-08T09:53:25.029Z"
-    },
-    {
-      "id": "movie-687163-AU-buy-2",
-      "mediaType": "movie",
-      "tmdbId": 687163,
-      "title": "Project Hail Mary",
+      "tmdbId": 931285,
+      "title": "Mortal Kombat II",
       "label": "Apple TV Store",
-      "url": "https://www.themoviedb.org/movie/687163-project-hail-mary/watch?locale=AU",
+      "url": "https://www.themoviedb.org/movie/931285-mortal-kombat-ii/watch?locale=AU",
       "kind": "buy",
       "region": "AU",
       "quality": "",
       "note": "TMDB 合法观看平台入口（AU）",
       "enabled": true,
-      "updatedAt": "2026-06-08T09:53:25.029Z"
+      "updatedAt": "2026-06-11T05:09:39.025Z"
     },
     {
-      "id": "movie-687163-AU-buy-10",
+      "id": "movie-931285-AU-buy-10",
       "mediaType": "movie",
-      "tmdbId": 687163,
-      "title": "Project Hail Mary",
+      "tmdbId": 931285,
+      "title": "Mortal Kombat II",
       "label": "Amazon Video",
-      "url": "https://www.themoviedb.org/movie/687163-project-hail-mary/watch?locale=AU",
+      "url": "https://www.themoviedb.org/movie/931285-mortal-kombat-ii/watch?locale=AU",
       "kind": "buy",
       "region": "AU",
       "quality": "",
       "note": "TMDB 合法观看平台入口（AU）",
       "enabled": true,
-      "updatedAt": "2026-06-08T09:53:25.029Z"
-    },
-    {
-      "id": "movie-687163-AU-buy-436",
-      "mediaType": "movie",
-      "tmdbId": 687163,
-      "title": "Project Hail Mary",
-      "label": "Fetch TV",
-      "url": "https://www.themoviedb.org/movie/687163-project-hail-mary/watch?locale=AU",
-      "kind": "buy",
-      "region": "AU",
-      "quality": "",
-      "note": "TMDB 合法观看平台入口（AU）",
-      "enabled": true,
-      "updatedAt": "2026-06-08T09:53:25.029Z"
-    },
-    {
-      "id": "movie-1439930-US-stream-337",
-      "mediaType": "movie",
-      "tmdbId": 1439930,
-      "title": "The Punisher: One Last Kill",
-      "label": "Disney Plus",
-      "url": "https://www.themoviedb.org/movie/1439930-the-punisher-one-last-kill/watch?locale=US",
-      "kind": "stream",
-      "region": "US",
-      "quality": "",
-      "note": "TMDB 合法观看平台入口（US）",
-      "enabled": true,
-      "updatedAt": "2026-06-08T09:53:25.034Z"
-    },
-    {
-      "id": "movie-1439930-GB-stream-337",
-      "mediaType": "movie",
-      "tmdbId": 1439930,
-      "title": "The Punisher: One Last Kill",
-      "label": "Disney Plus",
-      "url": "https://www.themoviedb.org/movie/1439930-the-punisher-one-last-kill/watch?locale=GB",
-      "kind": "stream",
-      "region": "GB",
-      "quality": "",
-      "note": "TMDB 合法观看平台入口（GB）",
-      "enabled": true,
-      "updatedAt": "2026-06-08T09:53:25.034Z"
-    },
-    {
-      "id": "movie-1439930-CA-stream-337",
-      "mediaType": "movie",
-      "tmdbId": 1439930,
-      "title": "The Punisher: One Last Kill",
-      "label": "Disney Plus",
-      "url": "https://www.themoviedb.org/movie/1439930-the-punisher-one-last-kill/watch?locale=CA",
-      "kind": "stream",
-      "region": "CA",
-      "quality": "",
-      "note": "TMDB 合法观看平台入口（CA）",
-      "enabled": true,
-      "updatedAt": "2026-06-08T09:53:25.034Z"
-    },
-    {
-      "id": "movie-1439930-AU-stream-337",
-      "mediaType": "movie",
-      "tmdbId": 1439930,
-      "title": "The Punisher: One Last Kill",
-      "label": "Disney Plus",
-      "url": "https://www.themoviedb.org/movie/1439930-the-punisher-one-last-kill/watch?locale=AU",
-      "kind": "stream",
-      "region": "AU",
-      "quality": "",
-      "note": "TMDB 合法观看平台入口（AU）",
-      "enabled": true,
-      "updatedAt": "2026-06-08T09:53:25.034Z"
-    },
-    {
-      "id": "movie-1380291-US-stream-9",
-      "mediaType": "movie",
-      "tmdbId": 1380291,
-      "title": "Tom Clancy's Jack Ryan: Ghost War",
-      "label": "Amazon Prime Video",
-      "url": "https://www.themoviedb.org/movie/1380291-tom-clancy-s-jack-ryan-ghost-war/watch?locale=US",
-      "kind": "stream",
-      "region": "US",
-      "quality": "",
-      "note": "TMDB 合法观看平台入口（US）",
-      "enabled": true,
-      "updatedAt": "2026-06-08T09:53:25.044Z"
-    },
-    {
-      "id": "movie-1380291-US-stream-2100",
-      "mediaType": "movie",
-      "tmdbId": 1380291,
-      "title": "Tom Clancy's Jack Ryan: Ghost War",
-      "label": "Amazon Prime Video with Ads",
-      "url": "https://www.themoviedb.org/movie/1380291-tom-clancy-s-jack-ryan-ghost-war/watch?locale=US",
-      "kind": "stream",
-      "region": "US",
-      "quality": "",
-      "note": "TMDB 合法观看平台入口（US）",
-      "enabled": true,
-      "updatedAt": "2026-06-08T09:53:25.044Z"
-    },
-    {
-      "id": "movie-1380291-GB-stream-9",
-      "mediaType": "movie",
-      "tmdbId": 1380291,
-      "title": "Tom Clancy's Jack Ryan: Ghost War",
-      "label": "Amazon Prime Video",
-      "url": "https://www.themoviedb.org/movie/1380291-tom-clancy-s-jack-ryan-ghost-war/watch?locale=GB",
-      "kind": "stream",
-      "region": "GB",
-      "quality": "",
-      "note": "TMDB 合法观看平台入口（GB）",
-      "enabled": true,
-      "updatedAt": "2026-06-08T09:53:25.044Z"
-    },
-    {
-      "id": "movie-1380291-GB-stream-2100",
-      "mediaType": "movie",
-      "tmdbId": 1380291,
-      "title": "Tom Clancy's Jack Ryan: Ghost War",
-      "label": "Amazon Prime Video with Ads",
-      "url": "https://www.themoviedb.org/movie/1380291-tom-clancy-s-jack-ryan-ghost-war/watch?locale=GB",
-      "kind": "stream",
-      "region": "GB",
-      "quality": "",
-      "note": "TMDB 合法观看平台入口（GB）",
-      "enabled": true,
-      "updatedAt": "2026-06-08T09:53:25.044Z"
-    },
-    {
-      "id": "movie-1380291-CA-stream-119",
-      "mediaType": "movie",
-      "tmdbId": 1380291,
-      "title": "Tom Clancy's Jack Ryan: Ghost War",
-      "label": "Amazon Prime Video",
-      "url": "https://www.themoviedb.org/movie/1380291-tom-clancy-s-jack-ryan-ghost-war/watch?locale=CA",
-      "kind": "stream",
-      "region": "CA",
-      "quality": "",
-      "note": "TMDB 合法观看平台入口（CA）",
-      "enabled": true,
-      "updatedAt": "2026-06-08T09:53:25.044Z"
-    },
-    {
-      "id": "movie-1380291-CA-stream-2100",
-      "mediaType": "movie",
-      "tmdbId": 1380291,
-      "title": "Tom Clancy's Jack Ryan: Ghost War",
-      "label": "Amazon Prime Video with Ads",
-      "url": "https://www.themoviedb.org/movie/1380291-tom-clancy-s-jack-ryan-ghost-war/watch?locale=CA",
-      "kind": "stream",
-      "region": "CA",
-      "quality": "",
-      "note": "TMDB 合法观看平台入口（CA）",
-      "enabled": true,
-      "updatedAt": "2026-06-08T09:53:25.044Z"
-    },
-    {
-      "id": "movie-1380291-AU-stream-119",
-      "mediaType": "movie",
-      "tmdbId": 1380291,
-      "title": "Tom Clancy's Jack Ryan: Ghost War",
-      "label": "Amazon Prime Video",
-      "url": "https://www.themoviedb.org/movie/1380291-tom-clancy-s-jack-ryan-ghost-war/watch?locale=AU",
-      "kind": "stream",
-      "region": "AU",
-      "quality": "",
-      "note": "TMDB 合法观看平台入口（AU）",
-      "enabled": true,
-      "updatedAt": "2026-06-08T09:53:25.044Z"
-    },
-    {
-      "id": "movie-1380291-AU-stream-2100",
-      "mediaType": "movie",
-      "tmdbId": 1380291,
-      "title": "Tom Clancy's Jack Ryan: Ghost War",
-      "label": "Amazon Prime Video with Ads",
-      "url": "https://www.themoviedb.org/movie/1380291-tom-clancy-s-jack-ryan-ghost-war/watch?locale=AU",
-      "kind": "stream",
-      "region": "AU",
-      "quality": "",
-      "note": "TMDB 合法观看平台入口（AU）",
-      "enabled": true,
-      "updatedAt": "2026-06-08T09:53:25.044Z"
-    },
-    {
-      "id": "movie-1122573-US-rent-10",
-      "mediaType": "movie",
-      "tmdbId": 1122573,
-      "title": "In the Grey",
-      "label": "Amazon Video",
-      "url": "https://www.themoviedb.org/movie/1122573-in-the-grey/watch?locale=US",
-      "kind": "rent",
-      "region": "US",
-      "quality": "",
-      "note": "TMDB 合法观看平台入口（US）",
-      "enabled": true,
-      "updatedAt": "2026-06-08T09:53:25.056Z"
-    },
-    {
-      "id": "movie-1122573-US-rent-2",
-      "mediaType": "movie",
-      "tmdbId": 1122573,
-      "title": "In the Grey",
-      "label": "Apple TV Store",
-      "url": "https://www.themoviedb.org/movie/1122573-in-the-grey/watch?locale=US",
-      "kind": "rent",
-      "region": "US",
-      "quality": "",
-      "note": "TMDB 合法观看平台入口（US）",
-      "enabled": true,
-      "updatedAt": "2026-06-08T09:53:25.056Z"
-    },
-    {
-      "id": "movie-1122573-US-rent-3",
-      "mediaType": "movie",
-      "tmdbId": 1122573,
-      "title": "In the Grey",
-      "label": "Google Play Movies",
-      "url": "https://www.themoviedb.org/movie/1122573-in-the-grey/watch?locale=US",
-      "kind": "rent",
-      "region": "US",
-      "quality": "",
-      "note": "TMDB 合法观看平台入口（US）",
-      "enabled": true,
-      "updatedAt": "2026-06-08T09:53:25.056Z"
-    },
-    {
-      "id": "movie-1122573-US-rent-192",
-      "mediaType": "movie",
-      "tmdbId": 1122573,
-      "title": "In the Grey",
-      "label": "YouTube",
-      "url": "https://www.themoviedb.org/movie/1122573-in-the-grey/watch?locale=US",
-      "kind": "rent",
-      "region": "US",
-      "quality": "",
-      "note": "TMDB 合法观看平台入口（US）",
-      "enabled": true,
-      "updatedAt": "2026-06-08T09:53:25.056Z"
-    },
-    {
-      "id": "movie-1122573-US-buy-10",
-      "mediaType": "movie",
-      "tmdbId": 1122573,
-      "title": "In the Grey",
-      "label": "Amazon Video",
-      "url": "https://www.themoviedb.org/movie/1122573-in-the-grey/watch?locale=US",
-      "kind": "buy",
-      "region": "US",
-      "quality": "",
-      "note": "TMDB 合法观看平台入口（US）",
-      "enabled": true,
-      "updatedAt": "2026-06-08T09:53:25.056Z"
-    },
-    {
-      "id": "movie-1122573-US-buy-2",
-      "mediaType": "movie",
-      "tmdbId": 1122573,
-      "title": "In the Grey",
-      "label": "Apple TV Store",
-      "url": "https://www.themoviedb.org/movie/1122573-in-the-grey/watch?locale=US",
-      "kind": "buy",
-      "region": "US",
-      "quality": "",
-      "note": "TMDB 合法观看平台入口（US）",
-      "enabled": true,
-      "updatedAt": "2026-06-08T09:53:25.056Z"
-    },
-    {
-      "id": "movie-1122573-US-buy-3",
-      "mediaType": "movie",
-      "tmdbId": 1122573,
-      "title": "In the Grey",
-      "label": "Google Play Movies",
-      "url": "https://www.themoviedb.org/movie/1122573-in-the-grey/watch?locale=US",
-      "kind": "buy",
-      "region": "US",
-      "quality": "",
-      "note": "TMDB 合法观看平台入口（US）",
-      "enabled": true,
-      "updatedAt": "2026-06-08T09:53:25.056Z"
-    },
-    {
-      "id": "movie-1122573-US-buy-192",
-      "mediaType": "movie",
-      "tmdbId": 1122573,
-      "title": "In the Grey",
-      "label": "YouTube",
-      "url": "https://www.themoviedb.org/movie/1122573-in-the-grey/watch?locale=US",
-      "kind": "buy",
-      "region": "US",
-      "quality": "",
-      "note": "TMDB 合法观看平台入口（US）",
-      "enabled": true,
-      "updatedAt": "2026-06-08T09:53:25.056Z"
+      "updatedAt": "2026-06-11T05:09:39.025Z"
     },
     {
       "id": "movie-1358005-US-stream-8",
@@ -1539,7 +1371,7 @@
       "quality": "",
       "note": "TMDB 合法观看平台入口（US）",
       "enabled": true,
-      "updatedAt": "2026-06-08T09:53:25.069Z"
+      "updatedAt": "2026-06-11T05:09:39.052Z"
     },
     {
       "id": "movie-1358005-US-stream-1796",
@@ -1553,7 +1385,7 @@
       "quality": "",
       "note": "TMDB 合法观看平台入口（US）",
       "enabled": true,
-      "updatedAt": "2026-06-08T09:53:25.069Z"
+      "updatedAt": "2026-06-11T05:09:39.052Z"
     },
     {
       "id": "movie-1358005-GB-stream-8",
@@ -1567,7 +1399,7 @@
       "quality": "",
       "note": "TMDB 合法观看平台入口（GB）",
       "enabled": true,
-      "updatedAt": "2026-06-08T09:53:25.069Z"
+      "updatedAt": "2026-06-11T05:09:39.052Z"
     },
     {
       "id": "movie-1358005-GB-stream-1796",
@@ -1581,7 +1413,7 @@
       "quality": "",
       "note": "TMDB 合法观看平台入口（GB）",
       "enabled": true,
-      "updatedAt": "2026-06-08T09:53:25.069Z"
+      "updatedAt": "2026-06-11T05:09:39.052Z"
     },
     {
       "id": "movie-1358005-CA-stream-8",
@@ -1595,7 +1427,7 @@
       "quality": "",
       "note": "TMDB 合法观看平台入口（CA）",
       "enabled": true,
-      "updatedAt": "2026-06-08T09:53:25.069Z"
+      "updatedAt": "2026-06-11T05:09:39.052Z"
     },
     {
       "id": "movie-1358005-CA-stream-1796",
@@ -1609,7 +1441,7 @@
       "quality": "",
       "note": "TMDB 合法观看平台入口（CA）",
       "enabled": true,
-      "updatedAt": "2026-06-08T09:53:25.069Z"
+      "updatedAt": "2026-06-11T05:09:39.052Z"
     },
     {
       "id": "movie-1358005-AU-stream-8",
@@ -1623,7 +1455,7 @@
       "quality": "",
       "note": "TMDB 合法观看平台入口（AU）",
       "enabled": true,
-      "updatedAt": "2026-06-08T09:53:25.069Z"
+      "updatedAt": "2026-06-11T05:09:39.052Z"
     },
     {
       "id": "movie-1358005-AU-stream-1796",
@@ -1637,119 +1469,679 @@
       "quality": "",
       "note": "TMDB 合法观看平台入口（AU）",
       "enabled": true,
-      "updatedAt": "2026-06-08T09:53:25.069Z"
+      "updatedAt": "2026-06-11T05:09:39.052Z"
     },
     {
-      "id": "movie-1582770-US-stream-8",
+      "id": "movie-1122573-US-rent-10",
       "mediaType": "movie",
-      "tmdbId": 1582770,
-      "title": "Dhurandhar: The Revenge",
+      "tmdbId": 1122573,
+      "title": "In the Grey",
+      "label": "Amazon Video",
+      "url": "https://www.themoviedb.org/movie/1122573-in-the-grey/watch?locale=US",
+      "kind": "rent",
+      "region": "US",
+      "quality": "",
+      "note": "TMDB 合法观看平台入口（US）",
+      "enabled": true,
+      "updatedAt": "2026-06-11T05:09:39.077Z"
+    },
+    {
+      "id": "movie-1122573-US-rent-2",
+      "mediaType": "movie",
+      "tmdbId": 1122573,
+      "title": "In the Grey",
+      "label": "Apple TV Store",
+      "url": "https://www.themoviedb.org/movie/1122573-in-the-grey/watch?locale=US",
+      "kind": "rent",
+      "region": "US",
+      "quality": "",
+      "note": "TMDB 合法观看平台入口（US）",
+      "enabled": true,
+      "updatedAt": "2026-06-11T05:09:39.077Z"
+    },
+    {
+      "id": "movie-1122573-US-rent-3",
+      "mediaType": "movie",
+      "tmdbId": 1122573,
+      "title": "In the Grey",
+      "label": "Google Play Movies",
+      "url": "https://www.themoviedb.org/movie/1122573-in-the-grey/watch?locale=US",
+      "kind": "rent",
+      "region": "US",
+      "quality": "",
+      "note": "TMDB 合法观看平台入口（US）",
+      "enabled": true,
+      "updatedAt": "2026-06-11T05:09:39.077Z"
+    },
+    {
+      "id": "movie-1122573-US-rent-192",
+      "mediaType": "movie",
+      "tmdbId": 1122573,
+      "title": "In the Grey",
+      "label": "YouTube",
+      "url": "https://www.themoviedb.org/movie/1122573-in-the-grey/watch?locale=US",
+      "kind": "rent",
+      "region": "US",
+      "quality": "",
+      "note": "TMDB 合法观看平台入口（US）",
+      "enabled": true,
+      "updatedAt": "2026-06-11T05:09:39.077Z"
+    },
+    {
+      "id": "movie-1122573-US-buy-10",
+      "mediaType": "movie",
+      "tmdbId": 1122573,
+      "title": "In the Grey",
+      "label": "Amazon Video",
+      "url": "https://www.themoviedb.org/movie/1122573-in-the-grey/watch?locale=US",
+      "kind": "buy",
+      "region": "US",
+      "quality": "",
+      "note": "TMDB 合法观看平台入口（US）",
+      "enabled": true,
+      "updatedAt": "2026-06-11T05:09:39.077Z"
+    },
+    {
+      "id": "movie-1122573-US-buy-2",
+      "mediaType": "movie",
+      "tmdbId": 1122573,
+      "title": "In the Grey",
+      "label": "Apple TV Store",
+      "url": "https://www.themoviedb.org/movie/1122573-in-the-grey/watch?locale=US",
+      "kind": "buy",
+      "region": "US",
+      "quality": "",
+      "note": "TMDB 合法观看平台入口（US）",
+      "enabled": true,
+      "updatedAt": "2026-06-11T05:09:39.077Z"
+    },
+    {
+      "id": "movie-1122573-US-buy-3",
+      "mediaType": "movie",
+      "tmdbId": 1122573,
+      "title": "In the Grey",
+      "label": "Google Play Movies",
+      "url": "https://www.themoviedb.org/movie/1122573-in-the-grey/watch?locale=US",
+      "kind": "buy",
+      "region": "US",
+      "quality": "",
+      "note": "TMDB 合法观看平台入口（US）",
+      "enabled": true,
+      "updatedAt": "2026-06-11T05:09:39.077Z"
+    },
+    {
+      "id": "movie-1122573-US-buy-192",
+      "mediaType": "movie",
+      "tmdbId": 1122573,
+      "title": "In the Grey",
+      "label": "YouTube",
+      "url": "https://www.themoviedb.org/movie/1122573-in-the-grey/watch?locale=US",
+      "kind": "buy",
+      "region": "US",
+      "quality": "",
+      "note": "TMDB 合法观看平台入口（US）",
+      "enabled": true,
+      "updatedAt": "2026-06-11T05:09:39.077Z"
+    },
+    {
+      "id": "movie-1122573-AU-rent-10",
+      "mediaType": "movie",
+      "tmdbId": 1122573,
+      "title": "In the Grey",
+      "label": "Amazon Video",
+      "url": "https://www.themoviedb.org/movie/1122573-in-the-grey/watch?locale=AU",
+      "kind": "rent",
+      "region": "AU",
+      "quality": "",
+      "note": "TMDB 合法观看平台入口（AU）",
+      "enabled": true,
+      "updatedAt": "2026-06-11T05:09:39.077Z"
+    },
+    {
+      "id": "movie-1433117-US-stream-8",
+      "mediaType": "movie",
+      "tmdbId": 1433117,
+      "title": "Kara",
       "label": "Netflix",
-      "url": "https://www.themoviedb.org/movie/1582770/watch?locale=US",
+      "url": "https://www.themoviedb.org/movie/1433117/watch?locale=US",
       "kind": "stream",
       "region": "US",
       "quality": "",
       "note": "TMDB 合法观看平台入口（US）",
       "enabled": true,
-      "updatedAt": "2026-06-08T09:53:25.080Z"
+      "updatedAt": "2026-06-11T05:09:39.089Z"
     },
     {
-      "id": "movie-1582770-US-stream-1796",
+      "id": "movie-1433117-US-stream-1796",
       "mediaType": "movie",
-      "tmdbId": 1582770,
-      "title": "Dhurandhar: The Revenge",
+      "tmdbId": 1433117,
+      "title": "Kara",
       "label": "Netflix Standard with Ads",
-      "url": "https://www.themoviedb.org/movie/1582770/watch?locale=US",
+      "url": "https://www.themoviedb.org/movie/1433117/watch?locale=US",
       "kind": "stream",
       "region": "US",
       "quality": "",
       "note": "TMDB 合法观看平台入口（US）",
       "enabled": true,
-      "updatedAt": "2026-06-08T09:53:25.080Z"
+      "updatedAt": "2026-06-11T05:09:39.089Z"
     },
     {
-      "id": "movie-1582770-GB-stream-8",
+      "id": "movie-1433117-GB-stream-8",
       "mediaType": "movie",
-      "tmdbId": 1582770,
-      "title": "Dhurandhar: The Revenge",
+      "tmdbId": 1433117,
+      "title": "Kara",
       "label": "Netflix",
-      "url": "https://www.themoviedb.org/movie/1582770/watch?locale=GB",
+      "url": "https://www.themoviedb.org/movie/1433117/watch?locale=GB",
       "kind": "stream",
       "region": "GB",
       "quality": "",
       "note": "TMDB 合法观看平台入口（GB）",
       "enabled": true,
-      "updatedAt": "2026-06-08T09:53:25.080Z"
+      "updatedAt": "2026-06-11T05:09:39.089Z"
     },
     {
-      "id": "movie-1582770-GB-stream-1796",
+      "id": "movie-1433117-GB-stream-1796",
       "mediaType": "movie",
-      "tmdbId": 1582770,
-      "title": "Dhurandhar: The Revenge",
+      "tmdbId": 1433117,
+      "title": "Kara",
       "label": "Netflix Standard with Ads",
-      "url": "https://www.themoviedb.org/movie/1582770/watch?locale=GB",
+      "url": "https://www.themoviedb.org/movie/1433117/watch?locale=GB",
       "kind": "stream",
       "region": "GB",
       "quality": "",
       "note": "TMDB 合法观看平台入口（GB）",
       "enabled": true,
-      "updatedAt": "2026-06-08T09:53:25.080Z"
+      "updatedAt": "2026-06-11T05:09:39.089Z"
     },
     {
-      "id": "movie-1582770-CA-stream-8",
+      "id": "movie-1433117-CA-stream-8",
       "mediaType": "movie",
-      "tmdbId": 1582770,
-      "title": "Dhurandhar: The Revenge",
+      "tmdbId": 1433117,
+      "title": "Kara",
       "label": "Netflix",
-      "url": "https://www.themoviedb.org/movie/1582770/watch?locale=CA",
+      "url": "https://www.themoviedb.org/movie/1433117/watch?locale=CA",
       "kind": "stream",
       "region": "CA",
       "quality": "",
       "note": "TMDB 合法观看平台入口（CA）",
       "enabled": true,
-      "updatedAt": "2026-06-08T09:53:25.080Z"
+      "updatedAt": "2026-06-11T05:09:39.089Z"
     },
     {
-      "id": "movie-1582770-CA-stream-1796",
+      "id": "movie-1433117-CA-stream-1796",
       "mediaType": "movie",
-      "tmdbId": 1582770,
-      "title": "Dhurandhar: The Revenge",
+      "tmdbId": 1433117,
+      "title": "Kara",
       "label": "Netflix Standard with Ads",
-      "url": "https://www.themoviedb.org/movie/1582770/watch?locale=CA",
+      "url": "https://www.themoviedb.org/movie/1433117/watch?locale=CA",
       "kind": "stream",
       "region": "CA",
       "quality": "",
       "note": "TMDB 合法观看平台入口（CA）",
       "enabled": true,
-      "updatedAt": "2026-06-08T09:53:25.080Z"
+      "updatedAt": "2026-06-11T05:09:39.089Z"
     },
     {
-      "id": "movie-1582770-AU-stream-8",
+      "id": "movie-1433117-AU-stream-8",
       "mediaType": "movie",
-      "tmdbId": 1582770,
-      "title": "Dhurandhar: The Revenge",
+      "tmdbId": 1433117,
+      "title": "Kara",
       "label": "Netflix",
-      "url": "https://www.themoviedb.org/movie/1582770/watch?locale=AU",
+      "url": "https://www.themoviedb.org/movie/1433117/watch?locale=AU",
       "kind": "stream",
       "region": "AU",
       "quality": "",
       "note": "TMDB 合法观看平台入口（AU）",
       "enabled": true,
-      "updatedAt": "2026-06-08T09:53:25.080Z"
+      "updatedAt": "2026-06-11T05:09:39.089Z"
     },
     {
-      "id": "movie-1582770-AU-stream-1796",
+      "id": "movie-1433117-AU-stream-1796",
       "mediaType": "movie",
-      "tmdbId": 1582770,
-      "title": "Dhurandhar: The Revenge",
+      "tmdbId": 1433117,
+      "title": "Kara",
       "label": "Netflix Standard with Ads",
-      "url": "https://www.themoviedb.org/movie/1582770/watch?locale=AU",
+      "url": "https://www.themoviedb.org/movie/1433117/watch?locale=AU",
       "kind": "stream",
       "region": "AU",
       "quality": "",
       "note": "TMDB 合法观看平台入口（AU）",
       "enabled": true,
-      "updatedAt": "2026-06-08T09:53:25.080Z"
+      "updatedAt": "2026-06-11T05:09:39.089Z"
+    },
+    {
+      "id": "movie-1439930-US-stream-337",
+      "mediaType": "movie",
+      "tmdbId": 1439930,
+      "title": "The Punisher: One Last Kill",
+      "label": "Disney Plus",
+      "url": "https://www.themoviedb.org/movie/1439930-the-punisher-one-last-kill/watch?locale=US",
+      "kind": "stream",
+      "region": "US",
+      "quality": "",
+      "note": "TMDB 合法观看平台入口（US）",
+      "enabled": true,
+      "updatedAt": "2026-06-11T05:09:39.114Z"
+    },
+    {
+      "id": "movie-1439930-GB-stream-337",
+      "mediaType": "movie",
+      "tmdbId": 1439930,
+      "title": "The Punisher: One Last Kill",
+      "label": "Disney Plus",
+      "url": "https://www.themoviedb.org/movie/1439930-the-punisher-one-last-kill/watch?locale=GB",
+      "kind": "stream",
+      "region": "GB",
+      "quality": "",
+      "note": "TMDB 合法观看平台入口（GB）",
+      "enabled": true,
+      "updatedAt": "2026-06-11T05:09:39.114Z"
+    },
+    {
+      "id": "movie-1439930-CA-stream-337",
+      "mediaType": "movie",
+      "tmdbId": 1439930,
+      "title": "The Punisher: One Last Kill",
+      "label": "Disney Plus",
+      "url": "https://www.themoviedb.org/movie/1439930-the-punisher-one-last-kill/watch?locale=CA",
+      "kind": "stream",
+      "region": "CA",
+      "quality": "",
+      "note": "TMDB 合法观看平台入口（CA）",
+      "enabled": true,
+      "updatedAt": "2026-06-11T05:09:39.114Z"
+    },
+    {
+      "id": "movie-1439930-AU-stream-337",
+      "mediaType": "movie",
+      "tmdbId": 1439930,
+      "title": "The Punisher: One Last Kill",
+      "label": "Disney Plus",
+      "url": "https://www.themoviedb.org/movie/1439930-the-punisher-one-last-kill/watch?locale=AU",
+      "kind": "stream",
+      "region": "AU",
+      "quality": "",
+      "note": "TMDB 合法观看平台入口（AU）",
+      "enabled": true,
+      "updatedAt": "2026-06-11T05:09:39.114Z"
+    },
+    {
+      "id": "movie-687163-US-rent-10",
+      "mediaType": "movie",
+      "tmdbId": 687163,
+      "title": "Project Hail Mary",
+      "label": "Amazon Video",
+      "url": "https://www.themoviedb.org/movie/687163-project-hail-mary/watch?locale=US",
+      "kind": "rent",
+      "region": "US",
+      "quality": "",
+      "note": "TMDB 合法观看平台入口（US）",
+      "enabled": true,
+      "updatedAt": "2026-06-11T05:09:39.126Z"
+    },
+    {
+      "id": "movie-687163-US-rent-2",
+      "mediaType": "movie",
+      "tmdbId": 687163,
+      "title": "Project Hail Mary",
+      "label": "Apple TV Store",
+      "url": "https://www.themoviedb.org/movie/687163-project-hail-mary/watch?locale=US",
+      "kind": "rent",
+      "region": "US",
+      "quality": "",
+      "note": "TMDB 合法观看平台入口（US）",
+      "enabled": true,
+      "updatedAt": "2026-06-11T05:09:39.126Z"
+    },
+    {
+      "id": "movie-687163-US-rent-3",
+      "mediaType": "movie",
+      "tmdbId": 687163,
+      "title": "Project Hail Mary",
+      "label": "Google Play Movies",
+      "url": "https://www.themoviedb.org/movie/687163-project-hail-mary/watch?locale=US",
+      "kind": "rent",
+      "region": "US",
+      "quality": "",
+      "note": "TMDB 合法观看平台入口（US）",
+      "enabled": true,
+      "updatedAt": "2026-06-11T05:09:39.126Z"
+    },
+    {
+      "id": "movie-687163-US-rent-192",
+      "mediaType": "movie",
+      "tmdbId": 687163,
+      "title": "Project Hail Mary",
+      "label": "YouTube",
+      "url": "https://www.themoviedb.org/movie/687163-project-hail-mary/watch?locale=US",
+      "kind": "rent",
+      "region": "US",
+      "quality": "",
+      "note": "TMDB 合法观看平台入口（US）",
+      "enabled": true,
+      "updatedAt": "2026-06-11T05:09:39.126Z"
+    },
+    {
+      "id": "movie-687163-US-buy-10",
+      "mediaType": "movie",
+      "tmdbId": 687163,
+      "title": "Project Hail Mary",
+      "label": "Amazon Video",
+      "url": "https://www.themoviedb.org/movie/687163-project-hail-mary/watch?locale=US",
+      "kind": "buy",
+      "region": "US",
+      "quality": "",
+      "note": "TMDB 合法观看平台入口（US）",
+      "enabled": true,
+      "updatedAt": "2026-06-11T05:09:39.126Z"
+    },
+    {
+      "id": "movie-687163-US-buy-2",
+      "mediaType": "movie",
+      "tmdbId": 687163,
+      "title": "Project Hail Mary",
+      "label": "Apple TV Store",
+      "url": "https://www.themoviedb.org/movie/687163-project-hail-mary/watch?locale=US",
+      "kind": "buy",
+      "region": "US",
+      "quality": "",
+      "note": "TMDB 合法观看平台入口（US）",
+      "enabled": true,
+      "updatedAt": "2026-06-11T05:09:39.126Z"
+    },
+    {
+      "id": "movie-687163-US-buy-3",
+      "mediaType": "movie",
+      "tmdbId": 687163,
+      "title": "Project Hail Mary",
+      "label": "Google Play Movies",
+      "url": "https://www.themoviedb.org/movie/687163-project-hail-mary/watch?locale=US",
+      "kind": "buy",
+      "region": "US",
+      "quality": "",
+      "note": "TMDB 合法观看平台入口（US）",
+      "enabled": true,
+      "updatedAt": "2026-06-11T05:09:39.126Z"
+    },
+    {
+      "id": "movie-687163-US-buy-192",
+      "mediaType": "movie",
+      "tmdbId": 687163,
+      "title": "Project Hail Mary",
+      "label": "YouTube",
+      "url": "https://www.themoviedb.org/movie/687163-project-hail-mary/watch?locale=US",
+      "kind": "buy",
+      "region": "US",
+      "quality": "",
+      "note": "TMDB 合法观看平台入口（US）",
+      "enabled": true,
+      "updatedAt": "2026-06-11T05:09:39.126Z"
+    },
+    {
+      "id": "movie-687163-GB-rent-2",
+      "mediaType": "movie",
+      "tmdbId": 687163,
+      "title": "Project Hail Mary",
+      "label": "Apple TV Store",
+      "url": "https://www.themoviedb.org/movie/687163-project-hail-mary/watch?locale=GB",
+      "kind": "rent",
+      "region": "GB",
+      "quality": "",
+      "note": "TMDB 合法观看平台入口（GB）",
+      "enabled": true,
+      "updatedAt": "2026-06-11T05:09:39.126Z"
+    },
+    {
+      "id": "movie-687163-GB-rent-35",
+      "mediaType": "movie",
+      "tmdbId": 687163,
+      "title": "Project Hail Mary",
+      "label": "Rakuten TV",
+      "url": "https://www.themoviedb.org/movie/687163-project-hail-mary/watch?locale=GB",
+      "kind": "rent",
+      "region": "GB",
+      "quality": "",
+      "note": "TMDB 合法观看平台入口（GB）",
+      "enabled": true,
+      "updatedAt": "2026-06-11T05:09:39.126Z"
+    },
+    {
+      "id": "movie-687163-GB-rent-10",
+      "mediaType": "movie",
+      "tmdbId": 687163,
+      "title": "Project Hail Mary",
+      "label": "Amazon Video",
+      "url": "https://www.themoviedb.org/movie/687163-project-hail-mary/watch?locale=GB",
+      "kind": "rent",
+      "region": "GB",
+      "quality": "",
+      "note": "TMDB 合法观看平台入口（GB）",
+      "enabled": true,
+      "updatedAt": "2026-06-11T05:09:39.126Z"
+    },
+    {
+      "id": "movie-687163-GB-rent-130",
+      "mediaType": "movie",
+      "tmdbId": 687163,
+      "title": "Project Hail Mary",
+      "label": "Sky Store",
+      "url": "https://www.themoviedb.org/movie/687163-project-hail-mary/watch?locale=GB",
+      "kind": "rent",
+      "region": "GB",
+      "quality": "",
+      "note": "TMDB 合法观看平台入口（GB）",
+      "enabled": true,
+      "updatedAt": "2026-06-11T05:09:39.126Z"
+    },
+    {
+      "id": "movie-687163-GB-buy-2",
+      "mediaType": "movie",
+      "tmdbId": 687163,
+      "title": "Project Hail Mary",
+      "label": "Apple TV Store",
+      "url": "https://www.themoviedb.org/movie/687163-project-hail-mary/watch?locale=GB",
+      "kind": "buy",
+      "region": "GB",
+      "quality": "",
+      "note": "TMDB 合法观看平台入口（GB）",
+      "enabled": true,
+      "updatedAt": "2026-06-11T05:09:39.126Z"
+    },
+    {
+      "id": "movie-687163-GB-buy-35",
+      "mediaType": "movie",
+      "tmdbId": 687163,
+      "title": "Project Hail Mary",
+      "label": "Rakuten TV",
+      "url": "https://www.themoviedb.org/movie/687163-project-hail-mary/watch?locale=GB",
+      "kind": "buy",
+      "region": "GB",
+      "quality": "",
+      "note": "TMDB 合法观看平台入口（GB）",
+      "enabled": true,
+      "updatedAt": "2026-06-11T05:09:39.126Z"
+    },
+    {
+      "id": "movie-687163-GB-buy-10",
+      "mediaType": "movie",
+      "tmdbId": 687163,
+      "title": "Project Hail Mary",
+      "label": "Amazon Video",
+      "url": "https://www.themoviedb.org/movie/687163-project-hail-mary/watch?locale=GB",
+      "kind": "buy",
+      "region": "GB",
+      "quality": "",
+      "note": "TMDB 合法观看平台入口（GB）",
+      "enabled": true,
+      "updatedAt": "2026-06-11T05:09:39.126Z"
+    },
+    {
+      "id": "movie-687163-GB-buy-130",
+      "mediaType": "movie",
+      "tmdbId": 687163,
+      "title": "Project Hail Mary",
+      "label": "Sky Store",
+      "url": "https://www.themoviedb.org/movie/687163-project-hail-mary/watch?locale=GB",
+      "kind": "buy",
+      "region": "GB",
+      "quality": "",
+      "note": "TMDB 合法观看平台入口（GB）",
+      "enabled": true,
+      "updatedAt": "2026-06-11T05:09:39.126Z"
+    },
+    {
+      "id": "movie-687163-CA-rent-2",
+      "mediaType": "movie",
+      "tmdbId": 687163,
+      "title": "Project Hail Mary",
+      "label": "Apple TV Store",
+      "url": "https://www.themoviedb.org/movie/687163-project-hail-mary/watch?locale=CA",
+      "kind": "rent",
+      "region": "CA",
+      "quality": "",
+      "note": "TMDB 合法观看平台入口（CA）",
+      "enabled": true,
+      "updatedAt": "2026-06-11T05:09:39.126Z"
+    },
+    {
+      "id": "movie-687163-CA-rent-140",
+      "mediaType": "movie",
+      "tmdbId": 687163,
+      "title": "Project Hail Mary",
+      "label": "CosmoGo",
+      "url": "https://www.themoviedb.org/movie/687163-project-hail-mary/watch?locale=CA",
+      "kind": "rent",
+      "region": "CA",
+      "quality": "",
+      "note": "TMDB 合法观看平台入口（CA）",
+      "enabled": true,
+      "updatedAt": "2026-06-11T05:09:39.126Z"
+    },
+    {
+      "id": "movie-687163-CA-rent-10",
+      "mediaType": "movie",
+      "tmdbId": 687163,
+      "title": "Project Hail Mary",
+      "label": "Amazon Video",
+      "url": "https://www.themoviedb.org/movie/687163-project-hail-mary/watch?locale=CA",
+      "kind": "rent",
+      "region": "CA",
+      "quality": "",
+      "note": "TMDB 合法观看平台入口（CA）",
+      "enabled": true,
+      "updatedAt": "2026-06-11T05:09:39.126Z"
+    },
+    {
+      "id": "movie-687163-CA-buy-2",
+      "mediaType": "movie",
+      "tmdbId": 687163,
+      "title": "Project Hail Mary",
+      "label": "Apple TV Store",
+      "url": "https://www.themoviedb.org/movie/687163-project-hail-mary/watch?locale=CA",
+      "kind": "buy",
+      "region": "CA",
+      "quality": "",
+      "note": "TMDB 合法观看平台入口（CA）",
+      "enabled": true,
+      "updatedAt": "2026-06-11T05:09:39.126Z"
+    },
+    {
+      "id": "movie-687163-CA-buy-140",
+      "mediaType": "movie",
+      "tmdbId": 687163,
+      "title": "Project Hail Mary",
+      "label": "CosmoGo",
+      "url": "https://www.themoviedb.org/movie/687163-project-hail-mary/watch?locale=CA",
+      "kind": "buy",
+      "region": "CA",
+      "quality": "",
+      "note": "TMDB 合法观看平台入口（CA）",
+      "enabled": true,
+      "updatedAt": "2026-06-11T05:09:39.126Z"
+    },
+    {
+      "id": "movie-687163-CA-buy-10",
+      "mediaType": "movie",
+      "tmdbId": 687163,
+      "title": "Project Hail Mary",
+      "label": "Amazon Video",
+      "url": "https://www.themoviedb.org/movie/687163-project-hail-mary/watch?locale=CA",
+      "kind": "buy",
+      "region": "CA",
+      "quality": "",
+      "note": "TMDB 合法观看平台入口（CA）",
+      "enabled": true,
+      "updatedAt": "2026-06-11T05:09:39.126Z"
+    },
+    {
+      "id": "movie-687163-AU-rent-2",
+      "mediaType": "movie",
+      "tmdbId": 687163,
+      "title": "Project Hail Mary",
+      "label": "Apple TV Store",
+      "url": "https://www.themoviedb.org/movie/687163-project-hail-mary/watch?locale=AU",
+      "kind": "rent",
+      "region": "AU",
+      "quality": "",
+      "note": "TMDB 合法观看平台入口（AU）",
+      "enabled": true,
+      "updatedAt": "2026-06-11T05:09:39.126Z"
+    },
+    {
+      "id": "movie-687163-AU-rent-10",
+      "mediaType": "movie",
+      "tmdbId": 687163,
+      "title": "Project Hail Mary",
+      "label": "Amazon Video",
+      "url": "https://www.themoviedb.org/movie/687163-project-hail-mary/watch?locale=AU",
+      "kind": "rent",
+      "region": "AU",
+      "quality": "",
+      "note": "TMDB 合法观看平台入口（AU）",
+      "enabled": true,
+      "updatedAt": "2026-06-11T05:09:39.126Z"
+    },
+    {
+      "id": "movie-687163-AU-buy-2",
+      "mediaType": "movie",
+      "tmdbId": 687163,
+      "title": "Project Hail Mary",
+      "label": "Apple TV Store",
+      "url": "https://www.themoviedb.org/movie/687163-project-hail-mary/watch?locale=AU",
+      "kind": "buy",
+      "region": "AU",
+      "quality": "",
+      "note": "TMDB 合法观看平台入口（AU）",
+      "enabled": true,
+      "updatedAt": "2026-06-11T05:09:39.126Z"
+    },
+    {
+      "id": "movie-687163-AU-buy-10",
+      "mediaType": "movie",
+      "tmdbId": 687163,
+      "title": "Project Hail Mary",
+      "label": "Amazon Video",
+      "url": "https://www.themoviedb.org/movie/687163-project-hail-mary/watch?locale=AU",
+      "kind": "buy",
+      "region": "AU",
+      "quality": "",
+      "note": "TMDB 合法观看平台入口（AU）",
+      "enabled": true,
+      "updatedAt": "2026-06-11T05:09:39.126Z"
+    },
+    {
+      "id": "movie-687163-AU-buy-436",
+      "mediaType": "movie",
+      "tmdbId": 687163,
+      "title": "Project Hail Mary",
+      "label": "Fetch TV",
+      "url": "https://www.themoviedb.org/movie/687163-project-hail-mary/watch?locale=AU",
+      "kind": "buy",
+      "region": "AU",
+      "quality": "",
+      "note": "TMDB 合法观看平台入口（AU）",
+      "enabled": true,
+      "updatedAt": "2026-06-11T05:09:39.126Z"
     },
     {
       "id": "movie-1007757-US-stream-8",
@@ -1763,7 +2155,7 @@
       "quality": "",
       "note": "TMDB 合法观看平台入口（US）",
       "enabled": true,
-      "updatedAt": "2026-06-08T09:53:25.085Z"
+      "updatedAt": "2026-06-11T05:09:39.140Z"
     },
     {
       "id": "movie-1007757-US-stream-1796",
@@ -1777,7 +2169,7 @@
       "quality": "",
       "note": "TMDB 合法观看平台入口（US）",
       "enabled": true,
-      "updatedAt": "2026-06-08T09:53:25.085Z"
+      "updatedAt": "2026-06-11T05:09:39.140Z"
     },
     {
       "id": "movie-1007757-GB-stream-8",
@@ -1791,7 +2183,7 @@
       "quality": "",
       "note": "TMDB 合法观看平台入口（GB）",
       "enabled": true,
-      "updatedAt": "2026-06-08T09:53:25.085Z"
+      "updatedAt": "2026-06-11T05:09:39.140Z"
     },
     {
       "id": "movie-1007757-GB-stream-1796",
@@ -1805,7 +2197,7 @@
       "quality": "",
       "note": "TMDB 合法观看平台入口（GB）",
       "enabled": true,
-      "updatedAt": "2026-06-08T09:53:25.085Z"
+      "updatedAt": "2026-06-11T05:09:39.140Z"
     },
     {
       "id": "movie-1007757-CA-stream-8",
@@ -1819,7 +2211,7 @@
       "quality": "",
       "note": "TMDB 合法观看平台入口（CA）",
       "enabled": true,
-      "updatedAt": "2026-06-08T09:53:25.085Z"
+      "updatedAt": "2026-06-11T05:09:39.140Z"
     },
     {
       "id": "movie-1007757-CA-stream-1796",
@@ -1833,7 +2225,7 @@
       "quality": "",
       "note": "TMDB 合法观看平台入口（CA）",
       "enabled": true,
-      "updatedAt": "2026-06-08T09:53:25.085Z"
+      "updatedAt": "2026-06-11T05:09:39.140Z"
     },
     {
       "id": "movie-1007757-AU-stream-8",
@@ -1847,7 +2239,7 @@
       "quality": "",
       "note": "TMDB 合法观看平台入口（AU）",
       "enabled": true,
-      "updatedAt": "2026-06-08T09:53:25.085Z"
+      "updatedAt": "2026-06-11T05:09:39.140Z"
     },
     {
       "id": "movie-1007757-AU-stream-1796",
@@ -1861,371 +2253,231 @@
       "quality": "",
       "note": "TMDB 合法观看平台入口（AU）",
       "enabled": true,
-      "updatedAt": "2026-06-08T09:53:25.085Z"
+      "updatedAt": "2026-06-11T05:09:39.140Z"
     },
     {
-      "id": "movie-1430077-US-rent-10",
+      "id": "movie-1380291-US-stream-9",
       "mediaType": "movie",
-      "tmdbId": 1430077,
-      "title": "Hokum",
-      "label": "Amazon Video",
-      "url": "https://www.themoviedb.org/movie/1430077-hokum/watch?locale=US",
-      "kind": "rent",
+      "tmdbId": 1380291,
+      "title": "Tom Clancy's Jack Ryan: Ghost War",
+      "label": "Amazon Prime Video",
+      "url": "https://www.themoviedb.org/movie/1380291-tom-clancy-s-jack-ryan-ghost-war/watch?locale=US",
+      "kind": "stream",
       "region": "US",
       "quality": "",
       "note": "TMDB 合法观看平台入口（US）",
       "enabled": true,
-      "updatedAt": "2026-06-08T09:53:25.100Z"
+      "updatedAt": "2026-06-11T05:09:39.195Z"
     },
     {
-      "id": "movie-1430077-US-rent-2",
+      "id": "movie-1380291-US-stream-2100",
       "mediaType": "movie",
-      "tmdbId": 1430077,
-      "title": "Hokum",
-      "label": "Apple TV Store",
-      "url": "https://www.themoviedb.org/movie/1430077-hokum/watch?locale=US",
-      "kind": "rent",
+      "tmdbId": 1380291,
+      "title": "Tom Clancy's Jack Ryan: Ghost War",
+      "label": "Amazon Prime Video with Ads",
+      "url": "https://www.themoviedb.org/movie/1380291-tom-clancy-s-jack-ryan-ghost-war/watch?locale=US",
+      "kind": "stream",
       "region": "US",
       "quality": "",
       "note": "TMDB 合法观看平台入口（US）",
       "enabled": true,
-      "updatedAt": "2026-06-08T09:53:25.100Z"
+      "updatedAt": "2026-06-11T05:09:39.195Z"
     },
     {
-      "id": "movie-1430077-US-rent-7",
+      "id": "movie-1380291-GB-stream-9",
       "mediaType": "movie",
-      "tmdbId": 1430077,
-      "title": "Hokum",
-      "label": "Fandango At Home",
-      "url": "https://www.themoviedb.org/movie/1430077-hokum/watch?locale=US",
-      "kind": "rent",
-      "region": "US",
-      "quality": "",
-      "note": "TMDB 合法观看平台入口（US）",
-      "enabled": true,
-      "updatedAt": "2026-06-08T09:53:25.100Z"
-    },
-    {
-      "id": "movie-1430077-US-rent-538",
-      "mediaType": "movie",
-      "tmdbId": 1430077,
-      "title": "Hokum",
-      "label": "Plex",
-      "url": "https://www.themoviedb.org/movie/1430077-hokum/watch?locale=US",
-      "kind": "rent",
-      "region": "US",
-      "quality": "",
-      "note": "TMDB 合法观看平台入口（US）",
-      "enabled": true,
-      "updatedAt": "2026-06-08T09:53:25.100Z"
-    },
-    {
-      "id": "movie-1430077-US-buy-10",
-      "mediaType": "movie",
-      "tmdbId": 1430077,
-      "title": "Hokum",
-      "label": "Amazon Video",
-      "url": "https://www.themoviedb.org/movie/1430077-hokum/watch?locale=US",
-      "kind": "buy",
-      "region": "US",
-      "quality": "",
-      "note": "TMDB 合法观看平台入口（US）",
-      "enabled": true,
-      "updatedAt": "2026-06-08T09:53:25.100Z"
-    },
-    {
-      "id": "movie-1430077-US-buy-2",
-      "mediaType": "movie",
-      "tmdbId": 1430077,
-      "title": "Hokum",
-      "label": "Apple TV Store",
-      "url": "https://www.themoviedb.org/movie/1430077-hokum/watch?locale=US",
-      "kind": "buy",
-      "region": "US",
-      "quality": "",
-      "note": "TMDB 合法观看平台入口（US）",
-      "enabled": true,
-      "updatedAt": "2026-06-08T09:53:25.100Z"
-    },
-    {
-      "id": "movie-1430077-US-buy-7",
-      "mediaType": "movie",
-      "tmdbId": 1430077,
-      "title": "Hokum",
-      "label": "Fandango At Home",
-      "url": "https://www.themoviedb.org/movie/1430077-hokum/watch?locale=US",
-      "kind": "buy",
-      "region": "US",
-      "quality": "",
-      "note": "TMDB 合法观看平台入口（US）",
-      "enabled": true,
-      "updatedAt": "2026-06-08T09:53:25.100Z"
-    },
-    {
-      "id": "movie-1430077-CA-rent-2",
-      "mediaType": "movie",
-      "tmdbId": 1430077,
-      "title": "Hokum",
-      "label": "Apple TV Store",
-      "url": "https://www.themoviedb.org/movie/1430077-hokum/watch?locale=CA",
-      "kind": "rent",
-      "region": "CA",
-      "quality": "",
-      "note": "TMDB 合法观看平台入口（CA）",
-      "enabled": true,
-      "updatedAt": "2026-06-08T09:53:25.100Z"
-    },
-    {
-      "id": "movie-1430077-CA-rent-140",
-      "mediaType": "movie",
-      "tmdbId": 1430077,
-      "title": "Hokum",
-      "label": "CosmoGo",
-      "url": "https://www.themoviedb.org/movie/1430077-hokum/watch?locale=CA",
-      "kind": "rent",
-      "region": "CA",
-      "quality": "",
-      "note": "TMDB 合法观看平台入口（CA）",
-      "enabled": true,
-      "updatedAt": "2026-06-08T09:53:25.100Z"
-    },
-    {
-      "id": "movie-1430077-CA-rent-10",
-      "mediaType": "movie",
-      "tmdbId": 1430077,
-      "title": "Hokum",
-      "label": "Amazon Video",
-      "url": "https://www.themoviedb.org/movie/1430077-hokum/watch?locale=CA",
-      "kind": "rent",
-      "region": "CA",
-      "quality": "",
-      "note": "TMDB 合法观看平台入口（CA）",
-      "enabled": true,
-      "updatedAt": "2026-06-08T09:53:25.100Z"
-    },
-    {
-      "id": "movie-1430077-CA-rent-538",
-      "mediaType": "movie",
-      "tmdbId": 1430077,
-      "title": "Hokum",
-      "label": "Plex",
-      "url": "https://www.themoviedb.org/movie/1430077-hokum/watch?locale=CA",
-      "kind": "rent",
-      "region": "CA",
-      "quality": "",
-      "note": "TMDB 合法观看平台入口（CA）",
-      "enabled": true,
-      "updatedAt": "2026-06-08T09:53:25.100Z"
-    },
-    {
-      "id": "movie-1430077-CA-buy-2",
-      "mediaType": "movie",
-      "tmdbId": 1430077,
-      "title": "Hokum",
-      "label": "Apple TV Store",
-      "url": "https://www.themoviedb.org/movie/1430077-hokum/watch?locale=CA",
-      "kind": "buy",
-      "region": "CA",
-      "quality": "",
-      "note": "TMDB 合法观看平台入口（CA）",
-      "enabled": true,
-      "updatedAt": "2026-06-08T09:53:25.100Z"
-    },
-    {
-      "id": "movie-1430077-CA-buy-140",
-      "mediaType": "movie",
-      "tmdbId": 1430077,
-      "title": "Hokum",
-      "label": "CosmoGo",
-      "url": "https://www.themoviedb.org/movie/1430077-hokum/watch?locale=CA",
-      "kind": "buy",
-      "region": "CA",
-      "quality": "",
-      "note": "TMDB 合法观看平台入口（CA）",
-      "enabled": true,
-      "updatedAt": "2026-06-08T09:53:25.100Z"
-    },
-    {
-      "id": "movie-1430077-CA-buy-10",
-      "mediaType": "movie",
-      "tmdbId": 1430077,
-      "title": "Hokum",
-      "label": "Amazon Video",
-      "url": "https://www.themoviedb.org/movie/1430077-hokum/watch?locale=CA",
-      "kind": "buy",
-      "region": "CA",
-      "quality": "",
-      "note": "TMDB 合法观看平台入口（CA）",
-      "enabled": true,
-      "updatedAt": "2026-06-08T09:53:25.100Z"
-    },
-    {
-      "id": "movie-1430077-AU-rent-2285",
-      "mediaType": "movie",
-      "tmdbId": 1430077,
-      "title": "Hokum",
-      "label": "JustWatch TV",
-      "url": "https://www.themoviedb.org/movie/1430077-hokum/watch?locale=AU",
-      "kind": "rent",
-      "region": "AU",
-      "quality": "",
-      "note": "TMDB 合法观看平台入口（AU）",
-      "enabled": true,
-      "updatedAt": "2026-06-08T09:53:25.100Z"
-    },
-    {
-      "id": "movie-1430077-AU-rent-2",
-      "mediaType": "movie",
-      "tmdbId": 1430077,
-      "title": "Hokum",
-      "label": "Apple TV Store",
-      "url": "https://www.themoviedb.org/movie/1430077-hokum/watch?locale=AU",
-      "kind": "rent",
-      "region": "AU",
-      "quality": "",
-      "note": "TMDB 合法观看平台入口（AU）",
-      "enabled": true,
-      "updatedAt": "2026-06-08T09:53:25.100Z"
-    },
-    {
-      "id": "movie-1430077-AU-rent-10",
-      "mediaType": "movie",
-      "tmdbId": 1430077,
-      "title": "Hokum",
-      "label": "Amazon Video",
-      "url": "https://www.themoviedb.org/movie/1430077-hokum/watch?locale=AU",
-      "kind": "rent",
-      "region": "AU",
-      "quality": "",
-      "note": "TMDB 合法观看平台入口（AU）",
-      "enabled": true,
-      "updatedAt": "2026-06-08T09:53:25.100Z"
-    },
-    {
-      "id": "movie-1430077-AU-buy-2",
-      "mediaType": "movie",
-      "tmdbId": 1430077,
-      "title": "Hokum",
-      "label": "Apple TV Store",
-      "url": "https://www.themoviedb.org/movie/1430077-hokum/watch?locale=AU",
-      "kind": "buy",
-      "region": "AU",
-      "quality": "",
-      "note": "TMDB 合法观看平台入口（AU）",
-      "enabled": true,
-      "updatedAt": "2026-06-08T09:53:25.100Z"
-    },
-    {
-      "id": "movie-1430077-AU-buy-10",
-      "mediaType": "movie",
-      "tmdbId": 1430077,
-      "title": "Hokum",
-      "label": "Amazon Video",
-      "url": "https://www.themoviedb.org/movie/1430077-hokum/watch?locale=AU",
-      "kind": "buy",
-      "region": "AU",
-      "quality": "",
-      "note": "TMDB 合法观看平台入口（AU）",
-      "enabled": true,
-      "updatedAt": "2026-06-08T09:53:25.100Z"
-    },
-    {
-      "id": "movie-1419406-GB-stream-29",
-      "mediaType": "movie",
-      "tmdbId": 1419406,
-      "title": "The Shadow's Edge",
-      "label": "Sky Go",
-      "url": "https://www.themoviedb.org/movie/1419406/watch?locale=GB",
+      "tmdbId": 1380291,
+      "title": "Tom Clancy's Jack Ryan: Ghost War",
+      "label": "Amazon Prime Video",
+      "url": "https://www.themoviedb.org/movie/1380291-tom-clancy-s-jack-ryan-ghost-war/watch?locale=GB",
       "kind": "stream",
       "region": "GB",
       "quality": "",
       "note": "TMDB 合法观看平台入口（GB）",
       "enabled": true,
-      "updatedAt": "2026-06-08T09:53:25.109Z"
+      "updatedAt": "2026-06-11T05:09:39.195Z"
     },
     {
-      "id": "movie-1419406-GB-stream-591",
+      "id": "movie-1380291-GB-stream-2100",
       "mediaType": "movie",
-      "tmdbId": 1419406,
-      "title": "The Shadow's Edge",
-      "label": "Now TV Cinema",
-      "url": "https://www.themoviedb.org/movie/1419406/watch?locale=GB",
+      "tmdbId": 1380291,
+      "title": "Tom Clancy's Jack Ryan: Ghost War",
+      "label": "Amazon Prime Video with Ads",
+      "url": "https://www.themoviedb.org/movie/1380291-tom-clancy-s-jack-ryan-ghost-war/watch?locale=GB",
       "kind": "stream",
       "region": "GB",
       "quality": "",
       "note": "TMDB 合法观看平台入口（GB）",
       "enabled": true,
-      "updatedAt": "2026-06-08T09:53:25.109Z"
+      "updatedAt": "2026-06-11T05:09:39.195Z"
     },
     {
-      "id": "movie-1419406-GB-rent-130",
+      "id": "movie-1380291-CA-stream-119",
       "mediaType": "movie",
-      "tmdbId": 1419406,
-      "title": "The Shadow's Edge",
-      "label": "Sky Store",
-      "url": "https://www.themoviedb.org/movie/1419406/watch?locale=GB",
-      "kind": "rent",
+      "tmdbId": 1380291,
+      "title": "Tom Clancy's Jack Ryan: Ghost War",
+      "label": "Amazon Prime Video",
+      "url": "https://www.themoviedb.org/movie/1380291-tom-clancy-s-jack-ryan-ghost-war/watch?locale=CA",
+      "kind": "stream",
+      "region": "CA",
+      "quality": "",
+      "note": "TMDB 合法观看平台入口（CA）",
+      "enabled": true,
+      "updatedAt": "2026-06-11T05:09:39.195Z"
+    },
+    {
+      "id": "movie-1380291-CA-stream-2100",
+      "mediaType": "movie",
+      "tmdbId": 1380291,
+      "title": "Tom Clancy's Jack Ryan: Ghost War",
+      "label": "Amazon Prime Video with Ads",
+      "url": "https://www.themoviedb.org/movie/1380291-tom-clancy-s-jack-ryan-ghost-war/watch?locale=CA",
+      "kind": "stream",
+      "region": "CA",
+      "quality": "",
+      "note": "TMDB 合法观看平台入口（CA）",
+      "enabled": true,
+      "updatedAt": "2026-06-11T05:09:39.195Z"
+    },
+    {
+      "id": "movie-1380291-AU-stream-119",
+      "mediaType": "movie",
+      "tmdbId": 1380291,
+      "title": "Tom Clancy's Jack Ryan: Ghost War",
+      "label": "Amazon Prime Video",
+      "url": "https://www.themoviedb.org/movie/1380291-tom-clancy-s-jack-ryan-ghost-war/watch?locale=AU",
+      "kind": "stream",
+      "region": "AU",
+      "quality": "",
+      "note": "TMDB 合法观看平台入口（AU）",
+      "enabled": true,
+      "updatedAt": "2026-06-11T05:09:39.195Z"
+    },
+    {
+      "id": "movie-1380291-AU-stream-2100",
+      "mediaType": "movie",
+      "tmdbId": 1380291,
+      "title": "Tom Clancy's Jack Ryan: Ghost War",
+      "label": "Amazon Prime Video with Ads",
+      "url": "https://www.themoviedb.org/movie/1380291-tom-clancy-s-jack-ryan-ghost-war/watch?locale=AU",
+      "kind": "stream",
+      "region": "AU",
+      "quality": "",
+      "note": "TMDB 合法观看平台入口（AU）",
+      "enabled": true,
+      "updatedAt": "2026-06-11T05:09:39.195Z"
+    },
+    {
+      "id": "movie-1582770-US-stream-8",
+      "mediaType": "movie",
+      "tmdbId": 1582770,
+      "title": "Dhurandhar: The Revenge",
+      "label": "Netflix",
+      "url": "https://www.themoviedb.org/movie/1582770/watch?locale=US",
+      "kind": "stream",
+      "region": "US",
+      "quality": "",
+      "note": "TMDB 合法观看平台入口（US）",
+      "enabled": true,
+      "updatedAt": "2026-06-11T05:09:39.205Z"
+    },
+    {
+      "id": "movie-1582770-US-stream-1796",
+      "mediaType": "movie",
+      "tmdbId": 1582770,
+      "title": "Dhurandhar: The Revenge",
+      "label": "Netflix Standard with Ads",
+      "url": "https://www.themoviedb.org/movie/1582770/watch?locale=US",
+      "kind": "stream",
+      "region": "US",
+      "quality": "",
+      "note": "TMDB 合法观看平台入口（US）",
+      "enabled": true,
+      "updatedAt": "2026-06-11T05:09:39.205Z"
+    },
+    {
+      "id": "movie-1582770-GB-stream-8",
+      "mediaType": "movie",
+      "tmdbId": 1582770,
+      "title": "Dhurandhar: The Revenge",
+      "label": "Netflix",
+      "url": "https://www.themoviedb.org/movie/1582770/watch?locale=GB",
+      "kind": "stream",
       "region": "GB",
       "quality": "",
       "note": "TMDB 合法观看平台入口（GB）",
       "enabled": true,
-      "updatedAt": "2026-06-08T09:53:25.109Z"
+      "updatedAt": "2026-06-11T05:09:39.205Z"
     },
     {
-      "id": "movie-1419406-GB-buy-2",
+      "id": "movie-1582770-GB-stream-1796",
       "mediaType": "movie",
-      "tmdbId": 1419406,
-      "title": "The Shadow's Edge",
-      "label": "Apple TV Store",
-      "url": "https://www.themoviedb.org/movie/1419406/watch?locale=GB",
-      "kind": "buy",
+      "tmdbId": 1582770,
+      "title": "Dhurandhar: The Revenge",
+      "label": "Netflix Standard with Ads",
+      "url": "https://www.themoviedb.org/movie/1582770/watch?locale=GB",
+      "kind": "stream",
       "region": "GB",
       "quality": "",
       "note": "TMDB 合法观看平台入口（GB）",
       "enabled": true,
-      "updatedAt": "2026-06-08T09:53:25.109Z"
+      "updatedAt": "2026-06-11T05:09:39.205Z"
     },
     {
-      "id": "movie-1419406-GB-buy-35",
+      "id": "movie-1582770-CA-stream-8",
       "mediaType": "movie",
-      "tmdbId": 1419406,
-      "title": "The Shadow's Edge",
-      "label": "Rakuten TV",
-      "url": "https://www.themoviedb.org/movie/1419406/watch?locale=GB",
-      "kind": "buy",
-      "region": "GB",
+      "tmdbId": 1582770,
+      "title": "Dhurandhar: The Revenge",
+      "label": "Netflix",
+      "url": "https://www.themoviedb.org/movie/1582770/watch?locale=CA",
+      "kind": "stream",
+      "region": "CA",
       "quality": "",
-      "note": "TMDB 合法观看平台入口（GB）",
+      "note": "TMDB 合法观看平台入口（CA）",
       "enabled": true,
-      "updatedAt": "2026-06-08T09:53:25.109Z"
+      "updatedAt": "2026-06-11T05:09:39.205Z"
     },
     {
-      "id": "movie-1419406-GB-buy-10",
+      "id": "movie-1582770-CA-stream-1796",
       "mediaType": "movie",
-      "tmdbId": 1419406,
-      "title": "The Shadow's Edge",
-      "label": "Amazon Video",
-      "url": "https://www.themoviedb.org/movie/1419406/watch?locale=GB",
-      "kind": "buy",
-      "region": "GB",
+      "tmdbId": 1582770,
+      "title": "Dhurandhar: The Revenge",
+      "label": "Netflix Standard with Ads",
+      "url": "https://www.themoviedb.org/movie/1582770/watch?locale=CA",
+      "kind": "stream",
+      "region": "CA",
       "quality": "",
-      "note": "TMDB 合法观看平台入口（GB）",
+      "note": "TMDB 合法观看平台入口（CA）",
       "enabled": true,
-      "updatedAt": "2026-06-08T09:53:25.109Z"
+      "updatedAt": "2026-06-11T05:09:39.205Z"
     },
     {
-      "id": "movie-1419406-GB-buy-130",
+      "id": "movie-1582770-AU-stream-8",
       "mediaType": "movie",
-      "tmdbId": 1419406,
-      "title": "The Shadow's Edge",
-      "label": "Sky Store",
-      "url": "https://www.themoviedb.org/movie/1419406/watch?locale=GB",
-      "kind": "buy",
-      "region": "GB",
+      "tmdbId": 1582770,
+      "title": "Dhurandhar: The Revenge",
+      "label": "Netflix",
+      "url": "https://www.themoviedb.org/movie/1582770/watch?locale=AU",
+      "kind": "stream",
+      "region": "AU",
       "quality": "",
-      "note": "TMDB 合法观看平台入口（GB）",
+      "note": "TMDB 合法观看平台入口（AU）",
       "enabled": true,
-      "updatedAt": "2026-06-08T09:53:25.109Z"
+      "updatedAt": "2026-06-11T05:09:39.205Z"
+    },
+    {
+      "id": "movie-1582770-AU-stream-1796",
+      "mediaType": "movie",
+      "tmdbId": 1582770,
+      "title": "Dhurandhar: The Revenge",
+      "label": "Netflix Standard with Ads",
+      "url": "https://www.themoviedb.org/movie/1582770/watch?locale=AU",
+      "kind": "stream",
+      "region": "AU",
+      "quality": "",
+      "note": "TMDB 合法观看平台入口（AU）",
+      "enabled": true,
+      "updatedAt": "2026-06-11T05:09:39.205Z"
     },
     {
       "id": "movie-1628448-US-stream-8",
@@ -2239,7 +2491,7 @@
       "quality": "",
       "note": "TMDB 合法观看平台入口（US）",
       "enabled": true,
-      "updatedAt": "2026-06-08T09:53:25.125Z"
+      "updatedAt": "2026-06-11T05:09:39.218Z"
     },
     {
       "id": "movie-1628448-US-stream-1796",
@@ -2253,7 +2505,7 @@
       "quality": "",
       "note": "TMDB 合法观看平台入口（US）",
       "enabled": true,
-      "updatedAt": "2026-06-08T09:53:25.125Z"
+      "updatedAt": "2026-06-11T05:09:39.218Z"
     },
     {
       "id": "movie-1628448-GB-stream-8",
@@ -2267,7 +2519,7 @@
       "quality": "",
       "note": "TMDB 合法观看平台入口（GB）",
       "enabled": true,
-      "updatedAt": "2026-06-08T09:53:25.125Z"
+      "updatedAt": "2026-06-11T05:09:39.218Z"
     },
     {
       "id": "movie-1628448-GB-stream-1796",
@@ -2281,7 +2533,7 @@
       "quality": "",
       "note": "TMDB 合法观看平台入口（GB）",
       "enabled": true,
-      "updatedAt": "2026-06-08T09:53:25.125Z"
+      "updatedAt": "2026-06-11T05:09:39.218Z"
     },
     {
       "id": "movie-1628448-CA-stream-8",
@@ -2295,7 +2547,7 @@
       "quality": "",
       "note": "TMDB 合法观看平台入口（CA）",
       "enabled": true,
-      "updatedAt": "2026-06-08T09:53:25.125Z"
+      "updatedAt": "2026-06-11T05:09:39.218Z"
     },
     {
       "id": "movie-1628448-CA-stream-1796",
@@ -2309,7 +2561,7 @@
       "quality": "",
       "note": "TMDB 合法观看平台入口（CA）",
       "enabled": true,
-      "updatedAt": "2026-06-08T09:53:25.125Z"
+      "updatedAt": "2026-06-11T05:09:39.218Z"
     },
     {
       "id": "movie-1628448-AU-stream-8",
@@ -2323,7 +2575,7 @@
       "quality": "",
       "note": "TMDB 合法观看平台入口（AU）",
       "enabled": true,
-      "updatedAt": "2026-06-08T09:53:25.125Z"
+      "updatedAt": "2026-06-11T05:09:39.218Z"
     },
     {
       "id": "movie-1628448-AU-stream-1796",
@@ -2337,133 +2589,371 @@
       "quality": "",
       "note": "TMDB 合法观看平台入口（AU）",
       "enabled": true,
-      "updatedAt": "2026-06-08T09:53:25.125Z"
+      "updatedAt": "2026-06-11T05:09:39.218Z"
     },
     {
-      "id": "tv-273240-US-stream-9",
-      "mediaType": "tv",
-      "tmdbId": 273240,
-      "title": "Off Campus",
-      "label": "Amazon Prime Video",
-      "url": "https://www.themoviedb.org/tv/273240-off-campus/watch?locale=US",
-      "kind": "stream",
+      "id": "movie-1430077-US-rent-10",
+      "mediaType": "movie",
+      "tmdbId": 1430077,
+      "title": "Hokum",
+      "label": "Amazon Video",
+      "url": "https://www.themoviedb.org/movie/1430077-hokum/watch?locale=US",
+      "kind": "rent",
       "region": "US",
       "quality": "",
       "note": "TMDB 合法观看平台入口（US）",
       "enabled": true,
-      "updatedAt": "2026-06-08T09:53:25.130Z"
+      "updatedAt": "2026-06-11T05:09:39.242Z"
     },
     {
-      "id": "tv-273240-US-stream-2100",
-      "mediaType": "tv",
-      "tmdbId": 273240,
-      "title": "Off Campus",
-      "label": "Amazon Prime Video with Ads",
-      "url": "https://www.themoviedb.org/tv/273240-off-campus/watch?locale=US",
-      "kind": "stream",
+      "id": "movie-1430077-US-rent-2",
+      "mediaType": "movie",
+      "tmdbId": 1430077,
+      "title": "Hokum",
+      "label": "Apple TV Store",
+      "url": "https://www.themoviedb.org/movie/1430077-hokum/watch?locale=US",
+      "kind": "rent",
       "region": "US",
       "quality": "",
       "note": "TMDB 合法观看平台入口（US）",
       "enabled": true,
-      "updatedAt": "2026-06-08T09:53:25.130Z"
+      "updatedAt": "2026-06-11T05:09:39.242Z"
     },
     {
-      "id": "tv-273240-US-free-613",
-      "mediaType": "tv",
-      "tmdbId": 273240,
-      "title": "Off Campus",
-      "label": "Amazon Prime Video Free with Ads",
-      "url": "https://www.themoviedb.org/tv/273240-off-campus/watch?locale=US",
-      "kind": "free",
+      "id": "movie-1430077-US-rent-7",
+      "mediaType": "movie",
+      "tmdbId": 1430077,
+      "title": "Hokum",
+      "label": "Fandango At Home",
+      "url": "https://www.themoviedb.org/movie/1430077-hokum/watch?locale=US",
+      "kind": "rent",
       "region": "US",
       "quality": "",
       "note": "TMDB 合法观看平台入口（US）",
       "enabled": true,
-      "updatedAt": "2026-06-08T09:53:25.130Z"
+      "updatedAt": "2026-06-11T05:09:39.242Z"
     },
     {
-      "id": "tv-273240-GB-stream-9",
-      "mediaType": "tv",
-      "tmdbId": 273240,
-      "title": "Off Campus",
-      "label": "Amazon Prime Video",
-      "url": "https://www.themoviedb.org/tv/273240-off-campus/watch?locale=GB",
+      "id": "movie-1430077-US-rent-538",
+      "mediaType": "movie",
+      "tmdbId": 1430077,
+      "title": "Hokum",
+      "label": "Plex",
+      "url": "https://www.themoviedb.org/movie/1430077-hokum/watch?locale=US",
+      "kind": "rent",
+      "region": "US",
+      "quality": "",
+      "note": "TMDB 合法观看平台入口（US）",
+      "enabled": true,
+      "updatedAt": "2026-06-11T05:09:39.242Z"
+    },
+    {
+      "id": "movie-1430077-US-buy-10",
+      "mediaType": "movie",
+      "tmdbId": 1430077,
+      "title": "Hokum",
+      "label": "Amazon Video",
+      "url": "https://www.themoviedb.org/movie/1430077-hokum/watch?locale=US",
+      "kind": "buy",
+      "region": "US",
+      "quality": "",
+      "note": "TMDB 合法观看平台入口（US）",
+      "enabled": true,
+      "updatedAt": "2026-06-11T05:09:39.242Z"
+    },
+    {
+      "id": "movie-1430077-US-buy-2",
+      "mediaType": "movie",
+      "tmdbId": 1430077,
+      "title": "Hokum",
+      "label": "Apple TV Store",
+      "url": "https://www.themoviedb.org/movie/1430077-hokum/watch?locale=US",
+      "kind": "buy",
+      "region": "US",
+      "quality": "",
+      "note": "TMDB 合法观看平台入口（US）",
+      "enabled": true,
+      "updatedAt": "2026-06-11T05:09:39.242Z"
+    },
+    {
+      "id": "movie-1430077-US-buy-7",
+      "mediaType": "movie",
+      "tmdbId": 1430077,
+      "title": "Hokum",
+      "label": "Fandango At Home",
+      "url": "https://www.themoviedb.org/movie/1430077-hokum/watch?locale=US",
+      "kind": "buy",
+      "region": "US",
+      "quality": "",
+      "note": "TMDB 合法观看平台入口（US）",
+      "enabled": true,
+      "updatedAt": "2026-06-11T05:09:39.242Z"
+    },
+    {
+      "id": "movie-1430077-CA-rent-2",
+      "mediaType": "movie",
+      "tmdbId": 1430077,
+      "title": "Hokum",
+      "label": "Apple TV Store",
+      "url": "https://www.themoviedb.org/movie/1430077-hokum/watch?locale=CA",
+      "kind": "rent",
+      "region": "CA",
+      "quality": "",
+      "note": "TMDB 合法观看平台入口（CA）",
+      "enabled": true,
+      "updatedAt": "2026-06-11T05:09:39.242Z"
+    },
+    {
+      "id": "movie-1430077-CA-rent-140",
+      "mediaType": "movie",
+      "tmdbId": 1430077,
+      "title": "Hokum",
+      "label": "CosmoGo",
+      "url": "https://www.themoviedb.org/movie/1430077-hokum/watch?locale=CA",
+      "kind": "rent",
+      "region": "CA",
+      "quality": "",
+      "note": "TMDB 合法观看平台入口（CA）",
+      "enabled": true,
+      "updatedAt": "2026-06-11T05:09:39.242Z"
+    },
+    {
+      "id": "movie-1430077-CA-rent-10",
+      "mediaType": "movie",
+      "tmdbId": 1430077,
+      "title": "Hokum",
+      "label": "Amazon Video",
+      "url": "https://www.themoviedb.org/movie/1430077-hokum/watch?locale=CA",
+      "kind": "rent",
+      "region": "CA",
+      "quality": "",
+      "note": "TMDB 合法观看平台入口（CA）",
+      "enabled": true,
+      "updatedAt": "2026-06-11T05:09:39.242Z"
+    },
+    {
+      "id": "movie-1430077-CA-rent-538",
+      "mediaType": "movie",
+      "tmdbId": 1430077,
+      "title": "Hokum",
+      "label": "Plex",
+      "url": "https://www.themoviedb.org/movie/1430077-hokum/watch?locale=CA",
+      "kind": "rent",
+      "region": "CA",
+      "quality": "",
+      "note": "TMDB 合法观看平台入口（CA）",
+      "enabled": true,
+      "updatedAt": "2026-06-11T05:09:39.242Z"
+    },
+    {
+      "id": "movie-1430077-CA-buy-2",
+      "mediaType": "movie",
+      "tmdbId": 1430077,
+      "title": "Hokum",
+      "label": "Apple TV Store",
+      "url": "https://www.themoviedb.org/movie/1430077-hokum/watch?locale=CA",
+      "kind": "buy",
+      "region": "CA",
+      "quality": "",
+      "note": "TMDB 合法观看平台入口（CA）",
+      "enabled": true,
+      "updatedAt": "2026-06-11T05:09:39.242Z"
+    },
+    {
+      "id": "movie-1430077-CA-buy-140",
+      "mediaType": "movie",
+      "tmdbId": 1430077,
+      "title": "Hokum",
+      "label": "CosmoGo",
+      "url": "https://www.themoviedb.org/movie/1430077-hokum/watch?locale=CA",
+      "kind": "buy",
+      "region": "CA",
+      "quality": "",
+      "note": "TMDB 合法观看平台入口（CA）",
+      "enabled": true,
+      "updatedAt": "2026-06-11T05:09:39.242Z"
+    },
+    {
+      "id": "movie-1430077-CA-buy-10",
+      "mediaType": "movie",
+      "tmdbId": 1430077,
+      "title": "Hokum",
+      "label": "Amazon Video",
+      "url": "https://www.themoviedb.org/movie/1430077-hokum/watch?locale=CA",
+      "kind": "buy",
+      "region": "CA",
+      "quality": "",
+      "note": "TMDB 合法观看平台入口（CA）",
+      "enabled": true,
+      "updatedAt": "2026-06-11T05:09:39.242Z"
+    },
+    {
+      "id": "movie-1430077-AU-rent-2285",
+      "mediaType": "movie",
+      "tmdbId": 1430077,
+      "title": "Hokum",
+      "label": "JustWatch TV",
+      "url": "https://www.themoviedb.org/movie/1430077-hokum/watch?locale=AU",
+      "kind": "rent",
+      "region": "AU",
+      "quality": "",
+      "note": "TMDB 合法观看平台入口（AU）",
+      "enabled": true,
+      "updatedAt": "2026-06-11T05:09:39.242Z"
+    },
+    {
+      "id": "movie-1430077-AU-rent-2",
+      "mediaType": "movie",
+      "tmdbId": 1430077,
+      "title": "Hokum",
+      "label": "Apple TV Store",
+      "url": "https://www.themoviedb.org/movie/1430077-hokum/watch?locale=AU",
+      "kind": "rent",
+      "region": "AU",
+      "quality": "",
+      "note": "TMDB 合法观看平台入口（AU）",
+      "enabled": true,
+      "updatedAt": "2026-06-11T05:09:39.242Z"
+    },
+    {
+      "id": "movie-1430077-AU-rent-10",
+      "mediaType": "movie",
+      "tmdbId": 1430077,
+      "title": "Hokum",
+      "label": "Amazon Video",
+      "url": "https://www.themoviedb.org/movie/1430077-hokum/watch?locale=AU",
+      "kind": "rent",
+      "region": "AU",
+      "quality": "",
+      "note": "TMDB 合法观看平台入口（AU）",
+      "enabled": true,
+      "updatedAt": "2026-06-11T05:09:39.242Z"
+    },
+    {
+      "id": "movie-1430077-AU-buy-2",
+      "mediaType": "movie",
+      "tmdbId": 1430077,
+      "title": "Hokum",
+      "label": "Apple TV Store",
+      "url": "https://www.themoviedb.org/movie/1430077-hokum/watch?locale=AU",
+      "kind": "buy",
+      "region": "AU",
+      "quality": "",
+      "note": "TMDB 合法观看平台入口（AU）",
+      "enabled": true,
+      "updatedAt": "2026-06-11T05:09:39.242Z"
+    },
+    {
+      "id": "movie-1430077-AU-buy-10",
+      "mediaType": "movie",
+      "tmdbId": 1430077,
+      "title": "Hokum",
+      "label": "Amazon Video",
+      "url": "https://www.themoviedb.org/movie/1430077-hokum/watch?locale=AU",
+      "kind": "buy",
+      "region": "AU",
+      "quality": "",
+      "note": "TMDB 合法观看平台入口（AU）",
+      "enabled": true,
+      "updatedAt": "2026-06-11T05:09:39.242Z"
+    },
+    {
+      "id": "movie-1419406-GB-stream-29",
+      "mediaType": "movie",
+      "tmdbId": 1419406,
+      "title": "The Shadow's Edge",
+      "label": "Sky Go",
+      "url": "https://www.themoviedb.org/movie/1419406/watch?locale=GB",
       "kind": "stream",
       "region": "GB",
       "quality": "",
       "note": "TMDB 合法观看平台入口（GB）",
       "enabled": true,
-      "updatedAt": "2026-06-08T09:53:25.130Z"
+      "updatedAt": "2026-06-11T05:09:39.254Z"
     },
     {
-      "id": "tv-273240-GB-stream-2100",
-      "mediaType": "tv",
-      "tmdbId": 273240,
-      "title": "Off Campus",
-      "label": "Amazon Prime Video with Ads",
-      "url": "https://www.themoviedb.org/tv/273240-off-campus/watch?locale=GB",
+      "id": "movie-1419406-GB-stream-591",
+      "mediaType": "movie",
+      "tmdbId": 1419406,
+      "title": "The Shadow's Edge",
+      "label": "Now TV Cinema",
+      "url": "https://www.themoviedb.org/movie/1419406/watch?locale=GB",
       "kind": "stream",
       "region": "GB",
       "quality": "",
       "note": "TMDB 合法观看平台入口（GB）",
       "enabled": true,
-      "updatedAt": "2026-06-08T09:53:25.130Z"
+      "updatedAt": "2026-06-11T05:09:39.254Z"
     },
     {
-      "id": "tv-273240-CA-stream-119",
-      "mediaType": "tv",
-      "tmdbId": 273240,
-      "title": "Off Campus",
-      "label": "Amazon Prime Video",
-      "url": "https://www.themoviedb.org/tv/273240-off-campus/watch?locale=CA",
-      "kind": "stream",
-      "region": "CA",
+      "id": "movie-1419406-GB-rent-130",
+      "mediaType": "movie",
+      "tmdbId": 1419406,
+      "title": "The Shadow's Edge",
+      "label": "Sky Store",
+      "url": "https://www.themoviedb.org/movie/1419406/watch?locale=GB",
+      "kind": "rent",
+      "region": "GB",
       "quality": "",
-      "note": "TMDB 合法观看平台入口（CA）",
+      "note": "TMDB 合法观看平台入口（GB）",
       "enabled": true,
-      "updatedAt": "2026-06-08T09:53:25.130Z"
+      "updatedAt": "2026-06-11T05:09:39.254Z"
     },
     {
-      "id": "tv-273240-CA-stream-2100",
-      "mediaType": "tv",
-      "tmdbId": 273240,
-      "title": "Off Campus",
-      "label": "Amazon Prime Video with Ads",
-      "url": "https://www.themoviedb.org/tv/273240-off-campus/watch?locale=CA",
-      "kind": "stream",
-      "region": "CA",
+      "id": "movie-1419406-GB-buy-2",
+      "mediaType": "movie",
+      "tmdbId": 1419406,
+      "title": "The Shadow's Edge",
+      "label": "Apple TV Store",
+      "url": "https://www.themoviedb.org/movie/1419406/watch?locale=GB",
+      "kind": "buy",
+      "region": "GB",
       "quality": "",
-      "note": "TMDB 合法观看平台入口（CA）",
+      "note": "TMDB 合法观看平台入口（GB）",
       "enabled": true,
-      "updatedAt": "2026-06-08T09:53:25.130Z"
+      "updatedAt": "2026-06-11T05:09:39.254Z"
     },
     {
-      "id": "tv-273240-AU-stream-119",
-      "mediaType": "tv",
-      "tmdbId": 273240,
-      "title": "Off Campus",
-      "label": "Amazon Prime Video",
-      "url": "https://www.themoviedb.org/tv/273240-off-campus/watch?locale=AU",
-      "kind": "stream",
-      "region": "AU",
+      "id": "movie-1419406-GB-buy-35",
+      "mediaType": "movie",
+      "tmdbId": 1419406,
+      "title": "The Shadow's Edge",
+      "label": "Rakuten TV",
+      "url": "https://www.themoviedb.org/movie/1419406/watch?locale=GB",
+      "kind": "buy",
+      "region": "GB",
       "quality": "",
-      "note": "TMDB 合法观看平台入口（AU）",
+      "note": "TMDB 合法观看平台入口（GB）",
       "enabled": true,
-      "updatedAt": "2026-06-08T09:53:25.130Z"
+      "updatedAt": "2026-06-11T05:09:39.254Z"
     },
     {
-      "id": "tv-273240-AU-stream-2100",
-      "mediaType": "tv",
-      "tmdbId": 273240,
-      "title": "Off Campus",
-      "label": "Amazon Prime Video with Ads",
-      "url": "https://www.themoviedb.org/tv/273240-off-campus/watch?locale=AU",
-      "kind": "stream",
-      "region": "AU",
+      "id": "movie-1419406-GB-buy-10",
+      "mediaType": "movie",
+      "tmdbId": 1419406,
+      "title": "The Shadow's Edge",
+      "label": "Amazon Video",
+      "url": "https://www.themoviedb.org/movie/1419406/watch?locale=GB",
+      "kind": "buy",
+      "region": "GB",
       "quality": "",
-      "note": "TMDB 合法观看平台入口（AU）",
+      "note": "TMDB 合法观看平台入口（GB）",
       "enabled": true,
-      "updatedAt": "2026-06-08T09:53:25.130Z"
+      "updatedAt": "2026-06-11T05:09:39.254Z"
+    },
+    {
+      "id": "movie-1419406-GB-buy-130",
+      "mediaType": "movie",
+      "tmdbId": 1419406,
+      "title": "The Shadow's Edge",
+      "label": "Sky Store",
+      "url": "https://www.themoviedb.org/movie/1419406/watch?locale=GB",
+      "kind": "buy",
+      "region": "GB",
+      "quality": "",
+      "note": "TMDB 合法观看平台入口（GB）",
+      "enabled": true,
+      "updatedAt": "2026-06-11T05:09:39.254Z"
     },
     {
       "id": "tv-124364-US-stream-257",
@@ -2477,7 +2967,7 @@
       "quality": "",
       "note": "TMDB 合法观看平台入口（US）",
       "enabled": true,
-      "updatedAt": "2026-06-08T09:53:25.135Z"
+      "updatedAt": "2026-06-11T05:09:39.288Z"
     },
     {
       "id": "tv-124364-US-stream-583",
@@ -2491,7 +2981,7 @@
       "quality": "",
       "note": "TMDB 合法观看平台入口（US）",
       "enabled": true,
-      "updatedAt": "2026-06-08T09:53:25.135Z"
+      "updatedAt": "2026-06-11T05:09:39.288Z"
     },
     {
       "id": "tv-124364-US-stream-636",
@@ -2505,7 +2995,7 @@
       "quality": "",
       "note": "TMDB 合法观看平台入口（US）",
       "enabled": true,
-      "updatedAt": "2026-06-08T09:53:25.135Z"
+      "updatedAt": "2026-06-11T05:09:39.288Z"
     },
     {
       "id": "tv-124364-US-stream-34",
@@ -2519,7 +3009,7 @@
       "quality": "",
       "note": "TMDB 合法观看平台入口（US）",
       "enabled": true,
-      "updatedAt": "2026-06-08T09:53:25.135Z"
+      "updatedAt": "2026-06-11T05:09:39.288Z"
     },
     {
       "id": "tv-124364-US-buy-10",
@@ -2533,7 +3023,7 @@
       "quality": "",
       "note": "TMDB 合法观看平台入口（US）",
       "enabled": true,
-      "updatedAt": "2026-06-08T09:53:25.135Z"
+      "updatedAt": "2026-06-11T05:09:39.288Z"
     },
     {
       "id": "tv-124364-US-buy-2",
@@ -2547,7 +3037,7 @@
       "quality": "",
       "note": "TMDB 合法观看平台入口（US）",
       "enabled": true,
-      "updatedAt": "2026-06-08T09:53:25.135Z"
+      "updatedAt": "2026-06-11T05:09:39.288Z"
     },
     {
       "id": "tv-124364-US-buy-3",
@@ -2561,7 +3051,7 @@
       "quality": "",
       "note": "TMDB 合法观看平台入口（US）",
       "enabled": true,
-      "updatedAt": "2026-06-08T09:53:25.135Z"
+      "updatedAt": "2026-06-11T05:09:39.288Z"
     },
     {
       "id": "tv-124364-US-buy-7",
@@ -2575,7 +3065,7 @@
       "quality": "",
       "note": "TMDB 合法观看平台入口（US）",
       "enabled": true,
-      "updatedAt": "2026-06-08T09:53:25.135Z"
+      "updatedAt": "2026-06-11T05:09:39.288Z"
     },
     {
       "id": "tv-124364-GB-stream-29",
@@ -2589,7 +3079,7 @@
       "quality": "",
       "note": "TMDB 合法观看平台入口（GB）",
       "enabled": true,
-      "updatedAt": "2026-06-08T09:53:25.135Z"
+      "updatedAt": "2026-06-11T05:09:39.288Z"
     },
     {
       "id": "tv-124364-GB-stream-39",
@@ -2603,7 +3093,7 @@
       "quality": "",
       "note": "TMDB 合法观看平台入口（GB）",
       "enabled": true,
-      "updatedAt": "2026-06-08T09:53:25.135Z"
+      "updatedAt": "2026-06-11T05:09:39.288Z"
     },
     {
       "id": "tv-124364-GB-buy-2",
@@ -2617,7 +3107,7 @@
       "quality": "",
       "note": "TMDB 合法观看平台入口（GB）",
       "enabled": true,
-      "updatedAt": "2026-06-08T09:53:25.135Z"
+      "updatedAt": "2026-06-11T05:09:39.288Z"
     },
     {
       "id": "tv-124364-GB-buy-10",
@@ -2631,7 +3121,7 @@
       "quality": "",
       "note": "TMDB 合法观看平台入口（GB）",
       "enabled": true,
-      "updatedAt": "2026-06-08T09:53:25.135Z"
+      "updatedAt": "2026-06-11T05:09:39.288Z"
     },
     {
       "id": "tv-124364-GB-buy-130",
@@ -2645,7 +3135,7 @@
       "quality": "",
       "note": "TMDB 合法观看平台入口（GB）",
       "enabled": true,
-      "updatedAt": "2026-06-08T09:53:25.135Z"
+      "updatedAt": "2026-06-11T05:09:39.288Z"
     },
     {
       "id": "tv-124364-CA-stream-531",
@@ -2659,7 +3149,7 @@
       "quality": "",
       "note": "TMDB 合法观看平台入口（CA）",
       "enabled": true,
-      "updatedAt": "2026-06-08T09:53:25.135Z"
+      "updatedAt": "2026-06-11T05:09:39.288Z"
     },
     {
       "id": "tv-124364-CA-stream-582",
@@ -2673,7 +3163,7 @@
       "quality": "",
       "note": "TMDB 合法观看平台入口（CA）",
       "enabled": true,
-      "updatedAt": "2026-06-08T09:53:25.135Z"
+      "updatedAt": "2026-06-11T05:09:39.288Z"
     },
     {
       "id": "tv-124364-CA-stream-469",
@@ -2687,7 +3177,7 @@
       "quality": "",
       "note": "TMDB 合法观看平台入口（CA）",
       "enabled": true,
-      "updatedAt": "2026-06-08T09:53:25.135Z"
+      "updatedAt": "2026-06-11T05:09:39.288Z"
     },
     {
       "id": "tv-124364-CA-stream-1853",
@@ -2701,7 +3191,7 @@
       "quality": "",
       "note": "TMDB 合法观看平台入口（CA）",
       "enabled": true,
-      "updatedAt": "2026-06-08T09:53:25.135Z"
+      "updatedAt": "2026-06-11T05:09:39.288Z"
     },
     {
       "id": "tv-124364-CA-buy-2",
@@ -2715,7 +3205,7 @@
       "quality": "",
       "note": "TMDB 合法观看平台入口（CA）",
       "enabled": true,
-      "updatedAt": "2026-06-08T09:53:25.135Z"
+      "updatedAt": "2026-06-11T05:09:39.288Z"
     },
     {
       "id": "tv-124364-CA-buy-10",
@@ -2729,7 +3219,7 @@
       "quality": "",
       "note": "TMDB 合法观看平台入口（CA）",
       "enabled": true,
-      "updatedAt": "2026-06-08T09:53:25.135Z"
+      "updatedAt": "2026-06-11T05:09:39.288Z"
     },
     {
       "id": "tv-124364-AU-stream-21",
@@ -2743,7 +3233,7 @@
       "quality": "",
       "note": "TMDB 合法观看平台入口（AU）",
       "enabled": true,
-      "updatedAt": "2026-06-08T09:53:25.135Z"
+      "updatedAt": "2026-06-11T05:09:39.288Z"
     },
     {
       "id": "tv-124364-AU-buy-2",
@@ -2757,7 +3247,7 @@
       "quality": "",
       "note": "TMDB 合法观看平台入口（AU）",
       "enabled": true,
-      "updatedAt": "2026-06-08T09:53:25.135Z"
+      "updatedAt": "2026-06-11T05:09:39.288Z"
     },
     {
       "id": "tv-124364-AU-buy-10",
@@ -2771,7 +3261,7 @@
       "quality": "",
       "note": "TMDB 合法观看平台入口（AU）",
       "enabled": true,
-      "updatedAt": "2026-06-08T09:53:25.135Z"
+      "updatedAt": "2026-06-11T05:09:39.288Z"
     },
     {
       "id": "tv-124364-AU-buy-436",
@@ -2785,7 +3275,133 @@
       "quality": "",
       "note": "TMDB 合法观看平台入口（AU）",
       "enabled": true,
-      "updatedAt": "2026-06-08T09:53:25.135Z"
+      "updatedAt": "2026-06-11T05:09:39.288Z"
+    },
+    {
+      "id": "tv-273240-US-stream-9",
+      "mediaType": "tv",
+      "tmdbId": 273240,
+      "title": "Off Campus",
+      "label": "Amazon Prime Video",
+      "url": "https://www.themoviedb.org/tv/273240-off-campus/watch?locale=US",
+      "kind": "stream",
+      "region": "US",
+      "quality": "",
+      "note": "TMDB 合法观看平台入口（US）",
+      "enabled": true,
+      "updatedAt": "2026-06-11T05:09:39.310Z"
+    },
+    {
+      "id": "tv-273240-US-stream-2100",
+      "mediaType": "tv",
+      "tmdbId": 273240,
+      "title": "Off Campus",
+      "label": "Amazon Prime Video with Ads",
+      "url": "https://www.themoviedb.org/tv/273240-off-campus/watch?locale=US",
+      "kind": "stream",
+      "region": "US",
+      "quality": "",
+      "note": "TMDB 合法观看平台入口（US）",
+      "enabled": true,
+      "updatedAt": "2026-06-11T05:09:39.310Z"
+    },
+    {
+      "id": "tv-273240-US-free-613",
+      "mediaType": "tv",
+      "tmdbId": 273240,
+      "title": "Off Campus",
+      "label": "Amazon Prime Video Free with Ads",
+      "url": "https://www.themoviedb.org/tv/273240-off-campus/watch?locale=US",
+      "kind": "free",
+      "region": "US",
+      "quality": "",
+      "note": "TMDB 合法观看平台入口（US）",
+      "enabled": true,
+      "updatedAt": "2026-06-11T05:09:39.310Z"
+    },
+    {
+      "id": "tv-273240-GB-stream-9",
+      "mediaType": "tv",
+      "tmdbId": 273240,
+      "title": "Off Campus",
+      "label": "Amazon Prime Video",
+      "url": "https://www.themoviedb.org/tv/273240-off-campus/watch?locale=GB",
+      "kind": "stream",
+      "region": "GB",
+      "quality": "",
+      "note": "TMDB 合法观看平台入口（GB）",
+      "enabled": true,
+      "updatedAt": "2026-06-11T05:09:39.310Z"
+    },
+    {
+      "id": "tv-273240-GB-stream-2100",
+      "mediaType": "tv",
+      "tmdbId": 273240,
+      "title": "Off Campus",
+      "label": "Amazon Prime Video with Ads",
+      "url": "https://www.themoviedb.org/tv/273240-off-campus/watch?locale=GB",
+      "kind": "stream",
+      "region": "GB",
+      "quality": "",
+      "note": "TMDB 合法观看平台入口（GB）",
+      "enabled": true,
+      "updatedAt": "2026-06-11T05:09:39.310Z"
+    },
+    {
+      "id": "tv-273240-CA-stream-119",
+      "mediaType": "tv",
+      "tmdbId": 273240,
+      "title": "Off Campus",
+      "label": "Amazon Prime Video",
+      "url": "https://www.themoviedb.org/tv/273240-off-campus/watch?locale=CA",
+      "kind": "stream",
+      "region": "CA",
+      "quality": "",
+      "note": "TMDB 合法观看平台入口（CA）",
+      "enabled": true,
+      "updatedAt": "2026-06-11T05:09:39.310Z"
+    },
+    {
+      "id": "tv-273240-CA-stream-2100",
+      "mediaType": "tv",
+      "tmdbId": 273240,
+      "title": "Off Campus",
+      "label": "Amazon Prime Video with Ads",
+      "url": "https://www.themoviedb.org/tv/273240-off-campus/watch?locale=CA",
+      "kind": "stream",
+      "region": "CA",
+      "quality": "",
+      "note": "TMDB 合法观看平台入口（CA）",
+      "enabled": true,
+      "updatedAt": "2026-06-11T05:09:39.310Z"
+    },
+    {
+      "id": "tv-273240-AU-stream-119",
+      "mediaType": "tv",
+      "tmdbId": 273240,
+      "title": "Off Campus",
+      "label": "Amazon Prime Video",
+      "url": "https://www.themoviedb.org/tv/273240-off-campus/watch?locale=AU",
+      "kind": "stream",
+      "region": "AU",
+      "quality": "",
+      "note": "TMDB 合法观看平台入口（AU）",
+      "enabled": true,
+      "updatedAt": "2026-06-11T05:09:39.310Z"
+    },
+    {
+      "id": "tv-273240-AU-stream-2100",
+      "mediaType": "tv",
+      "tmdbId": 273240,
+      "title": "Off Campus",
+      "label": "Amazon Prime Video with Ads",
+      "url": "https://www.themoviedb.org/tv/273240-off-campus/watch?locale=AU",
+      "kind": "stream",
+      "region": "AU",
+      "quality": "",
+      "note": "TMDB 合法观看平台入口（AU）",
+      "enabled": true,
+      "updatedAt": "2026-06-11T05:09:39.310Z"
     },
     {
       "id": "tv-76479-US-stream-9",
@@ -2799,7 +3415,7 @@
       "quality": "",
       "note": "TMDB 合法观看平台入口（US）",
       "enabled": true,
-      "updatedAt": "2026-06-08T09:53:25.142Z"
+      "updatedAt": "2026-06-11T05:09:40.921Z"
     },
     {
       "id": "tv-76479-US-stream-2100",
@@ -2813,7 +3429,7 @@
       "quality": "",
       "note": "TMDB 合法观看平台入口（US）",
       "enabled": true,
-      "updatedAt": "2026-06-08T09:53:25.142Z"
+      "updatedAt": "2026-06-11T05:09:40.921Z"
     },
     {
       "id": "tv-76479-US-buy-2",
@@ -2827,7 +3443,7 @@
       "quality": "",
       "note": "TMDB 合法观看平台入口（US）",
       "enabled": true,
-      "updatedAt": "2026-06-08T09:53:25.142Z"
+      "updatedAt": "2026-06-11T05:09:40.921Z"
     },
     {
       "id": "tv-76479-US-buy-3",
@@ -2841,7 +3457,7 @@
       "quality": "",
       "note": "TMDB 合法观看平台入口（US）",
       "enabled": true,
-      "updatedAt": "2026-06-08T09:53:25.142Z"
+      "updatedAt": "2026-06-11T05:09:40.921Z"
     },
     {
       "id": "tv-76479-US-buy-7",
@@ -2855,7 +3471,7 @@
       "quality": "",
       "note": "TMDB 合法观看平台入口（US）",
       "enabled": true,
-      "updatedAt": "2026-06-08T09:53:25.142Z"
+      "updatedAt": "2026-06-11T05:09:40.921Z"
     },
     {
       "id": "tv-76479-US-free-613",
@@ -2869,7 +3485,7 @@
       "quality": "",
       "note": "TMDB 合法观看平台入口（US）",
       "enabled": true,
-      "updatedAt": "2026-06-08T09:53:25.142Z"
+      "updatedAt": "2026-06-11T05:09:40.921Z"
     },
     {
       "id": "tv-76479-GB-stream-9",
@@ -2883,7 +3499,7 @@
       "quality": "",
       "note": "TMDB 合法观看平台入口（GB）",
       "enabled": true,
-      "updatedAt": "2026-06-08T09:53:25.142Z"
+      "updatedAt": "2026-06-11T05:09:40.921Z"
     },
     {
       "id": "tv-76479-GB-stream-2100",
@@ -2897,7 +3513,7 @@
       "quality": "",
       "note": "TMDB 合法观看平台入口（GB）",
       "enabled": true,
-      "updatedAt": "2026-06-08T09:53:25.142Z"
+      "updatedAt": "2026-06-11T05:09:40.921Z"
     },
     {
       "id": "tv-76479-GB-buy-2",
@@ -2911,7 +3527,7 @@
       "quality": "",
       "note": "TMDB 合法观看平台入口（GB）",
       "enabled": true,
-      "updatedAt": "2026-06-08T09:53:25.142Z"
+      "updatedAt": "2026-06-11T05:09:40.921Z"
     },
     {
       "id": "tv-76479-GB-buy-10",
@@ -2925,7 +3541,7 @@
       "quality": "",
       "note": "TMDB 合法观看平台入口（GB）",
       "enabled": true,
-      "updatedAt": "2026-06-08T09:53:25.142Z"
+      "updatedAt": "2026-06-11T05:09:40.921Z"
     },
     {
       "id": "tv-76479-GB-buy-130",
@@ -2939,7 +3555,7 @@
       "quality": "",
       "note": "TMDB 合法观看平台入口（GB）",
       "enabled": true,
-      "updatedAt": "2026-06-08T09:53:25.142Z"
+      "updatedAt": "2026-06-11T05:09:40.921Z"
     },
     {
       "id": "tv-76479-CA-stream-119",
@@ -2953,7 +3569,7 @@
       "quality": "",
       "note": "TMDB 合法观看平台入口（CA）",
       "enabled": true,
-      "updatedAt": "2026-06-08T09:53:25.142Z"
+      "updatedAt": "2026-06-11T05:09:40.921Z"
     },
     {
       "id": "tv-76479-CA-stream-2100",
@@ -2967,7 +3583,7 @@
       "quality": "",
       "note": "TMDB 合法观看平台入口（CA）",
       "enabled": true,
-      "updatedAt": "2026-06-08T09:53:25.142Z"
+      "updatedAt": "2026-06-11T05:09:40.921Z"
     },
     {
       "id": "tv-76479-CA-buy-2",
@@ -2981,7 +3597,7 @@
       "quality": "",
       "note": "TMDB 合法观看平台入口（CA）",
       "enabled": true,
-      "updatedAt": "2026-06-08T09:53:25.142Z"
+      "updatedAt": "2026-06-11T05:09:40.921Z"
     },
     {
       "id": "tv-76479-AU-stream-119",
@@ -2995,7 +3611,7 @@
       "quality": "",
       "note": "TMDB 合法观看平台入口（AU）",
       "enabled": true,
-      "updatedAt": "2026-06-08T09:53:25.142Z"
+      "updatedAt": "2026-06-11T05:09:40.921Z"
     },
     {
       "id": "tv-76479-AU-stream-2100",
@@ -3009,7 +3625,7 @@
       "quality": "",
       "note": "TMDB 合法观看平台入口（AU）",
       "enabled": true,
-      "updatedAt": "2026-06-08T09:53:25.142Z"
+      "updatedAt": "2026-06-11T05:09:40.921Z"
     },
     {
       "id": "tv-76479-AU-buy-2",
@@ -3023,7 +3639,7 @@
       "quality": "",
       "note": "TMDB 合法观看平台入口（AU）",
       "enabled": true,
-      "updatedAt": "2026-06-08T09:53:25.142Z"
+      "updatedAt": "2026-06-11T05:09:40.921Z"
     },
     {
       "id": "tv-76479-AU-buy-436",
@@ -3037,133 +3653,119 @@
       "quality": "",
       "note": "TMDB 合法观看平台入口（AU）",
       "enabled": true,
-      "updatedAt": "2026-06-08T09:53:25.142Z"
+      "updatedAt": "2026-06-11T05:09:40.921Z"
     },
     {
-      "id": "tv-220102-US-stream-9",
+      "id": "tv-276161-US-stream-8",
       "mediaType": "tv",
-      "tmdbId": 220102,
-      "title": "Spider-Noir",
-      "label": "Amazon Prime Video",
-      "url": "https://www.themoviedb.org/tv/220102-spider-noir/watch?locale=US",
+      "tmdbId": 276161,
+      "title": "Teach You a Lesson",
+      "label": "Netflix",
+      "url": "https://www.themoviedb.org/tv/276161/watch?locale=US",
       "kind": "stream",
       "region": "US",
       "quality": "",
       "note": "TMDB 合法观看平台入口（US）",
       "enabled": true,
-      "updatedAt": "2026-06-08T09:53:25.147Z"
+      "updatedAt": "2026-06-11T05:09:40.937Z"
     },
     {
-      "id": "tv-220102-US-stream-2100",
+      "id": "tv-276161-US-stream-1796",
       "mediaType": "tv",
-      "tmdbId": 220102,
-      "title": "Spider-Noir",
-      "label": "Amazon Prime Video with Ads",
-      "url": "https://www.themoviedb.org/tv/220102-spider-noir/watch?locale=US",
+      "tmdbId": 276161,
+      "title": "Teach You a Lesson",
+      "label": "Netflix Standard with Ads",
+      "url": "https://www.themoviedb.org/tv/276161/watch?locale=US",
       "kind": "stream",
       "region": "US",
       "quality": "",
       "note": "TMDB 合法观看平台入口（US）",
       "enabled": true,
-      "updatedAt": "2026-06-08T09:53:25.147Z"
+      "updatedAt": "2026-06-11T05:09:40.937Z"
     },
     {
-      "id": "tv-220102-US-free-613",
+      "id": "tv-276161-GB-stream-8",
       "mediaType": "tv",
-      "tmdbId": 220102,
-      "title": "Spider-Noir",
-      "label": "Amazon Prime Video Free with Ads",
-      "url": "https://www.themoviedb.org/tv/220102-spider-noir/watch?locale=US",
-      "kind": "free",
-      "region": "US",
-      "quality": "",
-      "note": "TMDB 合法观看平台入口（US）",
-      "enabled": true,
-      "updatedAt": "2026-06-08T09:53:25.147Z"
-    },
-    {
-      "id": "tv-220102-GB-stream-9",
-      "mediaType": "tv",
-      "tmdbId": 220102,
-      "title": "Spider-Noir",
-      "label": "Amazon Prime Video",
-      "url": "https://www.themoviedb.org/tv/220102-spider-noir/watch?locale=GB",
+      "tmdbId": 276161,
+      "title": "Teach You a Lesson",
+      "label": "Netflix",
+      "url": "https://www.themoviedb.org/tv/276161/watch?locale=GB",
       "kind": "stream",
       "region": "GB",
       "quality": "",
       "note": "TMDB 合法观看平台入口（GB）",
       "enabled": true,
-      "updatedAt": "2026-06-08T09:53:25.147Z"
+      "updatedAt": "2026-06-11T05:09:40.937Z"
     },
     {
-      "id": "tv-220102-GB-stream-2100",
+      "id": "tv-276161-GB-stream-1796",
       "mediaType": "tv",
-      "tmdbId": 220102,
-      "title": "Spider-Noir",
-      "label": "Amazon Prime Video with Ads",
-      "url": "https://www.themoviedb.org/tv/220102-spider-noir/watch?locale=GB",
+      "tmdbId": 276161,
+      "title": "Teach You a Lesson",
+      "label": "Netflix Standard with Ads",
+      "url": "https://www.themoviedb.org/tv/276161/watch?locale=GB",
       "kind": "stream",
       "region": "GB",
       "quality": "",
       "note": "TMDB 合法观看平台入口（GB）",
       "enabled": true,
-      "updatedAt": "2026-06-08T09:53:25.147Z"
+      "updatedAt": "2026-06-11T05:09:40.937Z"
     },
     {
-      "id": "tv-220102-CA-stream-119",
+      "id": "tv-276161-CA-stream-8",
       "mediaType": "tv",
-      "tmdbId": 220102,
-      "title": "Spider-Noir",
-      "label": "Amazon Prime Video",
-      "url": "https://www.themoviedb.org/tv/220102-spider-noir/watch?locale=CA",
+      "tmdbId": 276161,
+      "title": "Teach You a Lesson",
+      "label": "Netflix",
+      "url": "https://www.themoviedb.org/tv/276161/watch?locale=CA",
       "kind": "stream",
       "region": "CA",
       "quality": "",
       "note": "TMDB 合法观看平台入口（CA）",
       "enabled": true,
-      "updatedAt": "2026-06-08T09:53:25.147Z"
+      "updatedAt": "2026-06-11T05:09:40.937Z"
     },
     {
-      "id": "tv-220102-CA-stream-2100",
+      "id": "tv-276161-CA-stream-1796",
       "mediaType": "tv",
-      "tmdbId": 220102,
-      "title": "Spider-Noir",
-      "label": "Amazon Prime Video with Ads",
-      "url": "https://www.themoviedb.org/tv/220102-spider-noir/watch?locale=CA",
+      "tmdbId": 276161,
+      "title": "Teach You a Lesson",
+      "label": "Netflix Standard with Ads",
+      "url": "https://www.themoviedb.org/tv/276161/watch?locale=CA",
       "kind": "stream",
       "region": "CA",
       "quality": "",
       "note": "TMDB 合法观看平台入口（CA）",
       "enabled": true,
-      "updatedAt": "2026-06-08T09:53:25.147Z"
+      "updatedAt": "2026-06-11T05:09:40.937Z"
     },
     {
-      "id": "tv-220102-AU-stream-119",
+      "id": "tv-276161-AU-stream-8",
       "mediaType": "tv",
-      "tmdbId": 220102,
-      "title": "Spider-Noir",
-      "label": "Amazon Prime Video",
-      "url": "https://www.themoviedb.org/tv/220102-spider-noir/watch?locale=AU",
+      "tmdbId": 276161,
+      "title": "Teach You a Lesson",
+      "label": "Netflix",
+      "url": "https://www.themoviedb.org/tv/276161/watch?locale=AU",
       "kind": "stream",
       "region": "AU",
       "quality": "",
       "note": "TMDB 合法观看平台入口（AU）",
       "enabled": true,
-      "updatedAt": "2026-06-08T09:53:25.147Z"
+      "updatedAt": "2026-06-11T05:09:40.937Z"
     },
     {
-      "id": "tv-220102-AU-stream-2100",
+      "id": "tv-276161-AU-stream-1796",
       "mediaType": "tv",
-      "tmdbId": 220102,
-      "title": "Spider-Noir",
-      "label": "Amazon Prime Video with Ads",
-      "url": "https://www.themoviedb.org/tv/220102-spider-noir/watch?locale=AU",
+      "tmdbId": 276161,
+      "title": "Teach You a Lesson",
+      "label": "Netflix Standard with Ads",
+      "url": "https://www.themoviedb.org/tv/276161/watch?locale=AU",
       "kind": "stream",
       "region": "AU",
       "quality": "",
       "note": "TMDB 合法观看平台入口（AU）",
       "enabled": true,
-      "updatedAt": "2026-06-08T09:53:25.147Z"
+      "updatedAt": "2026-06-11T05:09:40.937Z"
     },
     {
       "id": "tv-2734-US-stream-15",
@@ -3177,7 +3779,7 @@
       "quality": "",
       "note": "TMDB 合法观看平台入口（US）",
       "enabled": true,
-      "updatedAt": "2026-06-08T09:53:25.153Z"
+      "updatedAt": "2026-06-11T05:09:40.948Z"
     },
     {
       "id": "tv-2734-US-stream-386",
@@ -3191,7 +3793,7 @@
       "quality": "",
       "note": "TMDB 合法观看平台入口（US）",
       "enabled": true,
-      "updatedAt": "2026-06-08T09:53:25.153Z"
+      "updatedAt": "2026-06-11T05:09:40.948Z"
     },
     {
       "id": "tv-2734-US-stream-2528",
@@ -3205,7 +3807,7 @@
       "quality": "",
       "note": "TMDB 合法观看平台入口（US）",
       "enabled": true,
-      "updatedAt": "2026-06-08T09:53:25.153Z"
+      "updatedAt": "2026-06-11T05:09:40.948Z"
     },
     {
       "id": "tv-2734-US-stream-79",
@@ -3219,7 +3821,7 @@
       "quality": "",
       "note": "TMDB 合法观看平台入口（US）",
       "enabled": true,
-      "updatedAt": "2026-06-08T09:53:25.153Z"
+      "updatedAt": "2026-06-11T05:09:40.948Z"
     },
     {
       "id": "tv-2734-US-buy-10",
@@ -3233,7 +3835,7 @@
       "quality": "",
       "note": "TMDB 合法观看平台入口（US）",
       "enabled": true,
-      "updatedAt": "2026-06-08T09:53:25.153Z"
+      "updatedAt": "2026-06-11T05:09:40.948Z"
     },
     {
       "id": "tv-2734-US-buy-2",
@@ -3247,7 +3849,7 @@
       "quality": "",
       "note": "TMDB 合法观看平台入口（US）",
       "enabled": true,
-      "updatedAt": "2026-06-08T09:53:25.153Z"
+      "updatedAt": "2026-06-11T05:09:40.948Z"
     },
     {
       "id": "tv-2734-US-buy-3",
@@ -3261,7 +3863,7 @@
       "quality": "",
       "note": "TMDB 合法观看平台入口（US）",
       "enabled": true,
-      "updatedAt": "2026-06-08T09:53:25.153Z"
+      "updatedAt": "2026-06-11T05:09:40.948Z"
     },
     {
       "id": "tv-2734-US-buy-7",
@@ -3275,7 +3877,7 @@
       "quality": "",
       "note": "TMDB 合法观看平台入口（US）",
       "enabled": true,
-      "updatedAt": "2026-06-08T09:53:25.153Z"
+      "updatedAt": "2026-06-11T05:09:40.948Z"
     },
     {
       "id": "tv-2734-US-free-486",
@@ -3289,7 +3891,7 @@
       "quality": "",
       "note": "TMDB 合法观看平台入口（US）",
       "enabled": true,
-      "updatedAt": "2026-06-08T09:53:25.153Z"
+      "updatedAt": "2026-06-11T05:09:40.948Z"
     },
     {
       "id": "tv-2734-GB-stream-8",
@@ -3303,7 +3905,7 @@
       "quality": "",
       "note": "TMDB 合法观看平台入口（GB）",
       "enabled": true,
-      "updatedAt": "2026-06-08T09:53:25.153Z"
+      "updatedAt": "2026-06-11T05:09:40.948Z"
     },
     {
       "id": "tv-2734-GB-stream-337",
@@ -3317,7 +3919,7 @@
       "quality": "",
       "note": "TMDB 合法观看平台入口（GB）",
       "enabled": true,
-      "updatedAt": "2026-06-08T09:53:25.153Z"
+      "updatedAt": "2026-06-11T05:09:40.948Z"
     },
     {
       "id": "tv-2734-GB-stream-29",
@@ -3331,7 +3933,7 @@
       "quality": "",
       "note": "TMDB 合法观看平台入口（GB）",
       "enabled": true,
-      "updatedAt": "2026-06-08T09:53:25.153Z"
+      "updatedAt": "2026-06-11T05:09:40.948Z"
     },
     {
       "id": "tv-2734-GB-stream-39",
@@ -3345,7 +3947,7 @@
       "quality": "",
       "note": "TMDB 合法观看平台入口（GB）",
       "enabled": true,
-      "updatedAt": "2026-06-08T09:53:25.153Z"
+      "updatedAt": "2026-06-11T05:09:40.948Z"
     },
     {
       "id": "tv-2734-GB-buy-2",
@@ -3359,7 +3961,7 @@
       "quality": "",
       "note": "TMDB 合法观看平台入口（GB）",
       "enabled": true,
-      "updatedAt": "2026-06-08T09:53:25.153Z"
+      "updatedAt": "2026-06-11T05:09:40.948Z"
     },
     {
       "id": "tv-2734-GB-buy-10",
@@ -3373,7 +3975,7 @@
       "quality": "",
       "note": "TMDB 合法观看平台入口（GB）",
       "enabled": true,
-      "updatedAt": "2026-06-08T09:53:25.153Z"
+      "updatedAt": "2026-06-11T05:09:40.948Z"
     },
     {
       "id": "tv-2734-CA-stream-119",
@@ -3387,7 +3989,7 @@
       "quality": "",
       "note": "TMDB 合法观看平台入口（CA）",
       "enabled": true,
-      "updatedAt": "2026-06-08T09:53:25.153Z"
+      "updatedAt": "2026-06-11T05:09:40.948Z"
     },
     {
       "id": "tv-2734-CA-stream-337",
@@ -3401,7 +4003,7 @@
       "quality": "",
       "note": "TMDB 合法观看平台入口（CA）",
       "enabled": true,
-      "updatedAt": "2026-06-08T09:53:25.153Z"
+      "updatedAt": "2026-06-11T05:09:40.948Z"
     },
     {
       "id": "tv-2734-CA-stream-8",
@@ -3415,7 +4017,7 @@
       "quality": "",
       "note": "TMDB 合法观看平台入口（CA）",
       "enabled": true,
-      "updatedAt": "2026-06-08T09:53:25.153Z"
+      "updatedAt": "2026-06-11T05:09:40.948Z"
     },
     {
       "id": "tv-2734-CA-stream-1796",
@@ -3429,7 +4031,7 @@
       "quality": "",
       "note": "TMDB 合法观看平台入口（CA）",
       "enabled": true,
-      "updatedAt": "2026-06-08T09:53:25.153Z"
+      "updatedAt": "2026-06-11T05:09:40.948Z"
     },
     {
       "id": "tv-2734-CA-buy-2",
@@ -3443,7 +4045,7 @@
       "quality": "",
       "note": "TMDB 合法观看平台入口（CA）",
       "enabled": true,
-      "updatedAt": "2026-06-08T09:53:25.153Z"
+      "updatedAt": "2026-06-11T05:09:40.948Z"
     },
     {
       "id": "tv-2734-CA-buy-10",
@@ -3457,7 +4059,7 @@
       "quality": "",
       "note": "TMDB 合法观看平台入口（CA）",
       "enabled": true,
-      "updatedAt": "2026-06-08T09:53:25.153Z"
+      "updatedAt": "2026-06-11T05:09:40.948Z"
     },
     {
       "id": "tv-2734-AU-stream-8",
@@ -3471,7 +4073,7 @@
       "quality": "",
       "note": "TMDB 合法观看平台入口（AU）",
       "enabled": true,
-      "updatedAt": "2026-06-08T09:53:25.153Z"
+      "updatedAt": "2026-06-11T05:09:40.948Z"
     },
     {
       "id": "tv-2734-AU-stream-119",
@@ -3485,7 +4087,7 @@
       "quality": "",
       "note": "TMDB 合法观看平台入口（AU）",
       "enabled": true,
-      "updatedAt": "2026-06-08T09:53:25.153Z"
+      "updatedAt": "2026-06-11T05:09:40.948Z"
     },
     {
       "id": "tv-2734-AU-stream-337",
@@ -3499,21 +4101,21 @@
       "quality": "",
       "note": "TMDB 合法观看平台入口（AU）",
       "enabled": true,
-      "updatedAt": "2026-06-08T09:53:25.153Z"
+      "updatedAt": "2026-06-11T05:09:40.948Z"
     },
     {
-      "id": "tv-2734-AU-stream-134",
+      "id": "tv-2734-AU-stream-385",
       "mediaType": "tv",
       "tmdbId": 2734,
       "title": "Law & Order: Special Victims Unit",
-      "label": "Foxtel Now",
+      "label": "BINGE",
       "url": "https://www.themoviedb.org/tv/2734-law-order-special-victims-unit/watch?locale=AU",
       "kind": "stream",
       "region": "AU",
       "quality": "",
       "note": "TMDB 合法观看平台入口（AU）",
       "enabled": true,
-      "updatedAt": "2026-06-08T09:53:25.153Z"
+      "updatedAt": "2026-06-11T05:09:40.948Z"
     },
     {
       "id": "tv-2734-AU-buy-2",
@@ -3527,7 +4129,7 @@
       "quality": "",
       "note": "TMDB 合法观看平台入口（AU）",
       "enabled": true,
-      "updatedAt": "2026-06-08T09:53:25.153Z"
+      "updatedAt": "2026-06-11T05:09:40.948Z"
     },
     {
       "id": "tv-2734-AU-buy-10",
@@ -3541,7 +4143,7 @@
       "quality": "",
       "note": "TMDB 合法观看平台入口（AU）",
       "enabled": true,
-      "updatedAt": "2026-06-08T09:53:25.153Z"
+      "updatedAt": "2026-06-11T05:09:40.948Z"
     },
     {
       "id": "tv-2734-AU-buy-436",
@@ -3555,7 +4157,7 @@
       "quality": "",
       "note": "TMDB 合法观看平台入口（AU）",
       "enabled": true,
-      "updatedAt": "2026-06-08T09:53:25.153Z"
+      "updatedAt": "2026-06-11T05:09:40.948Z"
     },
     {
       "id": "tv-2734-AU-free-246",
@@ -3569,637 +4171,35 @@
       "quality": "",
       "note": "TMDB 合法观看平台入口（AU）",
       "enabled": true,
-      "updatedAt": "2026-06-08T09:53:25.153Z"
+      "updatedAt": "2026-06-11T05:09:40.948Z"
     },
     {
-      "id": "tv-81329-US-stream-2400",
+      "id": "tv-220102-US-stream-9",
       "mediaType": "tv",
-      "tmdbId": 81329,
-      "title": "Chronicles of the Sun",
-      "label": "France Channel Amazon Channel",
-      "url": "https://www.themoviedb.org/tv/81329-un-si-grand-soleil/watch?locale=US",
+      "tmdbId": 220102,
+      "title": "Spider-Noir",
+      "label": "Amazon Prime Video",
+      "url": "https://www.themoviedb.org/tv/220102-spider-noir/watch?locale=US",
       "kind": "stream",
       "region": "US",
       "quality": "",
       "note": "TMDB 合法观看平台入口（US）",
       "enabled": true,
-      "updatedAt": "2026-06-08T09:53:25.160Z"
+      "updatedAt": "2026-06-11T05:09:40.974Z"
     },
     {
-      "id": "tv-81329-US-free-9",
+      "id": "tv-220102-US-stream-2100",
       "mediaType": "tv",
-      "tmdbId": 81329,
-      "title": "Chronicles of the Sun",
-      "label": "Amazon Prime Video",
-      "url": "https://www.themoviedb.org/tv/81329-un-si-grand-soleil/watch?locale=US",
-      "kind": "free",
-      "region": "US",
-      "quality": "",
-      "note": "TMDB 合法观看平台入口（US）",
-      "enabled": true,
-      "updatedAt": "2026-06-08T09:53:25.160Z"
-    },
-    {
-      "id": "tv-81329-CA-stream-119",
-      "mediaType": "tv",
-      "tmdbId": 81329,
-      "title": "Chronicles of the Sun",
-      "label": "Amazon Prime Video",
-      "url": "https://www.themoviedb.org/tv/81329-un-si-grand-soleil/watch?locale=CA",
-      "kind": "stream",
-      "region": "CA",
-      "quality": "",
-      "note": "TMDB 合法观看平台入口（CA）",
-      "enabled": true,
-      "updatedAt": "2026-06-08T09:53:25.160Z"
-    },
-    {
-      "id": "tv-81329-CA-stream-2100",
-      "mediaType": "tv",
-      "tmdbId": 81329,
-      "title": "Chronicles of the Sun",
+      "tmdbId": 220102,
+      "title": "Spider-Noir",
       "label": "Amazon Prime Video with Ads",
-      "url": "https://www.themoviedb.org/tv/81329-un-si-grand-soleil/watch?locale=CA",
-      "kind": "stream",
-      "region": "CA",
-      "quality": "",
-      "note": "TMDB 合法观看平台入口（CA）",
-      "enabled": true,
-      "updatedAt": "2026-06-08T09:53:25.160Z"
-    },
-    {
-      "id": "tv-81329-CA-free-2665",
-      "mediaType": "tv",
-      "tmdbId": 81329,
-      "title": "Chronicles of the Sun",
-      "label": "TV5 Unis",
-      "url": "https://www.themoviedb.org/tv/81329-un-si-grand-soleil/watch?locale=CA",
-      "kind": "free",
-      "region": "CA",
-      "quality": "",
-      "note": "TMDB 合法观看平台入口（CA）",
-      "enabled": true,
-      "updatedAt": "2026-06-08T09:53:25.160Z"
-    },
-    {
-      "id": "tv-85552-US-stream-1825",
-      "mediaType": "tv",
-      "tmdbId": 85552,
-      "title": "Euphoria",
-      "label": "HBO Max Amazon Channel",
-      "url": "https://www.themoviedb.org/tv/85552-euphoria/watch?locale=US",
+      "url": "https://www.themoviedb.org/tv/220102-spider-noir/watch?locale=US",
       "kind": "stream",
       "region": "US",
       "quality": "",
       "note": "TMDB 合法观看平台入口（US）",
       "enabled": true,
-      "updatedAt": "2026-06-08T09:53:25.165Z"
-    },
-    {
-      "id": "tv-85552-US-stream-486",
-      "mediaType": "tv",
-      "tmdbId": 85552,
-      "title": "Euphoria",
-      "label": "Spectrum On Demand",
-      "url": "https://www.themoviedb.org/tv/85552-euphoria/watch?locale=US",
-      "kind": "stream",
-      "region": "US",
-      "quality": "",
-      "note": "TMDB 合法观看平台入口（US）",
-      "enabled": true,
-      "updatedAt": "2026-06-08T09:53:25.165Z"
-    },
-    {
-      "id": "tv-85552-US-stream-1899",
-      "mediaType": "tv",
-      "tmdbId": 85552,
-      "title": "Euphoria",
-      "label": "HBO Max",
-      "url": "https://www.themoviedb.org/tv/85552-euphoria/watch?locale=US",
-      "kind": "stream",
-      "region": "US",
-      "quality": "",
-      "note": "TMDB 合法观看平台入口（US）",
-      "enabled": true,
-      "updatedAt": "2026-06-08T09:53:25.165Z"
-    },
-    {
-      "id": "tv-85552-US-buy-10",
-      "mediaType": "tv",
-      "tmdbId": 85552,
-      "title": "Euphoria",
-      "label": "Amazon Video",
-      "url": "https://www.themoviedb.org/tv/85552-euphoria/watch?locale=US",
-      "kind": "buy",
-      "region": "US",
-      "quality": "",
-      "note": "TMDB 合法观看平台入口（US）",
-      "enabled": true,
-      "updatedAt": "2026-06-08T09:53:25.165Z"
-    },
-    {
-      "id": "tv-85552-US-buy-2",
-      "mediaType": "tv",
-      "tmdbId": 85552,
-      "title": "Euphoria",
-      "label": "Apple TV Store",
-      "url": "https://www.themoviedb.org/tv/85552-euphoria/watch?locale=US",
-      "kind": "buy",
-      "region": "US",
-      "quality": "",
-      "note": "TMDB 合法观看平台入口（US）",
-      "enabled": true,
-      "updatedAt": "2026-06-08T09:53:25.165Z"
-    },
-    {
-      "id": "tv-85552-US-buy-3",
-      "mediaType": "tv",
-      "tmdbId": 85552,
-      "title": "Euphoria",
-      "label": "Google Play Movies",
-      "url": "https://www.themoviedb.org/tv/85552-euphoria/watch?locale=US",
-      "kind": "buy",
-      "region": "US",
-      "quality": "",
-      "note": "TMDB 合法观看平台入口（US）",
-      "enabled": true,
-      "updatedAt": "2026-06-08T09:53:25.165Z"
-    },
-    {
-      "id": "tv-85552-US-buy-7",
-      "mediaType": "tv",
-      "tmdbId": 85552,
-      "title": "Euphoria",
-      "label": "Fandango At Home",
-      "url": "https://www.themoviedb.org/tv/85552-euphoria/watch?locale=US",
-      "kind": "buy",
-      "region": "US",
-      "quality": "",
-      "note": "TMDB 合法观看平台入口（US）",
-      "enabled": true,
-      "updatedAt": "2026-06-08T09:53:25.165Z"
-    },
-    {
-      "id": "tv-85552-GB-stream-1825",
-      "mediaType": "tv",
-      "tmdbId": 85552,
-      "title": "Euphoria",
-      "label": "HBO Max Amazon Channel",
-      "url": "https://www.themoviedb.org/tv/85552-euphoria/watch?locale=GB",
-      "kind": "stream",
-      "region": "GB",
-      "quality": "",
-      "note": "TMDB 合法观看平台入口（GB）",
-      "enabled": true,
-      "updatedAt": "2026-06-08T09:53:25.165Z"
-    },
-    {
-      "id": "tv-85552-GB-stream-39",
-      "mediaType": "tv",
-      "tmdbId": 85552,
-      "title": "Euphoria",
-      "label": "Now TV",
-      "url": "https://www.themoviedb.org/tv/85552-euphoria/watch?locale=GB",
-      "kind": "stream",
-      "region": "GB",
-      "quality": "",
-      "note": "TMDB 合法观看平台入口（GB）",
-      "enabled": true,
-      "updatedAt": "2026-06-08T09:53:25.165Z"
-    },
-    {
-      "id": "tv-85552-GB-buy-2",
-      "mediaType": "tv",
-      "tmdbId": 85552,
-      "title": "Euphoria",
-      "label": "Apple TV Store",
-      "url": "https://www.themoviedb.org/tv/85552-euphoria/watch?locale=GB",
-      "kind": "buy",
-      "region": "GB",
-      "quality": "",
-      "note": "TMDB 合法观看平台入口（GB）",
-      "enabled": true,
-      "updatedAt": "2026-06-08T09:53:25.165Z"
-    },
-    {
-      "id": "tv-85552-GB-buy-10",
-      "mediaType": "tv",
-      "tmdbId": 85552,
-      "title": "Euphoria",
-      "label": "Amazon Video",
-      "url": "https://www.themoviedb.org/tv/85552-euphoria/watch?locale=GB",
-      "kind": "buy",
-      "region": "GB",
-      "quality": "",
-      "note": "TMDB 合法观看平台入口（GB）",
-      "enabled": true,
-      "updatedAt": "2026-06-08T09:53:25.165Z"
-    },
-    {
-      "id": "tv-85552-GB-buy-130",
-      "mediaType": "tv",
-      "tmdbId": 85552,
-      "title": "Euphoria",
-      "label": "Sky Store",
-      "url": "https://www.themoviedb.org/tv/85552-euphoria/watch?locale=GB",
-      "kind": "buy",
-      "region": "GB",
-      "quality": "",
-      "note": "TMDB 合法观看平台入口（GB）",
-      "enabled": true,
-      "updatedAt": "2026-06-08T09:53:25.165Z"
-    },
-    {
-      "id": "tv-85552-CA-stream-230",
-      "mediaType": "tv",
-      "tmdbId": 85552,
-      "title": "Euphoria",
-      "label": "Crave",
-      "url": "https://www.themoviedb.org/tv/85552-euphoria/watch?locale=CA",
-      "kind": "stream",
-      "region": "CA",
-      "quality": "",
-      "note": "TMDB 合法观看平台入口（CA）",
-      "enabled": true,
-      "updatedAt": "2026-06-08T09:53:25.165Z"
-    },
-    {
-      "id": "tv-85552-CA-stream-2604",
-      "mediaType": "tv",
-      "tmdbId": 85552,
-      "title": "Euphoria",
-      "label": "Crave Amazon Channel",
-      "url": "https://www.themoviedb.org/tv/85552-euphoria/watch?locale=CA",
-      "kind": "stream",
-      "region": "CA",
-      "quality": "",
-      "note": "TMDB 合法观看平台入口（CA）",
-      "enabled": true,
-      "updatedAt": "2026-06-08T09:53:25.165Z"
-    },
-    {
-      "id": "tv-85552-CA-buy-2",
-      "mediaType": "tv",
-      "tmdbId": 85552,
-      "title": "Euphoria",
-      "label": "Apple TV Store",
-      "url": "https://www.themoviedb.org/tv/85552-euphoria/watch?locale=CA",
-      "kind": "buy",
-      "region": "CA",
-      "quality": "",
-      "note": "TMDB 合法观看平台入口（CA）",
-      "enabled": true,
-      "updatedAt": "2026-06-08T09:53:25.165Z"
-    },
-    {
-      "id": "tv-85552-CA-buy-140",
-      "mediaType": "tv",
-      "tmdbId": 85552,
-      "title": "Euphoria",
-      "label": "CosmoGo",
-      "url": "https://www.themoviedb.org/tv/85552-euphoria/watch?locale=CA",
-      "kind": "buy",
-      "region": "CA",
-      "quality": "",
-      "note": "TMDB 合法观看平台入口（CA）",
-      "enabled": true,
-      "updatedAt": "2026-06-08T09:53:25.165Z"
-    },
-    {
-      "id": "tv-85552-CA-buy-10",
-      "mediaType": "tv",
-      "tmdbId": 85552,
-      "title": "Euphoria",
-      "label": "Amazon Video",
-      "url": "https://www.themoviedb.org/tv/85552-euphoria/watch?locale=CA",
-      "kind": "buy",
-      "region": "CA",
-      "quality": "",
-      "note": "TMDB 合法观看平台入口（CA）",
-      "enabled": true,
-      "updatedAt": "2026-06-08T09:53:25.165Z"
-    },
-    {
-      "id": "tv-85552-AU-stream-134",
-      "mediaType": "tv",
-      "tmdbId": 85552,
-      "title": "Euphoria",
-      "label": "Foxtel Now",
-      "url": "https://www.themoviedb.org/tv/85552-euphoria/watch?locale=AU",
-      "kind": "stream",
-      "region": "AU",
-      "quality": "",
-      "note": "TMDB 合法观看平台入口（AU）",
-      "enabled": true,
-      "updatedAt": "2026-06-08T09:53:25.165Z"
-    },
-    {
-      "id": "tv-85552-AU-stream-1899",
-      "mediaType": "tv",
-      "tmdbId": 85552,
-      "title": "Euphoria",
-      "label": "HBO Max",
-      "url": "https://www.themoviedb.org/tv/85552-euphoria/watch?locale=AU",
-      "kind": "stream",
-      "region": "AU",
-      "quality": "",
-      "note": "TMDB 合法观看平台入口（AU）",
-      "enabled": true,
-      "updatedAt": "2026-06-08T09:53:25.165Z"
-    },
-    {
-      "id": "tv-85552-AU-stream-1825",
-      "mediaType": "tv",
-      "tmdbId": 85552,
-      "title": "Euphoria",
-      "label": "HBO Max Amazon Channel",
-      "url": "https://www.themoviedb.org/tv/85552-euphoria/watch?locale=AU",
-      "kind": "stream",
-      "region": "AU",
-      "quality": "",
-      "note": "TMDB 合法观看平台入口（AU）",
-      "enabled": true,
-      "updatedAt": "2026-06-08T09:53:25.165Z"
-    },
-    {
-      "id": "tv-85552-AU-buy-2",
-      "mediaType": "tv",
-      "tmdbId": 85552,
-      "title": "Euphoria",
-      "label": "Apple TV Store",
-      "url": "https://www.themoviedb.org/tv/85552-euphoria/watch?locale=AU",
-      "kind": "buy",
-      "region": "AU",
-      "quality": "",
-      "note": "TMDB 合法观看平台入口（AU）",
-      "enabled": true,
-      "updatedAt": "2026-06-08T09:53:25.165Z"
-    },
-    {
-      "id": "tv-85552-AU-buy-10",
-      "mediaType": "tv",
-      "tmdbId": 85552,
-      "title": "Euphoria",
-      "label": "Amazon Video",
-      "url": "https://www.themoviedb.org/tv/85552-euphoria/watch?locale=AU",
-      "kind": "buy",
-      "region": "AU",
-      "quality": "",
-      "note": "TMDB 合法观看平台入口（AU）",
-      "enabled": true,
-      "updatedAt": "2026-06-08T09:53:25.165Z"
-    },
-    {
-      "id": "tv-85552-AU-buy-436",
-      "mediaType": "tv",
-      "tmdbId": 85552,
-      "title": "Euphoria",
-      "label": "Fetch TV",
-      "url": "https://www.themoviedb.org/tv/85552-euphoria/watch?locale=AU",
-      "kind": "buy",
-      "region": "AU",
-      "quality": "",
-      "note": "TMDB 合法观看平台入口（AU）",
-      "enabled": true,
-      "updatedAt": "2026-06-08T09:53:25.165Z"
-    },
-    {
-      "id": "tv-79744-US-stream-15",
-      "mediaType": "tv",
-      "tmdbId": 79744,
-      "title": "The Rookie",
-      "label": "Hulu",
-      "url": "https://www.themoviedb.org/tv/79744-the-rookie/watch?locale=US",
-      "kind": "stream",
-      "region": "US",
-      "quality": "",
-      "note": "TMDB 合法观看平台入口（US）",
-      "enabled": true,
-      "updatedAt": "2026-06-08T09:53:25.174Z"
-    },
-    {
-      "id": "tv-79744-US-stream-257",
-      "mediaType": "tv",
-      "tmdbId": 79744,
-      "title": "The Rookie",
-      "label": "fuboTV",
-      "url": "https://www.themoviedb.org/tv/79744-the-rookie/watch?locale=US",
-      "kind": "stream",
-      "region": "US",
-      "quality": "",
-      "note": "TMDB 合法观看平台入口（US）",
-      "enabled": true,
-      "updatedAt": "2026-06-08T09:53:25.174Z"
-    },
-    {
-      "id": "tv-79744-US-stream-2528",
-      "mediaType": "tv",
-      "tmdbId": 79744,
-      "title": "The Rookie",
-      "label": "YouTube TV",
-      "url": "https://www.themoviedb.org/tv/79744-the-rookie/watch?locale=US",
-      "kind": "stream",
-      "region": "US",
-      "quality": "",
-      "note": "TMDB 合法观看平台入口（US）",
-      "enabled": true,
-      "updatedAt": "2026-06-08T09:53:25.174Z"
-    },
-    {
-      "id": "tv-79744-US-stream-2383",
-      "mediaType": "tv",
-      "tmdbId": 79744,
-      "title": "The Rookie",
-      "label": "Philo",
-      "url": "https://www.themoviedb.org/tv/79744-the-rookie/watch?locale=US",
-      "kind": "stream",
-      "region": "US",
-      "quality": "",
-      "note": "TMDB 合法观看平台入口（US）",
-      "enabled": true,
-      "updatedAt": "2026-06-08T09:53:25.174Z"
-    },
-    {
-      "id": "tv-79744-US-buy-10",
-      "mediaType": "tv",
-      "tmdbId": 79744,
-      "title": "The Rookie",
-      "label": "Amazon Video",
-      "url": "https://www.themoviedb.org/tv/79744-the-rookie/watch?locale=US",
-      "kind": "buy",
-      "region": "US",
-      "quality": "",
-      "note": "TMDB 合法观看平台入口（US）",
-      "enabled": true,
-      "updatedAt": "2026-06-08T09:53:25.174Z"
-    },
-    {
-      "id": "tv-79744-US-buy-3",
-      "mediaType": "tv",
-      "tmdbId": 79744,
-      "title": "The Rookie",
-      "label": "Google Play Movies",
-      "url": "https://www.themoviedb.org/tv/79744-the-rookie/watch?locale=US",
-      "kind": "buy",
-      "region": "US",
-      "quality": "",
-      "note": "TMDB 合法观看平台入口（US）",
-      "enabled": true,
-      "updatedAt": "2026-06-08T09:53:25.174Z"
-    },
-    {
-      "id": "tv-79744-US-buy-7",
-      "mediaType": "tv",
-      "tmdbId": 79744,
-      "title": "The Rookie",
-      "label": "Fandango At Home",
-      "url": "https://www.themoviedb.org/tv/79744-the-rookie/watch?locale=US",
-      "kind": "buy",
-      "region": "US",
-      "quality": "",
-      "note": "TMDB 合法观看平台入口（US）",
-      "enabled": true,
-      "updatedAt": "2026-06-08T09:53:25.174Z"
-    },
-    {
-      "id": "tv-79744-GB-stream-9",
-      "mediaType": "tv",
-      "tmdbId": 79744,
-      "title": "The Rookie",
-      "label": "Amazon Prime Video",
-      "url": "https://www.themoviedb.org/tv/79744-the-rookie/watch?locale=GB",
-      "kind": "stream",
-      "region": "GB",
-      "quality": "",
-      "note": "TMDB 合法观看平台入口（GB）",
-      "enabled": true,
-      "updatedAt": "2026-06-08T09:53:25.175Z"
-    },
-    {
-      "id": "tv-79744-GB-stream-337",
-      "mediaType": "tv",
-      "tmdbId": 79744,
-      "title": "The Rookie",
-      "label": "Disney Plus",
-      "url": "https://www.themoviedb.org/tv/79744-the-rookie/watch?locale=GB",
-      "kind": "stream",
-      "region": "GB",
-      "quality": "",
-      "note": "TMDB 合法观看平台入口（GB）",
-      "enabled": true,
-      "updatedAt": "2026-06-08T09:53:25.175Z"
-    },
-    {
-      "id": "tv-79744-GB-stream-29",
-      "mediaType": "tv",
-      "tmdbId": 79744,
-      "title": "The Rookie",
-      "label": "Sky Go",
-      "url": "https://www.themoviedb.org/tv/79744-the-rookie/watch?locale=GB",
-      "kind": "stream",
-      "region": "GB",
-      "quality": "",
-      "note": "TMDB 合法观看平台入口（GB）",
-      "enabled": true,
-      "updatedAt": "2026-06-08T09:53:25.175Z"
-    },
-    {
-      "id": "tv-79744-GB-stream-39",
-      "mediaType": "tv",
-      "tmdbId": 79744,
-      "title": "The Rookie",
-      "label": "Now TV",
-      "url": "https://www.themoviedb.org/tv/79744-the-rookie/watch?locale=GB",
-      "kind": "stream",
-      "region": "GB",
-      "quality": "",
-      "note": "TMDB 合法观看平台入口（GB）",
-      "enabled": true,
-      "updatedAt": "2026-06-08T09:53:25.175Z"
-    },
-    {
-      "id": "tv-79744-GB-buy-2",
-      "mediaType": "tv",
-      "tmdbId": 79744,
-      "title": "The Rookie",
-      "label": "Apple TV Store",
-      "url": "https://www.themoviedb.org/tv/79744-the-rookie/watch?locale=GB",
-      "kind": "buy",
-      "region": "GB",
-      "quality": "",
-      "note": "TMDB 合法观看平台入口（GB）",
-      "enabled": true,
-      "updatedAt": "2026-06-08T09:53:25.175Z"
-    },
-    {
-      "id": "tv-79744-GB-buy-10",
-      "mediaType": "tv",
-      "tmdbId": 79744,
-      "title": "The Rookie",
-      "label": "Amazon Video",
-      "url": "https://www.themoviedb.org/tv/79744-the-rookie/watch?locale=GB",
-      "kind": "buy",
-      "region": "GB",
-      "quality": "",
-      "note": "TMDB 合法观看平台入口（GB）",
-      "enabled": true,
-      "updatedAt": "2026-06-08T09:53:25.175Z"
-    },
-    {
-      "id": "tv-79744-GB-buy-130",
-      "mediaType": "tv",
-      "tmdbId": 79744,
-      "title": "The Rookie",
-      "label": "Sky Store",
-      "url": "https://www.themoviedb.org/tv/79744-the-rookie/watch?locale=GB",
-      "kind": "buy",
-      "region": "GB",
-      "quality": "",
-      "note": "TMDB 合法观看平台入口（GB）",
-      "enabled": true,
-      "updatedAt": "2026-06-08T09:53:25.175Z"
-    },
-    {
-      "id": "tv-79744-CA-stream-337",
-      "mediaType": "tv",
-      "tmdbId": 79744,
-      "title": "The Rookie",
-      "label": "Disney Plus",
-      "url": "https://www.themoviedb.org/tv/79744-the-rookie/watch?locale=CA",
-      "kind": "stream",
-      "region": "CA",
-      "quality": "",
-      "note": "TMDB 合法观看平台入口（CA）",
-      "enabled": true,
-      "updatedAt": "2026-06-08T09:53:25.175Z"
-    },
-    {
-      "id": "tv-79744-CA-stream-8",
-      "mediaType": "tv",
-      "tmdbId": 79744,
-      "title": "The Rookie",
-      "label": "Netflix",
-      "url": "https://www.themoviedb.org/tv/79744-the-rookie/watch?locale=CA",
-      "kind": "stream",
-      "region": "CA",
-      "quality": "",
-      "note": "TMDB 合法观看平台入口（CA）",
-      "enabled": true,
-      "updatedAt": "2026-06-08T09:53:25.175Z"
-    },
-    {
-      "id": "tv-79744-CA-stream-230",
-      "mediaType": "tv",
-      "tmdbId": 79744,
-      "title": "The Rookie",
-      "label": "Crave",
-      "url": "https://www.themoviedb.org/tv/79744-the-rookie/watch?locale=CA",
-      "kind": "stream",
-      "region": "CA",
-      "quality": "",
-      "note": "TMDB 合法观看平台入口（CA）",
-      "enabled": true,
-      "updatedAt": "2026-06-08T09:53:25.175Z"
+      "updatedAt": "2026-06-11T05:09:40.974Z"
     }
   ]
 }
