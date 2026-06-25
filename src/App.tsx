@@ -60,6 +60,7 @@ type WatchOptionItem = {
 
 const SITE_NAME = 'StreamNest'
 const WATCH_OPTIONS_PAGE_SIZE = 24
+const HOME_SECTION_ITEM_LIMIT = 18
 const DAILY_CATALOG_LIMIT = 180
 const WATCH_OPTIONS_SCAN_LIMIT = 180
 const FALLBACK_POSTER = 'https://images.unsplash.com/photo-1536440136628-849c177e76a1?auto=format&fit=crop&w=900&q=80'
@@ -707,7 +708,7 @@ function App() {
       .filter((item) => !usedHomeSectionKeys.has(mediaKey(item)))
     const primaryKeys = new Set(primaryItems.map(mediaKey))
     const fallbackItems = displayItems.filter((item) => !usedHomeSectionKeys.has(mediaKey(item)) && !primaryKeys.has(mediaKey(item)))
-    const sectionItems = [...primaryItems, ...fallbackItems].slice(0, 15)
+    const sectionItems = [...primaryItems, ...fallbackItems].slice(0, HOME_SECTION_ITEM_LIMIT)
     sectionItems.forEach((item) => usedHomeSectionKeys.add(mediaKey(item)))
     return { ...section, items: sectionItems }
   })
