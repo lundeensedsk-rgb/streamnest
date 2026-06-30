@@ -86,20 +86,19 @@ async function safeList(route, mediaType) {
 async function collectCatalog() {
   const currentYear = new Date().getUTCFullYear()
   const previousYear = currentYear - 1
+  const pageRange = (count) => Array.from({ length: count }, (_, index) => index + 1)
   const tasks = [
+    ...pageRange(4).map((page) => safeList(`/discover/movie?language=en-US&page=${page}&primary_release_year=${currentYear}&sort_by=popularity.desc&include_adult=false`, 'movie')),
+    ...pageRange(3).map((page) => safeList(`/discover/tv?language=en-US&page=${page}&first_air_date_year=${currentYear}&sort_by=popularity.desc&include_adult=false`, 'tv')),
+    ...pageRange(2).map((page) => safeList(`/discover/movie?language=en-US&page=${page}&primary_release_year=${previousYear}&sort_by=popularity.desc&include_adult=false`, 'movie')),
+    ...pageRange(2).map((page) => safeList(`/discover/tv?language=en-US&page=${page}&first_air_date_year=${previousYear}&sort_by=popularity.desc&include_adult=false`, 'tv')),
+    ...pageRange(2).map((page) => safeList(`/movie/now_playing?language=en-US&page=${page}`, 'movie')),
+    ...pageRange(2).map((page) => safeList(`/tv/airing_today?language=en-US&page=${page}`, 'tv')),
     safeList('/trending/all/week?language=en-US', undefined),
-    safeList('/movie/popular?language=en-US&page=1', 'movie'),
-    safeList('/movie/popular?language=en-US&page=2', 'movie'),
-    safeList('/movie/now_playing?language=en-US&page=1', 'movie'),
-    safeList('/movie/upcoming?language=en-US&page=1', 'movie'),
-    safeList(`/discover/movie?language=en-US&page=1&primary_release_year=${currentYear}&sort_by=popularity.desc&include_adult=false`, 'movie'),
-    safeList(`/discover/movie?language=en-US&page=1&primary_release_year=${previousYear}&sort_by=popularity.desc&include_adult=false`, 'movie'),
-    safeList('/tv/popular?language=en-US&page=1', 'tv'),
-    safeList('/tv/popular?language=en-US&page=2', 'tv'),
-    safeList('/tv/airing_today?language=en-US&page=1', 'tv'),
-    safeList(`/discover/tv?language=en-US&page=1&first_air_date_year=${currentYear}&sort_by=popularity.desc&include_adult=false`, 'tv'),
-    safeList(`/discover/tv?language=en-US&page=1&first_air_date_year=${previousYear}&sort_by=popularity.desc&include_adult=false`, 'tv'),
-    safeList('/discover/tv?language=en-US&page=1&with_type=2&with_genres=18&sort_by=popularity.desc&include_adult=false', 'tv'),
+    ...pageRange(4).map((page) => safeList(`/movie/popular?language=en-US&page=${page}`, 'movie')),
+    ...pageRange(4).map((page) => safeList(`/tv/popular?language=en-US&page=${page}`, 'tv')),
+    ...pageRange(3).map((page) => safeList(`/movie/upcoming?language=en-US&page=${page}`, 'movie')),
+    ...pageRange(3).map((page) => safeList(`/discover/tv?language=en-US&page=${page}&with_type=2&with_genres=18&sort_by=popularity.desc&include_adult=false`, 'tv')),
   ]
   const results = (await Promise.all(tasks)).flat()
   const seen = new Set()
