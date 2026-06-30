@@ -188,18 +188,69 @@ function renderPage({ detail, type, route, canonical }) {
   const watch = providersFrom(detail)
   const cast = (detail.credits?.cast || []).slice(0, 10)
   const rating = detail.vote_average ? detail.vote_average.toFixed(1) : 'N/A'
-  const jsonLd = {
-    '@context': 'https://schema.org',
+  const mediaLabel = type === 'movie' ? 'movie' : 'TV show'
+  const genreText = genres.length ? genres.join(', ') : 'screen entertainment'
+  const castNames = cast.map((person) => asciiText(person.name, 'Cast member')).filter(Boolean).slice(0, 6)
+  const providerNames = watch.providers.map((provider) => provider.provider_name).filter(Boolean).slice(0, 6)
+  const seoTitle = `${title} (${year}) - Official Trailer, Cast, Rating & Legal Watch Options | StreamNest`
+  const seoDescription = truncate(
+    `${title} (${year}) ${mediaLabel} guide: official trailer, cast, rating, genres, release details and legal streaming or rental provider links on StreamNest.`,
+    158,
+  )
+  const breadcrumbLd = {
+    '@type': 'BreadcrumbList',
+    '@id': `${canonical}#breadcrumb`,
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: `${SITE}/` },
+      { '@type': 'ListItem', position: 2, name: type === 'movie' ? 'Movies' : 'TV Shows', item: `${SITE}/${type === 'movie' ? 'movies' : 'tv-shows'}` },
+      { '@type': 'ListItem', position: 3, name: title, item: canonical },
+    ],
+  }
+  const mediaLd = {
     '@type': type === 'movie' ? 'Movie' : 'TVSeries',
+    '@id': `${canonical}#${type === 'movie' ? 'movie' : 'tvseries'}`,
     name: title,
-    description,
-    image: poster,
+    headline: seoTitle,
+    description: description || seoDescription,
+    image: [poster, backdrop].filter(Boolean),
+    url: canonical,
+    mainEntityOfPage: canonical,
     datePublished: detail.release_date || detail.first_air_date || undefined,
     genre: genres,
     aggregateRating: detail.vote_average ? { '@type': 'AggregateRating', ratingValue: rating, bestRating: '10' } : undefined,
-    actor: cast.map((person) => ({ '@type': 'Person', name: person.name })),
-    url: canonical,
+    actor: cast.map((person) => ({ '@type': 'Person', name: asciiText(person.name, 'Cast member') })),
   }
+  const webpageLd = {
+    '@type': 'WebPage',
+    '@id': `${canonical}#webpage`,
+    url: canonical,
+    name: seoTitle,
+    description: seoDescription,
+    isPartOf: { '@type': 'WebSite', '@id': `${SITE}/#website`, name: 'StreamNest', url: SITE },
+    breadcrumb: { '@id': `${canonical}#breadcrumb` },
+    about: { '@id': mediaLd['@id'] },
+    primaryImageOfPage: { '@type': 'ImageObject', url: backdrop },
+    inLanguage: 'en',
+  }
+  const faqLd = {
+    '@type': 'FAQPage',
+    '@id': `${canonical}#faq`,
+    mainEntity: [
+      { '@type': 'Question', name: `Where can I watch ${title} legally?`, acceptedAnswer: { '@type': 'Answer', text: watch.link ? `Use the legal provider link on this page. Availability can vary by region and provider.` : `StreamNest lists legal provider links when TMDB has them. If none are listed yet, check the Watch Options page for updated availability.` } },
+      { '@type': 'Question', name: `Does StreamNest host ${title}?`, acceptedAnswer: { '@type': 'Answer', text: 'No. StreamNest is a legal discovery site that shows metadata, official trailers and provider links. It does not host unauthorized streams.' } },
+    ],
+  }
+  const videoLd = trailer ? {
+    '@type': 'VideoObject',
+    '@id': `${canonical}#trailer`,
+    name: `${title} official trailer`,
+    description: `Official trailer metadata for ${title} on StreamNest.`,
+    thumbnailUrl: backdrop,
+    embedUrl: `https://www.youtube.com/embed/${trailer.key}`,
+    url: `https://www.youtube.com/watch?v=${trailer.key}`,
+    uploadDate: detail.release_date || detail.first_air_date || TODAY,
+  } : null
+  const jsonLd = { '@context': 'https://schema.org', '@graph': [webpageLd, breadcrumbLd, mediaLd, faqLd, ...(videoLd ? [videoLd] : [])] }
   const providerCards = watch.providers.length
     ? watch.providers.map((provider) => `<span class="provider">${provider.logo_path ? `<img src="${IMAGE}/w92${provider.logo_path}" alt="" loading="lazy">` : ''}${escapeHtml(provider.provider_name)}</span>`).join('')
     : '<span class="muted">No legal provider links are listed for the preferred regions yet.</span>'
@@ -212,18 +263,21 @@ function renderPage({ detail, type, route, canonical }) {
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>${escapeHtml(title)} (${escapeHtml(year)}) - Watch Options, Trailer and Cast | StreamNest</title>
-  <meta name="description" content="${escapeHtml(description)}">
-  <meta name="robots" content="index,follow,max-image-preview:large">
+  <title>${escapeHtml(seoTitle)}</title>
+  <meta name="description" content="${escapeHtml(seoDescription)}">
+  <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">
+  <meta name="keywords" content="${escapeHtml([title, `${title} trailer`, `${title} cast`, `${title} watch options`, `${title} rating`, ...genres].join(', '))}">
   <link rel="canonical" href="${escapeHtml(canonical)}">
+  <meta property="og:site_name" content="StreamNest">
   <meta property="og:type" content="video.${type === 'movie' ? 'movie' : 'tv_show'}">
-  <meta property="og:title" content="${escapeHtml(title)} (${escapeHtml(year)}) | StreamNest">
-  <meta property="og:description" content="${escapeHtml(description)}">
+  <meta property="og:title" content="${escapeHtml(seoTitle)}">
+  <meta property="og:description" content="${escapeHtml(seoDescription)}">
   <meta property="og:url" content="${escapeHtml(canonical)}">
   <meta property="og:image" content="${escapeHtml(backdrop)}">
+  <meta property="og:image:alt" content="${escapeHtml(`${title} backdrop image`)}">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="${escapeHtml(title)} (${escapeHtml(year)}) | StreamNest">
-  <meta name="twitter:description" content="${escapeHtml(description)}">
+  <meta name="twitter:title" content="${escapeHtml(seoTitle)}">
+  <meta name="twitter:description" content="${escapeHtml(seoDescription)}">
   <meta name="twitter:image" content="${escapeHtml(backdrop)}">
   <script type="application/ld+json">${JSON.stringify(jsonLd).replaceAll('<', '\\u003c')}</script>
   <style>
@@ -234,8 +288,8 @@ function renderPage({ detail, type, route, canonical }) {
   <header class="hero">
     <div>
       <nav class="crumbs"><a href="/">StreamNest</a><a href="/${type === 'movie' ? 'movies' : 'tv-shows'}">${type === 'movie' ? 'Movies' : 'TV Shows'}</a><a href="/watch-options">Watch Options</a></nav>
-      <div class="eyebrow">Static playback discovery page</div>
-      <h1>${escapeHtml(title)}</h1>
+      <div class="eyebrow">${escapeHtml(`${year} ${mediaLabel} guide`)}</div>
+      <h1>${escapeHtml(`${title} (${year})`)}</h1>
       <p class="summary">${escapeHtml(longDescription)}</p>
       <div class="meta"><span class="chip">${escapeHtml(type === 'movie' ? 'Movie' : 'TV Show')}</span><span class="chip">${escapeHtml(year)}</span><span class="chip">Rating ${escapeHtml(rating)}/10</span><span class="chip">${escapeHtml(runtimeOf(detail, type))}</span>${genres.map((genre) => `<span class="chip">${escapeHtml(genre)}</span>`).join('')}</div>
       ${watchLink}
@@ -245,8 +299,10 @@ function renderPage({ detail, type, route, canonical }) {
   <main>
     <div class="grid">
       ${trailerBlock}
-      <section class="panel legal"><h2>Legal watch options</h2><p>StreamNest does not host unauthorized streams. This page points viewers toward official trailers, metadata and legal provider pages when TMDB lists them.</p><div class="providers">${providerCards}</div>${watch.regionCode ? `<p class="muted">Preferred region detected: ${escapeHtml(watch.regionCode)}.</p>` : ''}</section>
-      <section class="panel"><h2>Cast highlights</h2><div class="cast">${cast.length ? cast.map((person) => `<span>${escapeHtml(asciiText(person.name, 'Cast member'))}${asciiText(person.character, '') ? ` · ${escapeHtml(asciiText(person.character, ''))}` : ''}</span>`).join('') : '<span>No cast list is available yet.</span>'}</div></section>
+      <section class="panel legal"><h2>${escapeHtml(`Where to watch ${title} legally`)}</h2><p>StreamNest does not host unauthorized streams. This page points viewers toward official trailers, metadata and legal provider pages when TMDB lists them.</p><div class="providers">${providerCards}</div>${watch.regionCode ? `<p class="muted">Preferred region detected: ${escapeHtml(watch.regionCode)}.</p>` : ''}</section>
+      <section class="panel"><h2>${escapeHtml(`${title} cast highlights`)}</h2><div class="cast">${cast.length ? cast.map((person) => `<span>${escapeHtml(asciiText(person.name, 'Cast member'))}${asciiText(person.character, '') ? ` · ${escapeHtml(asciiText(person.character, ''))}` : ''}</span>`).join('') : '<span>No cast list is available yet.</span>'}</div></section>
+      <section class="panel"><h2>${escapeHtml(`${title} SEO guide`)}</h2><p>${escapeHtml(`${title} is a ${year} ${mediaLabel} in ${genreText}. This StreamNest page is built as static HTML for fast crawling and includes official trailer metadata, cast names, rating signals and legal watch-provider links when available.`)}</p><p class="muted">${escapeHtml(castNames.length ? `Featured cast: ${castNames.join(', ')}.` : 'Cast information will be updated when TMDB metadata is available.')}</p><p class="muted">${escapeHtml(providerNames.length ? `Listed providers: ${providerNames.join(', ')}.` : 'Provider availability changes by region and may not be listed yet.')}</p></section>
+      <section class="panel"><h2>FAQ</h2><h3>${escapeHtml(`Where can I watch ${title} legally?`)}</h3><p>${watch.link ? 'Use the legal provider page linked above. Availability can vary by region.' : 'Check StreamNest watch options and official providers; availability can vary by region.'}</p><h3>${escapeHtml(`Does StreamNest host ${title}?`)}</h3><p>No. StreamNest shows legal metadata, official trailers and provider links only.</p></section>
     </div>
     <aside class="grid">
       <section class="panel"><h2>Page details</h2><p><strong>Route:</strong><br><a href="${escapeHtml(route)}">${escapeHtml(route)}</a></p><p><strong>Canonical:</strong><br><a href="${escapeHtml(canonical)}">${escapeHtml(canonical)}</a></p><p class="muted">This HTML is generated at build time for faster crawling and sharing.</p></section>
