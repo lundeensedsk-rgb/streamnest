@@ -602,30 +602,6 @@ function App() {
     }
   }
 
-  async function openDetails(item: MediaItem, pushUrl = true) {
-    setActiveCategory(null)
-    window.requestAnimationFrame(() => {
-      document.querySelector('.detail-page')?.scrollTo({ top: 0, left: 0 })
-    })
-
-    if (pushUrl) {
-      const nextPath = detailPath(item.tmdbType, item.id, item.title)
-      window.history.pushState({ detail: true }, item.title, nextPath)
-    }
-
-    if (item.source !== 'tmdb') {
-      setActive(item)
-      setDetailState({ item, cast: [], recommendations: [], manualSources: sourcesForTitle(manualSources, item.tmdbType, item.id) })
-      updatePageSeo(item)
-      setIsDetailLoading(false)
-      return
-    }
-
-    const richerItem = await loadDetail(item.tmdbType, item.id, item)
-    if (pushUrl && richerItem.title !== item.title) {
-      window.history.replaceState({ detail: true }, richerItem.title, detailPath(richerItem.tmdbType, richerItem.id, richerItem.title))
-    }
-  }
 
   async function openRoute(route: DetailRoute) {
     setActiveCategory(null)
@@ -814,7 +790,7 @@ function App() {
                     <div className="watch-option-grid">
                       {pagedWatchOptionItems.map(({ item, providers, link, regionLabel }) => (
                         <article className="watch-option-card" key={`${item.tmdbType}-${item.id}`}>
-                          <a href={detailPath(item.tmdbType, item.id, item.title)} onClick={(event) => { event.preventDefault(); void openDetails(item) }}>
+                          <a href={detailPath(item.tmdbType, item.id, item.title)}>
                             <img src={item.poster} alt={`${item.title} poster`} />
                           </a>
                           <div>
@@ -830,7 +806,7 @@ function App() {
                             </div>
                             <div className="watch-card-actions">
                               <a className="watch-link" href={link} target="_blank" rel="noreferrer">Open legal watch page</a>
-                              <a className="inline-detail" href={detailPath(item.tmdbType, item.id, item.title)} onClick={(event) => { event.preventDefault(); void openDetails(item) }}>Details</a>
+                              <a className="inline-detail" href={detailPath(item.tmdbType, item.id, item.title)}>Details</a>
                             </div>
                           </div>
                         </article>
@@ -852,7 +828,7 @@ function App() {
             ) : (
               <div className="poster-grid catalog-grid">
                 {categoryItems.map((item) => (
-                  <a key={`${item.tmdbType}-${item.id}`} className="poster-card" href={detailPath(item.tmdbType, item.id, item.title)} onClick={(event) => { event.preventDefault(); void openDetails(item) }}>
+                  <a key={`${item.tmdbType}-${item.id}`} className="poster-card" href={detailPath(item.tmdbType, item.id, item.title)}>
                     <img src={item.poster} alt={`${item.title} poster`} />
                     <span className="rating">★ {item.rating}</span>
                     <strong>{item.title}</strong>
@@ -876,7 +852,7 @@ function App() {
               <span>{hero.genres[0]}</span>
             </div>
             <div className="hero-actions">
-              <a className="primary-action" href={detailPath(hero.tmdbType, hero.id, hero.title)} onClick={(event) => { event.preventDefault(); void openDetails(hero) }}>▶ View Details</a>
+              <a className="primary-action" href={detailPath(hero.tmdbType, hero.id, hero.title)}>▶ View Details</a>
               <button className="ghost" type="button">＋ My List · 收藏</button>
             </div>
           </div>
@@ -891,7 +867,7 @@ function App() {
             <div className="chips">
               {active.genres.map((genre) => <span key={genre}>{genre}</span>)}
             </div>
-            <a className="inline-detail" href={detailPath(active.tmdbType, active.id, active.title)} onClick={(event) => { event.preventDefault(); void openDetails(active) }}>Open detail page</a>
+            <a className="inline-detail" href={detailPath(active.tmdbType, active.id, active.title)}>Open detail page</a>
           </div>
         </section>}
 
@@ -905,7 +881,7 @@ function App() {
           </div>
           <div className="calendar-track">
             {calendarItems.map((item) => (
-              <a key={`${item.type}-${item.id}`} className="calendar-item" href={detailPath(item.tmdbType, item.id, item.title)} onClick={(event) => { event.preventDefault(); void openDetails(item) }}>
+              <a key={`${item.type}-${item.id}`} className="calendar-item" href={detailPath(item.tmdbType, item.id, item.title)}>
                 <strong>{item.releaseDate}</strong>
                 <span>{item.booked} interested</span>
                 <small>{item.title}</small>
@@ -927,7 +903,7 @@ function App() {
               </div>
               <div className="poster-grid">
                 {section.items.map((item) => (
-                  <a key={`${item.type}-${item.id}`} className="poster-card" href={detailPath(item.tmdbType, item.id, item.title)} onClick={(event) => { event.preventDefault(); void openDetails(item) }}>
+                  <a key={`${item.type}-${item.id}`} className="poster-card" href={detailPath(item.tmdbType, item.id, item.title)}>
                     <img src={item.poster} alt={`${item.title} poster`} />
                     <span className="rating">★ {item.rating}</span>
                     <strong>{item.title}</strong>
@@ -1073,7 +1049,7 @@ function App() {
                   </div>
                   <div className="poster-grid mini">
                     {detailState.recommendations.length ? detailState.recommendations.map((item) => (
-                      <a key={`${item.tmdbType}-${item.id}`} className="poster-card" href={detailPath(item.tmdbType, item.id, item.title)} onClick={(event) => { event.preventDefault(); void openDetails(item) }}>
+                      <a key={`${item.tmdbType}-${item.id}`} className="poster-card" href={detailPath(item.tmdbType, item.id, item.title)}>
                         <img src={item.poster} alt={`${item.title} poster`} />
                         <span className="rating">★ {item.rating}</span>
                         <strong>{item.title}</strong>
