@@ -4,34 +4,17 @@
   "buildCommand": "pnpm run build",
   "outputDirectory": "dist",
   "framework": "vite",
-  "rewrites": [
+  "routes": [
     {
-      "source": "/movies",
-      "destination": "/index.html"
+      "handle": "filesystem"
     },
     {
-      "source": "/tv-shows",
-      "destination": "/index.html"
+      "src": "/(?:movies|tv-shows|animation|upcoming|watch-options|short-dramas|admin/sources)/?",
+      "dest": "/index.html"
     },
     {
-      "source": "/animation",
-      "destination": "/index.html"
-    },
-    {
-      "source": "/upcoming",
-      "destination": "/index.html"
-    },
-    {
-      "source": "/watch-options",
-      "destination": "/index.html"
-    },
-    {
-      "source": "/short-dramas",
-      "destination": "/index.html"
-    },
-    {
-      "source": "/admin/sources",
-      "destination": "/index.html"
+      "src": "/(?:movie|tv)/.*",
+      "dest": "/index.html"
     }
   ]
 }
